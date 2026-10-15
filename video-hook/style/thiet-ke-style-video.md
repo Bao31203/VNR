@@ -178,11 +178,12 @@ Danh sách đầy đủ nằm trong `textStyles` của JSON.
 | Số mẫu | 4–6 mẫu tiếng gõ khác nhau, **dùng luân phiên ngẫu nhiên**, lệch cao độ ±5%, để không nghe như tiếng máy lặp lại |
 | Âm lượng | **−18 dB** khi không có lời dẫn (ví dụ dòng mở đầu C1, năm ở C11). **−28 dB** khi lời dẫn đang nói. **−30 dB** ở trích dẫn C8 (chỉ như tiếng nền, không được át giọng đọc) |
 | Đồng bộ | Tiếng gõ khớp **từng ký tự**. Không dùng một đoạn tiếng gõ chạy liên tục không khớp với chữ |
-| Nguồn | Pixabay Sound Effects (từ khóa `typewriter key`, `typewriter return`, `typewriter bell`), hoặc tự thu từ máy chữ thật |
+| Nguồn | **Đã có sẵn trong repo** ở thư mục `video-hook/audio/sfx/may-chu/`: `phim-01…06.wav` (6 tiếng phím), `phim-cach-01…02.wav` (phím cách), `gat-dong.wav` (gạt dòng "cạch… xoẹt"), `chuong.wav` (chuông "ting"), `nghe-thu.wav` (nghe thử). Muốn thật hơn có thể thay bằng tiếng thu từ máy chữ thật, hoặc lấy từ Pixabay Sound Effects (từ khóa `typewriter key`, `typewriter return`, `typewriter bell`) |
+| Công cụ tạo sẵn tiếng gõ cho từng dòng | `python3 video-hook/audio/may_chu.py go "Hạn chót: sáng 20.12.1946" --cps 24 --bell -o han-chot.wav` tạo ra một file âm thanh có **đúng một tiếng gõ cho mỗi ký tự**, kèm tiếng gạt dòng (`--return`) hoặc chuông (`--bell`). Đi kèm là file `.json` ghi giây xuất hiện của từng ký tự. Dùng `--jitter 0` nếu công cụ dựng gõ chữ đều (ví dụ CapCut); mặc định nhịp gõ lệch ±20% cho giống người thật |
 
 **Nếu công cụ dựng không tự gắn tiếng theo ký tự** (ví dụ CapCut: hiệu ứng "Đánh máy" không có âm thanh):
 1. Thêm một **rãnh âm thanh riêng** tên "Gõ phím".
-2. Với mỗi dòng chữ, đặt một đoạn âm thanh gõ phím **dài đúng bằng thời gian gõ**, tức số ký tự chia cho tốc độ gõ. Đầu và cuối đoạn phải trùng ký tự đầu và ký tự cuối.
+2. Với mỗi dòng chữ, chạy `may_chu.py go "<dòng chữ>" --cps <tốc độ> --jitter 0` để ra đoạn tiếng gõ **dài đúng bằng thời gian gõ** (số ký tự chia cho tốc độ gõ), rồi đặt đoạn đó vào rãnh "Gõ phím". Đầu đoạn trùng lúc ký tự đầu hiện ra.
 3. Nếu dòng có tiếng gạt dòng hoặc chuông, đặt thêm tiếng đó ngay sau khi gõ xong.
 
 ### 5.3. Bảng các cách hiện chữ

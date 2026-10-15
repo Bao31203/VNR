@@ -2451,26 +2451,31 @@
     }
   ],
   "sfxLibrary": {
+    "_congCuGoChu": "Tạo sẵn đoạn tiếng gõ cho một dòng chữ: python3 audio/may_chu.py go \"<chữ>\" --cps <tốc độ> [--return] [--bell] [--jitter 0] -o <file.wav>. Kèm file .json ghi thời điểm từng ký tự. Dùng --jitter 0 khi công cụ dựng gõ chữ đều (vd. CapCut).",
     "SFX-TYPE-KEY": {
       "mo_ta": "Tiếng gõ phím máy chữ cơ (kiểu máy chữ thập niên 1940): 'tạch' khô, ngắn ~40 ms",
       "khi_nao": "MỖI ký tự chữ/số khi đánh máy",
       "bien_the": "Dùng luân phiên ngẫu nhiên 4–6 mẫu khác nhau, lệch cao độ ±5% để không nghe lặp máy móc",
-      "am_luong": "-18 dB khi không có lời dẫn; -28 dB khi lời dẫn đang nói"
+      "am_luong": "-18 dB khi không có lời dẫn; -28 dB khi lời dẫn đang nói",
+      "file": "audio/sfx/may-chu/phim-01.wav … phim-06.wav (luân phiên ngẫu nhiên, không lặp 2 lần liền)"
     },
     "SFX-TYPE-SPACE": {
       "mo_ta": "Tiếng phím cách, trầm và nhẹ hơn phím chữ",
       "khi_nao": "Mỗi dấu cách khi đánh máy",
-      "am_luong": "thấp hơn SFX-TYPE-KEY 4 dB"
+      "am_luong": "thấp hơn SFX-TYPE-KEY 4 dB",
+      "file": "audio/sfx/may-chu/phim-cach-01.wav, phim-cach-02.wav"
     },
     "SFX-TYPE-RETURN": {
       "mo_ta": "Tiếng gạt cần xuống dòng của máy chữ: 'cạch… xoẹt'",
       "khi_nao": "Cuối dòng của phần tử có returnSound: true",
-      "am_luong": "-20 dB"
+      "am_luong": "-20 dB",
+      "file": "audio/sfx/may-chu/gat-dong.wav"
     },
     "SFX-TYPE-BELL": {
       "mo_ta": "Tiếng chuông 'ting' của máy chữ",
       "khi_nao": "Gõ xong dòng 'Hạn chót: sáng 20.12.1946' (C4)",
-      "am_luong": "-16 dB"
+      "am_luong": "-16 dB",
+      "file": "audio/sfx/may-chu/chuong.wav"
     },
     "SFX-HIT": {
       "mo_ta": "Tiếng 'thịch' trầm, nặng (trống lớn tắt tiếng / sub-bass hit)",

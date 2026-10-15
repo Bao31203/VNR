@@ -152,7 +152,7 @@ Cần **1 bản nhạc dài khoảng 2 phút có cao trào**, hoặc **2 bản**
 
 ### 4.2. Hiệu ứng âm thanh
 
-Mình đã có bộ tự tạo, gồm tích tắc, pháo, tim đập, trống. Nếu muốn thật hơn, bạn có thể lấy thêm từ Pixabay Sound Effects:
+Mình đã có bộ tự tạo, gồm tích tắc, pháo, tim đập, trống, và **bộ tiếng máy chữ** (6 tiếng phím, phím cách, gạt dòng, chuông) ở `audio/sfx/may-chu/`, kèm công cụ `audio/may_chu.py` để tạo tiếng gõ khớp từng dòng chữ. Nếu muốn thật hơn, bạn có thể lấy thêm từ Pixabay Sound Effects:
 - tiếng đồng hồ quả lắc
 - tiếng pháo hạm từ xa
 - tiếng đại bác
