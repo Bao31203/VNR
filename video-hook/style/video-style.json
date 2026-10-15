@@ -1152,17 +1152,17 @@
       "audio": [
         {
           "t": 0.0,
-          "sfx": "pháo hạm vọng xa"
+          "sfx": "SFX-NAVAL: tiếng đại bác gốc, âm lượng gốc (đặt file sớm 85 ms)"
         },
         {
           "t": 3.0,
           "tShort": 2.5,
-          "sfx": "pháo hạm vọng xa"
+          "sfx": "SFX-NAVAL: tiếng đại bác gốc, âm lượng gốc (đặt file sớm 85 ms)"
         },
         {
           "t": 7.0,
           "tShort": 5.0,
-          "sfx": "pháo hạm vọng xa"
+          "sfx": "SFX-NAVAL: tiếng đại bác gốc, âm lượng gốc (đặt file sớm 85 ms)"
         }
       ]
     },
@@ -1773,7 +1773,15 @@
         },
         {
           "t": 1.8,
-          "sfx": "SFX-GUNFIRE: giao tranh nổ ran khắp phố, kéo dài đến hết cảnh và nhỏ dần sang C8"
+          "sfx": "SFX-GUNFIRE: tràng bắn liên tiếp (gốc)"
+        },
+        {
+          "t": 4.1,
+          "sfx": "SFX-GUNFIRE: súng máy (gốc)"
+        },
+        {
+          "t": 5.9,
+          "sfx": "SFX-GUNFIRE: tràng bắn liên tiếp (gốc)"
         }
       ]
     },
@@ -2015,10 +2023,6 @@
         }
       ],
       "audio": [
-        {
-          "t": 0.0,
-          "sfx": "SFX-GUNFIRE (tiếp từ C7) nhỏ dần về 0 trong 2 s"
-        },
         {
           "t": 0.0,
           "music": "nhạc 2 hùng tráng vào"
@@ -2459,8 +2463,7 @@
     }
   ],
   "sfxLibrary": {
-    "_nguonTiengSung": "Làm từ 2 bản thu thật do người làm video cung cấp: audio/sfx/sung/goc/freesound_community-clean-machine-gun-burst-98224.mp3 và dragon-studio-gunshots-firing-repeatedly-511326.mp3. Tạo lại bằng: python3 audio/sung.py",
-    "_nguonTiengPhao": "Làm từ bản thu pháo thật: audio/sfx/phao/goc/universfield-powerful-cannon-shot-02-487887.mp3 (do người làm video cung cấp). Tạo lại bằng: python3 audio/phao.py",
+    "_quyTacTiengNo": "Tiếng đại bác và tiếng súng dùng NGUYÊN FILE GỐC ở MỌI cảnh: không vang, không lọc, không cắt, không ghép. Tiếng đại bác giữ ÂM LƯỢNG GỐC ở mọi lần xuất hiện (C3 và C7). Mỗi file có 'onsetMs' → đặt file sớm hơn đúng chừng đó.",
     "_nguonTiengMayChu": "Cắt từ bản thu máy chữ cơ thật: audio/sfx/may-chu/goc/sea-you-later-typewriter-301419.mp3 (do người làm video cung cấp). Cắt lại bằng: python3 audio/may_chu.py tach",
     "_congCuGoChu": "Tạo sẵn đoạn tiếng gõ cho một dòng chữ: python3 audio/may_chu.py go \"<chữ>\" --cps <tốc độ> [--return] [--bell] [--jitter 0] -o <file.wav>. Kèm file .json ghi thời điểm từng ký tự. Dùng --jitter 0 khi công cụ dựng gõ chữ đều (vd. CapCut).",
     "SFX-TYPE-KEY": {
@@ -2494,16 +2497,18 @@
       "am_luong": "-10 dB"
     },
     "SFX-BOOM": {
-      "mo_ta": "Tiếng đại bác nổ gần, có vang dội giữa phố khoảng 3 giây (làm từ bản thu pháo thật)",
-      "khi_nao": "C7 lúc 1.0s (cùng khung với flash, shake, chữ '20 giờ 3 phút')",
-      "am_luong": "-3 dB đỉnh",
-      "file": "audio/sfx/phao/phao-gan-vang.wav (bản không vang: phao-gan.wav). Đầu tiếng nổ nằm ở 10 ms đầu file → đặt file sớm 10 ms so với khung hình flash"
+      "mo_ta": "Tiếng đại bác (bản thu gốc, giữ nguyên)",
+      "file": "audio/sfx/phao/universfield-powerful-cannon-shot-02-487887.mp3",
+      "onsetMs": 85,
+      "khi_nao": "C7 lúc 1.0s, cùng khung hình với flash và shake → đặt file lúc 0.915s",
+      "am_luong": "Mức gốc (to nhất trong cảnh)"
     },
     "SFX-NAVAL": {
-      "mo_ta": "Tiếng pháo hạm vọng từ xa: trầm, tối màu, vang xa (làm từ cùng bản thu pháo)",
-      "khi_nao": "C3, cùng khung với chớp sáng",
-      "am_luong": "-8 dB",
-      "file": "audio/sfx/phao/phao-xa-01.wav, phao-xa-02.wav, phao-xa-03.wav — dùng lần lượt cho 3 lần chớp sáng ở C3"
+      "mo_ta": "Pháo hạm nã vào Hải Phòng: dùng đúng file đại bác gốc, không xử lý",
+      "file": "audio/sfx/phao/universfield-powerful-cannon-shot-02-487887.mp3",
+      "onsetMs": 85,
+      "khi_nao": "C3 ba lần chớp sáng: 0.0 / 3.0 / 7.0s (rút gọn 0.0 / 2.5 / 5.0s), mỗi lần đặt file sớm 85 ms",
+      "am_luong": "Âm lượng gốc (giữ nguyên như file)"
     },
     "SFX-COUNTER": {
       "mo_ta": "Tiếng bộ đếm cơ học lách cách, nhanh dần rồi dừng 'cạch'",
@@ -2561,20 +2566,14 @@
       "am_luong": "-8 dB"
     },
     "SFX-GUNFIRE": {
-      "mo_ta": "Nền tiếng súng giao tranh khắp thành phố: các tràng bắn dày, loạt súng máy và phát lẻ ở xa gần, trái phải khác nhau, vang giữa các dãy nhà (làm từ bản thu thật)",
-      "khi_nao": "C7 từ 1,8 s (ngay sau tiếng đại bác) đến hết C7, rồi nhỏ dần về 0 trong 2 s đầu C8",
-      "am_luong": "Thấp hơn tiếng đại bác khoảng 12 dB; khi lời dẫn nói, hạ thêm 6 dB (ducking)",
-      "file": "audio/sfx/sung/giao-tranh-xa.wav (10 s, đã có sẵn đoạn nhỏ dần ở cuối)"
-    },
-    "SFX-MG": {
-      "mo_ta": "Một loạt súng máy gần, rõ (16 phát)",
-      "khi_nao": "Dự phòng, hoặc nhấn thêm khi cần một loạt súng rõ",
-      "file": "audio/sfx/sung/sung-may-loat.wav"
-    },
-    "SFX-SHOT": {
-      "mo_ta": "Phát súng lẻ, có chút vang",
-      "khi_nao": "Dự phòng: rải thêm phát lẻ nếu muốn tiếng giao tranh dày hơn",
-      "file": "audio/sfx/sung/phat-sung-01.wav … phat-sung-06.wav; tràng bắn dày: audio/sfx/sung/sung-ban-lien-tiep.wav"
+      "mo_ta": "Súng nổ ran khắp phố sau tiếng đại bác: hai bản thu gốc đặt nối tiếp, không xử lý",
+      "file": [
+        "audio/sfx/sung/dragon-studio-gunshots-firing-repeatedly-511326.mp3 (onsetMs 23, dài 2.23s)",
+        "audio/sfx/sung/freesound_community-clean-machine-gun-burst-98224.mp3 (onsetMs 25, dài 1.63s)"
+      ],
+      "khi_nao": "C7: tràng bắn liên tiếp lúc 1.8s, súng máy lúc 4.1s, tràng bắn liên tiếp lúc 5.9s (tiếng nổ trùng các mốc này). Tràng cuối tự tắt khoảng 0.2s sau khi sang C8",
+      "am_luong": "Mức gốc trước khi lời dẫn vào; khi lời dẫn nói hạ 6 dB",
+      "ngheThu": "audio/sfx/nghe-thu-c7.wav"
     }
   }
 }

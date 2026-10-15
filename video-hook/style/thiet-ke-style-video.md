@@ -325,14 +325,22 @@ Mốc thời gian dưới đây tính theo bản đầy đủ.
 | Gõ phím máy chữ | `may-chu/phim-01…12.wav`, `may-chu/phim-cach-01…02.wav` | Mọi chữ đánh máy |
 | Gạt dòng | `may-chu/gat-dong-01…02.wav` | Cuối các dòng có `returnSound` |
 | Chuông "ting" | `may-chu/chuong-01…02.wav` | Các dòng có `bell` |
-| **Đại bác nổ gần + vang** | `phao/phao-gan-vang.wav` (bản không vang: `phao/phao-gan.wav`) | **C7 lúc 1,0 s**, cùng khung hình với chớp trắng và rung |
-| **Pháo hạm vọng từ xa** | `phao/phao-xa-01.wav`, `phao-xa-02.wav`, `phao-xa-03.wav` | **C3**, mỗi lần chớp sáng một file, theo thứ tự |
-| **Súng giao tranh khắp phố** | `sung/giao-tranh-xa.wav` (10 s) | **C7 từ 1,8 s** đến hết cảnh, nhỏ dần trong 2 s đầu C8. Thấp hơn tiếng đại bác khoảng 12 dB, hạ thêm 6 dB khi lời dẫn nói |
-| Súng máy, phát súng lẻ (dự phòng) | `sung/sung-may-loat.wav`, `sung/sung-ban-lien-tiep.wav`, `sung/phat-sung-01…06.wav` | Rải thêm nếu muốn tiếng giao tranh dày hơn |
+| **Đại bác** | `phao/universfield-powerful-cannon-shot-02-487887.mp3` | **C7 lúc 1,0 s**, cùng khung hình với chớp trắng và rung. **C3**, ba lần chớp sáng (cùng file, cùng âm lượng gốc) |
+| **Súng: tràng bắn liên tiếp** | `sung/dragon-studio-gunshots-firing-repeatedly-511326.mp3` | **C7 lúc 1,8 s và 5,9 s** |
+| **Súng máy** | `sung/freesound_community-clean-machine-gun-burst-98224.mp3` | **C7 lúc 4,1 s** |
 
-Tất cả đều làm từ **bản thu thật** do người làm video cung cấp. Các file gốc nằm trong thư mục `goc/`.
-- Mọi file đều đã **căn đầu tiếng (tiếng "cạch" của phím hoặc tiếng nổ) về đúng 10 ms đầu file**. Khi dựng, đặt file **sớm hơn 10 ms** so với khung hình chữ hiện ra hoặc khung hình chớp sáng.
-- Tiếng pháo nặng về dải trầm. **Phải thử trên loa của lớp học hoặc máy chiếu**: nếu nghe không rõ, tăng âm lượng tiếng pháo chứ không thay file.
+Tất cả đều là **bản thu thật** do người làm video cung cấp.
+
+**Tiếng máy chữ** đã được cắt và căn sẵn: tiếng "cạch" nằm ở **10 ms đầu file**. Khi dựng, đặt file **sớm hơn 10 ms** so với khung hình chữ hiện ra.
+
+**Tiếng đại bác và tiếng súng dùng NGUYÊN FILE GỐC, ở MỌI cảnh (C3 và C7).** Tiếng đại bác giữ **âm lượng gốc** ở mọi lần xuất hiện. Không thêm vang, không lọc, không cắt, không ghép lại, vì xử lý làm mất lực của tiếng nổ. Chỉ được chỉnh **âm lượng** khi trộn.
+- Tiếng nổ trong file gốc không bắt đầu ngay ở đầu file:
+  - Đại bác: bắt đầu ở **85 ms**.
+  - Tràng bắn liên tiếp: **23 ms**.
+  - Súng máy: **25 ms**.
+- Khi dựng, đặt file sớm hơn đúng khoảng đó so với khung hình chớp sáng. Ví dụ, đại bác ở C7 đặt file lúc 0,915 s để tiếng nổ trùng chớp trắng ở 1,000 s.
+- Bản nghe thử cảnh C7 ghép đúng giờ từ ba file gốc: `video-hook/audio/sfx/nghe-thu-c7.wav`.
+- Tiếng đại bác nặng về dải trầm. **Phải thử trên loa của lớp học hoặc máy chiếu**: nếu nghe không rõ thì tăng âm lượng, không thay file.
 ---
 
 ## 11. Diễn biến từng cảnh
@@ -371,11 +379,11 @@ Phần này viết cho người đọc. Vị trí px chính xác xem trong JSON 
 
 | Thời điểm | Hình và chữ | Âm thanh |
 |---|---|---|
-| 0,0 | **Cắt thẳng** sang A03, kèm chớp trắng nhẹ (`flashSoft`). Máy quay `zoomInShip` | Pháo hạm vọng từ xa |
+| 0,0 | **Cắt thẳng** sang A03, kèm chớp trắng nhẹ (`flashSoft`). Máy quay `zoomInShip` | **Tiếng đại bác** (file gốc, âm lượng gốc; đặt file sớm 85 ms) |
 | 0,2 | Vạch thời gian dài tới mốc 3 | — |
 | 0,8 | Chấm **đỏ** phồng ra, rồi **gõ** `11.1946` và `Hải Phòng · Lạng Sơn` (chữ hồng cam). Chấm đỏ lan vòng liên tục | Tiếng gõ (−28 dB) |
 | 1,5 / 1,2 | Dải tối ở đáy hiện. **Gõ** `23.11.1946 · Pháp nã pháo vào Hải Phòng` (24 ký tự/s) | Tiếng gõ (−28 dB) |
-| 3,0 / 2,5 và 7,0 / 5,0 | Chớp sáng | Pháo hạm |
+| 3,0 / 2,5 và 7,0 / 5,0 | Chớp sáng | **Tiếng đại bác** (file gốc, âm lượng gốc) |
 | 11,0 / 7,0 | Đường thời gian và chú thích mờ đi | — |
 
 ### C4 · Đến lượt Hà Nội (14 s / 9 s). Bản rút gọn bỏ phần A.
@@ -438,7 +446,7 @@ Phần này viết cho người đọc. Vị trí px chính xác xem trong JSON 
 | 0,0 – 1,0 | **ĐEN TUYỆT ĐỐI** | Tiếng "tách" của cầu dao, rồi **im lặng tuyệt đối** |
 | 1,0 | Chớp trắng (`flash`), rung (`shake`), ảnh A09 với `hitZoomOut`, quầng lửa đáy khung. `20 GIỜ 3 PHÚT` **đập vào** màn hình (`slam`, không đánh máy) ở **nửa trên** (y=170) | **ĐẠI BÁC** nổ và vang |
 | 1,7 | **Gõ** `19 · 12 · 1946` màu vàng (16 ký tự/s) | Tiếng gõ (−18 dB), nghe rõ trên tiếng vang đại bác đang tắt |
-| 1,8 | — | **Tiếng súng giao tranh nổ ran khắp phố** (`giao-tranh-xa.wav`, nhỏ hơn đại bác khoảng 12 dB). Lời dẫn bắt đầu, tiếng súng hạ xuống thêm 6 dB |
+| 1,8 | — | **Súng nổ ran** (file gốc): tràng bắn liên tiếp lúc 1,8 s, súng máy lúc 4,1 s, tràng bắn liên tiếp lúc 5,9 s. Lời dẫn bắt đầu, tiếng súng hạ xuống 6 dB cho khỏi át lời |
 | 2,4 | **Gõ nhanh** (30 ký tự/s) `Pháo đài Láng nổ súng — Toàn quốc kháng chiến bùng nổ` | Tiếng gõ (−28 dB) |
 
 ### C8 · Lời kêu gọi (22 s / 10 s)
@@ -447,7 +455,7 @@ Phần này viết cho người đọc. Vị trí px chính xác xem trong JSON 
 
 | Thời điểm | Hình và chữ | Âm thanh |
 |---|---|---|
-| 0,0 | Đi qua màu đỏ (`dipRed`) vào A10. Nền đỏ phủ dần từ trái, ngôi sao mờ xoay chậm | Tiếng súng giao tranh nhỏ dần về 0 trong 2 s. Nhạc 2 vào |
+| 0,0 | Đi qua màu đỏ (`dipRed`) vào A10. Nền đỏ phủ dần từ trái, ngôi sao mờ xoay chậm | Tràng súng cuối của C7 tự tắt trong khoảng 0,2 s đầu. Nhạc 2 vào |
 | 0,8 | **Gõ** `Hỡi đồng bào toàn quốc!` màu vàng | Tiếng gõ **rất nhỏ** (−30 dB) |
 | 2,0 → 8,4 | Năm dòng đầu được **gõ khớp với giọng đọc**: mỗi dòng bắt đầu gõ đúng lúc giọng đọc bắt đầu câu đó, gõ xong trước khi giọng đọc hết câu | Tiếng gõ rất nhỏ (−30 dB), không được át giọng đọc |
 | 11,4 / 0,8 | `Không!` **đập vào** (`slam`, không đánh máy). Các dòng trước mờ xuống 55% | Tiếng **"thịch" trầm**, đúng lúc giọng đọc nói "Không!" |

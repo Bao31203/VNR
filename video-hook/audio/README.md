@@ -33,37 +33,19 @@ Chạy `python3 may_chu.py tach` để cắt lại toàn bộ bộ tiếng từ 
 - Tiếng phím được chọn tự động: chỉ lấy tiếng đứng riêng, không dính tiếng phím kế tiếp.
 - Vị trí chuông và gạt dòng được ghi sẵn trong `may_chu.py` (`BELLS`, `RETURNS`). Các vị trí này chỉ đúng với file gốc này.
 
-## Tiếng pháo: `sfx/phao/`
+## Tiếng đại bác và tiếng súng: dùng NGUYÊN FILE GỐC
 
-Làm từ **bản thu pháo thật** `sfx/phao/goc/universfield-powerful-cannon-shot-02-487887.mp3` (1,07 giây, stereo), file do người làm video cung cấp. Chạy `python3 phao.py` để tạo lại.
+Ba bản thu do người làm video cung cấp. **Giữ nguyên ở mọi cảnh, không xử lý** (không vang, không lọc, không cắt, không ghép), vì xử lý làm mất lực của tiếng nổ. Chỉ chỉnh âm lượng khi trộn.
 
-| File | Âm thanh | Dùng ở |
-|---|---|---|
-| `phao-gan.wav` | Tiếng nổ gần, nguyên gốc (1 s) | Dự phòng |
-| `phao-gan-vang.wav` | Tiếng nổ gần, có **vang dội giữa phố** khoảng 3 s | **C7**: pháo đài Láng khai hỏa, cùng khung hình với chớp trắng và rung |
-| `phao-xa-01…03.wav` | **Pháo vọng từ xa**: trầm, tối màu, vang xa. Ba biến thể trầm bổng khác nhau | **C3**: pháo hạm nã vào Hải Phòng, mỗi lần chớp sáng một file |
-| `nghe-thu-phao.wav` | Nghe thử: 3 tiếng pháo xa, rồi 1 tiếng pháo gần | Để nghe trước |
+| File | Dài | Tiếng nổ bắt đầu ở | Dùng ở |
+|---|---|---|---|
+| `sfx/phao/universfield-powerful-cannon-shot-02-487887.mp3` | 1,07 s | 85 ms | **C7 lúc 1,0 s** (đặt file lúc 0,915 s), cùng khung chớp trắng. **C3**: ba lần chớp sáng, cùng file, âm lượng gốc |
+| `sfx/sung/dragon-studio-gunshots-firing-repeatedly-511326.mp3` | 2,23 s | 23 ms | **C7 lúc 1,8 s và 5,9 s** |
+| `sfx/sung/freesound_community-clean-machine-gun-burst-98224.mp3` | 1,63 s | 25 ms | **C7 lúc 4,1 s** |
 
-- Đầu tiếng nổ nằm ở **10 ms đầu file**. Khi dựng, đặt file sớm 10 ms so với khung hình chớp sáng.
-- Tiếng pháo nặng về dải trầm: **thử trên loa của lớp học**. Nếu không rõ thì tăng âm lượng.
-
-## Tiếng súng, giao tranh: `sfx/sung/`
-
-Làm từ **2 bản thu thật** do người làm video cung cấp, nằm trong `sfx/sung/goc/`:
-- `freesound_community-clean-machine-gun-burst-98224.mp3`: một loạt súng máy 16 phát.
-- `dragon-studio-gunshots-firing-repeatedly-511326.mp3`: tràng bắn dày đặc.
-
-Chạy `python3 sung.py` để tạo lại. Script này cần `phao.py` nằm cùng thư mục.
-
-| File | Âm thanh | Dùng ở |
-|---|---|---|
-| `giao-tranh-xa.wav` | **Nền giao tranh khắp thành phố**, 10 s: tràng bắn dày, loạt súng máy, phát lẻ ở xa gần và trái phải khác nhau, vang giữa các dãy nhà, nhỏ dần ở cuối | **C7 từ 1,8 s** (ngay sau đại bác) đến hết cảnh, nhỏ dần trong 2 s đầu C8 |
-| `sung-may-loat.wav` | Loạt súng máy gần, nguyên gốc | Dự phòng |
-| `sung-ban-lien-tiep.wav` | Tràng bắn dày đặc, nguyên gốc | Dự phòng |
-| `phat-sung-01…06.wav` | Phát súng lẻ (cắt từ loạt súng máy), có chút vang | Rải thêm nếu muốn dày hơn |
-| `nghe-thu-sung.wav` | Nghe thử đúng như cảnh C7: im lặng, đại bác nổ, rồi giao tranh nổ ran | Để nghe trước |
-
-Khi trộn, nền giao tranh **thấp hơn tiếng đại bác khoảng 12 dB**. Khi lời dẫn đang nói, hạ thêm 6 dB.
+- Đặt file **sớm hơn** đúng khoảng ở cột "Tiếng nổ bắt đầu ở", để tiếng nổ trùng khung hình chớp sáng.
+- Khi lời dẫn đang nói, hạ tiếng súng 6 dB.
+- **Nghe thử C7:** `sfx/nghe-thu-c7.wav`, ghép đúng giờ từ ba file gốc. Cả file được hạ đều 1,2 dB để không cắt đỉnh, ngoài ra không xử lý gì.
 
 ## Mức âm lượng khi trộn
 

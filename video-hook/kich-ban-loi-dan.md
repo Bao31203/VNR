@@ -12,7 +12,7 @@ Kịch bản này đi kèm hai file khác:
 | Giọng dẫn | Giọng Bắc, trầm, chậm, kiểu phim tài liệu lịch sử. Khoảng 2,8–3 tiếng/giây, ngắt hơi rõ ở dấu chấm. |
 | Giọng đọc Lời kêu gọi | Nên là **giọng thứ hai** (nam, lớn tuổi hơn, trang nghiêm) hoặc chính giọng dẫn nhưng chậm hơn hẳn. **Không giả giọng Bác Hồ.** |
 | Nhạc nền | Nhạc phim tài liệu: dây trầm, trống trận nhẹ. Tắt nhạc hoàn toàn khoảng 1 giây trước tiếng pháo, rồi vào lại ở cảnh Lời kêu gọi. |
-| Hiệu ứng âm thanh | Tích tắc đồng hồ, tiếng pháo hạm xa, tiếng đại bác, tiếng điện tắt "tách", tiếng tim đập. Bản nháp hiện tại đã có sẵn những âm này. |
+| Hiệu ứng âm thanh | Tích tắc đồng hồ, tiếng đại bác (C3, C7), tiếng súng (C7), tiếng điện tắt "tách", tiếng tim đập. Bản nháp hiện tại đã có sẵn những âm này. |
 | Cách đọc số | "1946" đọc là "một nghìn chín trăm bốn mươi sáu". "20 giờ 3 phút" đọc là "hai mươi giờ ba phút". "6.000" đọc là "sáu nghìn". |
 
 Ký hiệu dùng trong kịch bản:
@@ -44,7 +44,7 @@ Ký hiệu dùng trong kịch bản:
 
 - **Hình:** A03, tàu chiến Pháp nã pháo vào Hải Phòng từ ngoài khơi, khói lửa trên mái nhà.
 - **Đồ họa:** chấm đỏ nhấp nháy trên đường thời gian ở mốc **11.1946**, kèm chữ *Hải Phòng · Lạng Sơn*.
-- **Âm thanh:** tiếng pháo hạm vọng từ xa.
+- **Âm thanh:** tiếng đại bác (file gốc, âm lượng gốc) ở mỗi lần chớp sáng.
 
 > **Lời dẫn:** Ngày 23 tháng 11, tàu chiến Pháp nã pháo vào Hải Phòng. [ngừng]
 > Hàng nghìn người, phần lớn là dân thường, thiệt mạng.

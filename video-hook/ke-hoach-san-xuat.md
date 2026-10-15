@@ -152,9 +152,9 @@ Cần **1 bản nhạc dài khoảng 2 phút có cao trào**, hoặc **2 bản**
 
 ### 4.2. Hiệu ứng âm thanh
 
-Mình đã có bộ tự tạo, gồm tích tắc, pháo, tim đập, trống, và **bộ tiếng máy chữ thật** (12 tiếng phím, phím cách, gạt dòng, chuông, cắt từ bản thu bạn cung cấp) ở `audio/sfx/may-chu/`, **tiếng pháo thật** (pháo gần có vang cho C7, pháo vọng xa cho C3) ở `audio/sfx/phao/`, **tiếng súng giao tranh thật** cho C7 ở `audio/sfx/sung/`, kèm công cụ `audio/may_chu.py` để tạo tiếng gõ khớp từng dòng chữ. Nếu muốn thật hơn, bạn có thể lấy thêm từ Pixabay Sound Effects:
+Mình đã có bộ tự tạo, gồm tích tắc, pháo, tim đập, trống, và **bộ tiếng máy chữ thật** (12 tiếng phím, phím cách, gạt dòng, chuông, cắt từ bản thu bạn cung cấp) ở `audio/sfx/may-chu/`, **tiếng đại bác** (C3, C7) ở `audio/sfx/phao/` và **tiếng súng** (C7) ở `audio/sfx/sung/`. Hai loại này dùng nguyên file gốc, không xử lý, kèm công cụ `audio/may_chu.py` để tạo tiếng gõ khớp từng dòng chữ. Nếu muốn thật hơn, bạn có thể lấy thêm từ Pixabay Sound Effects:
 - tiếng đồng hồ quả lắc
-- tiếng pháo hạm từ xa
+- tiếng đại bác (đã có: file gốc bạn cung cấp, dùng cho cả C3 và C7)
 - tiếng đại bác
 - tiếng cầu dao điện
 - tiếng xích xe tăng
@@ -169,14 +169,14 @@ Mình đã có bộ tự tạo, gồm tích tắc, pháo, tim đập, trống, v
 |---|---|
 | 0:00 | Tích tắc chậm, mỗi giây một tiếng |
 | 0:05 | Nhạc 1 vào dần trong 2 giây, đặt thấp |
-| 0:20, 0:23, 0:27 | Pháo hạm vọng từ xa (cùng lúc với chớp sáng trên hình) |
+| 0:20, 0:23, 0:27 | Tiếng đại bác, file gốc, âm lượng gốc (cùng lúc với chớp sáng trên hình) |
 | 0:32 | Tiếng xích xe bọc thép từ xa |
 | 0:40–0:45 | Tiếng máy chữ khi gõ các dòng tối hậu thư |
 | 0:46 | Nhạc lắng xuống, tiếng dế đêm |
 | 1:02–1:07 | Tích tắc nhanh dần, nhạc **tắt hẳn ở 1:06** |
 | 1:07,0 | Tiếng "tách" của cầu dao, rồi **im lặng 1 giây** |
 | 1:08,0 | **Đại bác nổ** và vang, màn hình rung |
-| 1:08,8 | **Súng giao tranh nổ ran khắp phố**, kéo dài hết C7, nhỏ dần sang C8 |
+| 1:08,8 | **Súng nổ ran** (file gốc): tràng bắn liên tiếp, súng máy, rồi tràng bắn liên tiếp, nối nhau đến hết C7 |
 | 1:15 | Nhạc 2 hùng tráng vào |
 | 1:37 | Tiếng tim đập |
 | 1:57 | Tim đập dừng, im lặng 0,5 giây, rồi câu hỏi |
@@ -258,7 +258,7 @@ Thời gian ghi theo dạng **bản đầy đủ / bản rút gọn**. Mã ảnh
 |---|---|---|---|---|---|
 | **C1** Mở đầu | 0:00–0:05 / 0:00–0:05 | A01. Zoom từ 100% lên 108% về phía mặt đồng hồ | *Hà Nội · Tháng 12 năm 1946*, chữ đánh máy, nửa trái màn hình | Hiện dần từ màn hình đen (0,8 giây) | Tích tắc. Lời dẫn vào ở giây 1,5 |
 | **C2** Hòa bình mong manh | 0:05–0:20 / 0:05–0:13 | A02. Lia sang phải 10%, có chiều sâu nếu ảnh tách lớp | Đường thời gian ở 1/3 trên: *06.3.1946 Hiệp định Sơ bộ* (hiện ở 0:07), *14.9.1946 Tạm ước* (0:10) | Hòa tan 1 giây | Nhạc 1 vào dần |
-| **C3** Hải Phòng | 0:20–0:32 / 0:13–0:21 | A03. Zoom từ 100% lên 112% về phía tàu chiến. Chớp sáng 3 lần | Mốc *11.1946* đỏ nhấp nháy. Chú thích *23.11.1946 · Pháp nã pháo vào Hải Phòng* | **Cắt thẳng**, đúng tiếng pháo đầu tiên | Pháo hạm từ xa ×3 |
+| **C3** Hải Phòng | 0:20–0:32 / 0:13–0:21 | A03. Zoom từ 100% lên 112% về phía tàu chiến. Chớp sáng 3 lần | Mốc *11.1946* đỏ nhấp nháy. Chú thích *23.11.1946 · Pháp nã pháo vào Hải Phòng* | **Cắt thẳng**, đúng tiếng pháo đầu tiên | Tiếng đại bác ×3 (file gốc, âm lượng gốc) |
 | **C4** Hà Nội bị uy hiếp | 0:32–0:46 / 0:21–0:30 | A04 lia trái theo hướng xe chạy (7 giây). Sau đó chuyển sang đồ họa tờ lịch và tối hậu thư | *17.12 · Thảm sát phố Yên Ninh, Hàng Bún*. Lịch lật từ 17 sang 18. Tờ *TỐI HẬU THƯ* có 3 dòng đánh máy, cuối cùng là *Hạn chót: sáng 20.12.1946* | Hòa tan | Tiếng xích xe, tiếng máy chữ |
 | **C5** Vạn Phúc | 0:46–0:55 / 0:30–0:39 | A06. Máy tiến chậm về khung cửa sáng, từ 100% lên 110% | Góc dưới trái: *18.12.1946 · Làng Vạn Phúc, Hà Đông*. Cuối cảnh hiện chữ lớn **PHÁT ĐỘNG TOÀN QUỐC KHÁNG CHIẾN** | Hòa tan chậm qua màn đen | Nhạc lắng, tiếng dế |
 | **C6** Chờ hiệu lệnh | 0:55–1:07 / 0:39–0:47 | A07 lia nhẹ (6 giây), rồi A08 zoom vào cầu dao (6 giây) | *Tối 19.12.1946*. 5 giây cuối: đồng hồ số **20:02:55 → 20:03:00** ở giữa phía trên | Cắt thẳng | Tích tắc nhanh dần, nhạc tắt ở giây cuối |
