@@ -317,6 +317,20 @@ Mốc thời gian dưới đây tính theo bản đầy đủ.
   - Nhạc thấp hơn lời khoảng 12 dB khi có lời (nhạc hạ trong 0,2 s, trả lại trong 0,6 s).
   - Đỉnh tiếng không vượt −1 dBTP.
 
+
+### 10.1. File âm thanh đã có sẵn
+
+| Âm thanh | File (trong `video-hook/audio/sfx/`) | Dùng ở |
+|---|---|---|
+| Gõ phím máy chữ | `may-chu/phim-01…12.wav`, `may-chu/phim-cach-01…02.wav` | Mọi chữ đánh máy |
+| Gạt dòng | `may-chu/gat-dong-01…02.wav` | Cuối các dòng có `returnSound` |
+| Chuông "ting" | `may-chu/chuong-01…02.wav` | Các dòng có `bell` |
+| **Đại bác nổ gần + vang** | `phao/phao-gan-vang.wav` (bản không vang: `phao/phao-gan.wav`) | **C7 lúc 1,0 s**, cùng khung hình với chớp trắng và rung |
+| **Pháo hạm vọng từ xa** | `phao/phao-xa-01.wav`, `phao-xa-02.wav`, `phao-xa-03.wav` | **C3**, mỗi lần chớp sáng một file, theo thứ tự |
+
+Tất cả đều làm từ **bản thu thật** do người làm video cung cấp. Các file gốc nằm trong thư mục `goc/`.
+- Mọi file đều đã **căn đầu tiếng (tiếng "cạch" của phím hoặc tiếng nổ) về đúng 10 ms đầu file**. Khi dựng, đặt file **sớm hơn 10 ms** so với khung hình chữ hiện ra hoặc khung hình chớp sáng.
+- Tiếng pháo nặng về dải trầm. **Phải thử trên loa của lớp học hoặc máy chiếu**: nếu nghe không rõ, tăng âm lượng tiếng pháo chứ không thay file.
 ---
 
 ## 11. Diễn biến từng cảnh

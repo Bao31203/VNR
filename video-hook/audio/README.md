@@ -33,6 +33,20 @@ Chạy `python3 may_chu.py tach` để cắt lại toàn bộ bộ tiếng từ 
 - Tiếng phím được chọn tự động: chỉ lấy tiếng đứng riêng, không dính tiếng phím kế tiếp.
 - Vị trí chuông và gạt dòng được ghi sẵn trong `may_chu.py` (`BELLS`, `RETURNS`). Các vị trí này chỉ đúng với file gốc này.
 
+## Tiếng pháo: `sfx/phao/`
+
+Làm từ **bản thu pháo thật** `sfx/phao/goc/universfield-powerful-cannon-shot-02-487887.mp3` (1,07 giây, stereo), file do người làm video cung cấp. Chạy `python3 phao.py` để tạo lại.
+
+| File | Âm thanh | Dùng ở |
+|---|---|---|
+| `phao-gan.wav` | Tiếng nổ gần, nguyên gốc (1 s) | Dự phòng |
+| `phao-gan-vang.wav` | Tiếng nổ gần, có **vang dội giữa phố** khoảng 3 s | **C7**: pháo đài Láng khai hỏa, cùng khung hình với chớp trắng và rung |
+| `phao-xa-01…03.wav` | **Pháo vọng từ xa**: trầm, tối màu, vang xa. Ba biến thể trầm bổng khác nhau | **C3**: pháo hạm nã vào Hải Phòng, mỗi lần chớp sáng một file |
+| `nghe-thu-phao.wav` | Nghe thử: 3 tiếng pháo xa, rồi 1 tiếng pháo gần | Để nghe trước |
+
+- Đầu tiếng nổ nằm ở **10 ms đầu file**. Khi dựng, đặt file sớm 10 ms so với khung hình chớp sáng.
+- Tiếng pháo nặng về dải trầm: **thử trên loa của lớp học**. Nếu không rõ thì tăng âm lượng.
+
 ## Mức âm lượng khi trộn
 
 Theo `style/thiet-ke-style-video.md`, mục 5.2:

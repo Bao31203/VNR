@@ -2451,6 +2451,7 @@
     }
   ],
   "sfxLibrary": {
+    "_nguonTiengPhao": "Làm từ bản thu pháo thật: audio/sfx/phao/goc/universfield-powerful-cannon-shot-02-487887.mp3 (do người làm video cung cấp). Tạo lại bằng: python3 audio/phao.py",
     "_nguonTiengMayChu": "Cắt từ bản thu máy chữ cơ thật: audio/sfx/may-chu/goc/sea-you-later-typewriter-301419.mp3 (do người làm video cung cấp). Cắt lại bằng: python3 audio/may_chu.py tach",
     "_congCuGoChu": "Tạo sẵn đoạn tiếng gõ cho một dòng chữ: python3 audio/may_chu.py go \"<chữ>\" --cps <tốc độ> [--return] [--bell] [--jitter 0] -o <file.wav>. Kèm file .json ghi thời điểm từng ký tự. Dùng --jitter 0 khi công cụ dựng gõ chữ đều (vd. CapCut).",
     "SFX-TYPE-KEY": {
@@ -2484,14 +2485,16 @@
       "am_luong": "-10 dB"
     },
     "SFX-BOOM": {
-      "mo_ta": "Tiếng đại bác nổ gần, có vang",
+      "mo_ta": "Tiếng đại bác nổ gần, có vang dội giữa phố khoảng 3 giây (làm từ bản thu pháo thật)",
       "khi_nao": "C7 lúc 1.0s (cùng khung với flash, shake, chữ '20 giờ 3 phút')",
-      "am_luong": "-3 dB đỉnh"
+      "am_luong": "-3 dB đỉnh",
+      "file": "audio/sfx/phao/phao-gan-vang.wav (bản không vang: phao-gan.wav). Đầu tiếng nổ nằm ở 10 ms đầu file → đặt file sớm 10 ms so với khung hình flash"
     },
     "SFX-NAVAL": {
-      "mo_ta": "Tiếng pháo hạm vọng từ xa, trầm và rền",
+      "mo_ta": "Tiếng pháo hạm vọng từ xa: trầm, tối màu, vang xa (làm từ cùng bản thu pháo)",
       "khi_nao": "C3, cùng khung với chớp sáng",
-      "am_luong": "-8 dB"
+      "am_luong": "-8 dB",
+      "file": "audio/sfx/phao/phao-xa-01.wav, phao-xa-02.wav, phao-xa-03.wav — dùng lần lượt cho 3 lần chớp sáng ở C3"
     },
     "SFX-COUNTER": {
       "mo_ta": "Tiếng bộ đếm cơ học lách cách, nhanh dần rồi dừng 'cạch'",
