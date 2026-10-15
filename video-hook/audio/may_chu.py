@@ -1,126 +1,33 @@
-# Bộ tiếng máy chữ cho video hook (tổng hợp bằng numpy, không cần file mẫu bên ngoài).
+# Bộ tiếng máy chữ cho video hook, cắt từ bản thu máy chữ cơ thật:
+#   sfx/may-chu/goc/sea-you-later-typewriter-301419.mp3  (91 giây, 432 tiếng gõ, 3 tiếng chuông, 3 lần gạt dòng)
 #
-# Tạo bộ tiếng mẫu (6 tiếng phím, 2 tiếng phím cách, tiếng gạt dòng, tiếng chuông, file nghe thử):
-#   python3 may_chu.py tao
+# Cắt bộ tiếng mẫu từ bản thu (12 tiếng phím, 2 tiếng phím cách, 2 tiếng gạt dòng, 2 tiếng chuông, file nghe thử):
+#   python3 may_chu.py tach
 #
-# Tạo đoạn tiếng gõ khớp một dòng chữ (mỗi ký tự một tiếng gõ):
+# Tạo đoạn tiếng gõ khớp một dòng chữ (mỗi ký tự một tiếng gõ thật):
 #   python3 may_chu.py go "Hạn chót: sáng 20.12.1946" --cps 24 --bell -o han-chot.wav
 #   python3 may_chu.py go "Hà Nội · Tháng 12 năm 1946" --cps 14 --return --jitter 0 -o c1.wav
 # Kèm theo là file .json ghi thời điểm từng ký tự hiện ra, để căn với hình.
 # Dùng --jitter 0 nếu công cụ dựng gõ chữ đều nhau (ví dụ hiệu ứng "Đánh máy" của CapCut).
-import argparse, json, os, unicodedata, wave
+import argparse, glob, json, os, subprocess, unicodedata, wave
 import numpy as np
 
 SR = 48000
 HERE = os.path.dirname(os.path.abspath(__file__))
 SFX_DIR = os.path.join(HERE, 'sfx', 'may-chu')
+GOC = os.path.join(SFX_DIR, 'goc', 'sea-you-later-typewriter-301419.mp3')
+
+# Vị trí chuông và gạt dòng trong bản thu gốc (đo bằng phổ tần; chỉ đúng với file này)
+BELLS = [(33.50, 1.75), (58.34, 1.75)]                 # (giây bắt đầu, độ dài)
+RETURNS = [(36.00, 1.35), (87.65, 1.45)]
+# Các vùng không lấy tiếng phím: đoạn đầu lặt vặt, quanh chuông và gạt dòng
+EXCLUDE = [(0, 14.0), (33.3, 37.6), (57.9, 63.2), (84.9, 89.5)]
 
 
-def _t(dur):
-    return np.arange(int(dur * SR)) / SR
-
-
-def band_noise(n, fc, bw, rng):
-    """Nhiễu trắng lọc dải quanh fc (Hz), bề rộng bw (Hz), lọc trong miền tần số."""
-    x = rng.standard_normal(n)
-    spec = np.fft.rfft(x)
-    f = np.fft.rfftfreq(n, 1 / SR)
-    spec *= np.exp(-0.5 * ((f - fc) / bw) ** 2)
-    y = np.fft.irfft(spec, n)
-    return y / (np.max(np.abs(y)) + 1e-9)
-
-
-def damped(f, decay, dur, amp, phase=0.0):
-    t = _t(dur)
-    return amp * np.exp(-t / decay) * np.sin(2 * np.pi * f * t + phase)
-
-
-def click(fc, bw, tau, amp, rng, dur=0.02):
-    n = int(dur * SR)
-    t = np.arange(n) / SR
-    return amp * band_noise(n, fc, bw, rng) * np.exp(-t / tau)
-
-
-def put(buf, sig, at):
-    a = int(at * SR)
-    b = min(len(buf), a + len(sig))
-    if a < len(buf):
-        buf[a:b] += sig[:b - a]
-
-
-def norm(x, peak):
-    return x * (peak / (np.max(np.abs(x)) + 1e-9))
-
-
-def key(seed):
-    """Tiếng gõ một phím máy chữ cơ: cần chữ đập vào trục, thân máy rung, tiếng lách cách phụ, nhả phím."""
-    r = np.random.default_rng(seed)
-    buf = np.zeros(int(0.16 * SR))
-    # cú đập của cần chữ vào trục giấy
-    put(buf, click(r.uniform(2800, 4200), 1500, 0.0016, 1.0, r), 0)
-    put(buf, click(r.uniform(1400, 2000), 700, 0.0025, 0.45, r), 0.0005)
-    t = _t(0.004)
-    put(buf, 0.6 * r.standard_normal(len(t)) * np.exp(-t / 0.0006), 0)
-    # cộng hưởng thân máy và mặt bàn
-    for f, d, a in ((r.uniform(170, 240), 0.014, 0.32), (r.uniform(850, 1250), 0.010, 0.35),
-                    (r.uniform(2700, 3500), 0.006, 0.30), (r.uniform(5000, 6500), 0.003, 0.18)):
-        put(buf, damped(f, d, 0.12, a, r.uniform(0, 2 * np.pi)), 0)
-    # tiếng lách cách phụ của cần chữ bật lại
-    put(buf, click(r.uniform(2000, 3000), 900, 0.0015, 0.35, r), r.uniform(0.007, 0.013))
-    put(buf, damped(r.uniform(4200, 6800), 0.018, 0.06, 0.08), r.uniform(0.020, 0.035))
-    # nhả phím
-    d3 = r.uniform(0.060, 0.085)
-    put(buf, click(r.uniform(1500, 2500), 800, 0.0015, 0.15, r), d3)
-    put(buf, damped(300, 0.006, 0.03, 0.08), d3)
-    return norm(buf, 0.7)
-
-
-def space(seed):
-    """Tiếng phím cách: thanh dài, trầm và nhẹ hơn phím chữ."""
-    r = np.random.default_rng(seed)
-    buf = np.zeros(int(0.16 * SR))
-    put(buf, damped(r.uniform(120, 160), 0.035, 0.12, 0.8), 0)
-    put(buf, damped(r.uniform(600, 800), 0.010, 0.06, 0.25), 0)
-    put(buf, click(r.uniform(1800, 2600), 900, 0.0015, 0.4, r), 0)
-    put(buf, click(r.uniform(1800, 2600), 900, 0.0015, 0.25, r), 0.004)
-    put(buf, click(1600, 700, 0.0015, 0.12, r), r.uniform(0.065, 0.08))
-    return norm(buf, 0.55)
-
-
-def carriage_return(seed=7):
-    """Tiếng gạt cần xuống dòng: 'cạch' + bánh cóc 'rắc rắc' + trục trượt 'xoẹt' + va chạm cuối hành trình."""
-    r = np.random.default_rng(seed)
-    buf = np.zeros(int(0.95 * SR))
-    put(buf, norm(key(seed + 100), 0.6), 0)                      # tay nắm cần gạt
-    for i in range(5):                                            # bánh cóc lên dòng
-        put(buf, click(3500, 1200, 0.0012, 0.55 * (1 - i * 0.12), r), 0.03 + i * 0.018)
-    # trục giấy trượt về: nhiễu dải cao + dải trầm, có độ "sạn" do ma sát
-    n = int(0.48 * SR)
-    t = np.arange(n) / SR
-    env = np.minimum(1, t / 0.05) * np.minimum(1, (0.48 - t) / 0.12)
-    grit = 0.7 + 0.3 * band_noise(n, 30, 25, r)
-    slide = (band_noise(n, 2400, 1100, r) + 0.6 * band_noise(n, 420, 250, r)) * env * grit
-    put(buf, 0.35 * slide / np.max(np.abs(slide)), 0.14)
-    # va chạm cuối hành trình
-    put(buf, damped(130, 0.05, 0.25, 0.9), 0.64)
-    put(buf, damped(650, 0.015, 0.08, 0.4), 0.64)
-    put(buf, click(3000, 1300, 0.0015, 0.8, r), 0.64)
-    put(buf, click(2500, 1000, 0.0015, 0.25, r), 0.685)
-    return norm(buf, 0.75)
-
-
-def bell(seed=11):
-    """Tiếng chuông 'ting' của máy chữ: chuông kim loại nhỏ, các họa âm không điều hòa, ngân khoảng 1 giây."""
-    r = np.random.default_rng(seed)
-    buf = np.zeros(int(1.4 * SR))
-    put(buf, click(5000, 1500, 0.0008, 0.3, r), 0)
-    f0 = 2480
-    for ratio, amp, dec in ((1.0, 1.0, 0.7), (2.32, 0.45, 0.4), (4.25, 0.25, 0.25), (6.63, 0.12, 0.15)):
-        for det, share in ((0.0, 0.85), (1.2, 0.15)):   # thành phần lệch nhỏ cho tiếng ngân hơi rung, không bị nhịp 'ù ù'
-            put(buf, damped(f0 * ratio + det, dec, 1.39, amp * share, r.uniform(0, 2 * np.pi)), 0.001)
-    fade = int(0.3 * SR)
-    buf[-fade:] *= np.linspace(1, 0, fade) ** 2          # nhỏ dần ở cuối, tránh tiếng 'bụp'
-    return norm(buf, 0.6)
+def load_mp3(path):
+    raw = subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', path, '-f', 's16le', '-ac', '1', '-ar', str(SR), '-'],
+                         check=True, capture_output=True).stdout
+    return np.frombuffer(raw, dtype=np.int16).astype(float) / 32767
 
 
 def write_wav(path, x):
@@ -132,20 +39,102 @@ def write_wav(path, x):
         w.writeframes((x * 32767).astype(np.int16).tobytes())
 
 
+def read_wav(path):
+    with wave.open(path) as w:
+        return np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(float) / 32767
+
+
+def put(buf, sig, at):
+    a = int(round(at * SR))
+    b = min(len(buf), a + len(sig))
+    if 0 <= a < len(buf):
+        buf[a:b] += sig[:b - a]
+
+
+def norm(x, peak):
+    return x * (peak / (np.max(np.abs(x)) + 1e-9))
+
+
+def fades(x, fin=0.002, fout=0.04):
+    x = x.copy()
+    a, b = int(fin * SR), min(len(x), int(fout * SR))
+    x[:a] *= np.linspace(0, 1, a)
+    x[-b:] *= np.linspace(1, 0, b) ** 2
+    return x
+
+
+def onsets(x):
+    hop = int(0.002 * SR)
+    env = np.sqrt(np.convolve(x ** 2, np.ones(hop) / hop, 'same'))[::hop]
+    thr = max(np.percentile(env, 20) * 6, np.percentile(env, 90) * 0.35)
+    out, last = [], -10**9
+    for i in range(5, len(env)):
+        if env[i] > thr and env[i] > 3 * env[i - 5] and (i - last) * 0.002 > 0.05:
+            out.append(i * 0.002)
+            last = i
+    return np.array(out)
+
+
+def centroid(seg):
+    X = np.abs(np.fft.rfft(seg)) ** 2
+    f = np.fft.rfftfreq(len(seg), 1 / SR)
+    return (f * X).sum() / (X.sum() + 1e-12)
+
+
+def tach():
+    x = load_mp3(GOC)
+    ons = onsets(x)
+    # tiếng phím đứng riêng: cách tiếng trước >= 0.09s và tiếng sau >= 0.20s, ngoài các vùng loại trừ
+    cands = []
+    for i in range(1, len(ons) - 1):
+        t = ons[i]
+        if any(a <= t <= b for a, b in EXCLUDE):
+            continue
+        if t - ons[i - 1] < 0.09 or ons[i + 1] - t < 0.20:
+            continue
+        # căn để tiếng "cạch" chính (đỉnh lớn nhất) luôn nằm ở 10 ms đầu file, khớp lúc chữ hiện ra
+        a0 = int((t - 0.003) * SR)
+        pk = a0 + int(np.argmax(np.abs(x[a0:a0 + int(0.08 * SR)])))
+        start = pk / SR - 0.010
+        dur = min(0.22, ons[i + 1] - 0.01 - start)
+        seg = x[int(start * SR):int((start + dur) * SR)]
+        cands.append((t, seg, np.max(np.abs(seg)), centroid(seg[:int(0.05 * SR)])))
+    peaks = np.array([c[2] for c in cands])
+    lo, hi = np.percentile(peaks, 35), np.percentile(peaks, 92)
+    good = sorted([c for c in cands if lo <= c[2] <= hi], key=lambda c: c[3])
+    # phím cách: 2 tiếng trầm nhất; phím chữ: 12 tiếng trải đều theo độ sáng tiếng
+    spaces, keys = good[:2], good[2:]
+    keys = [keys[int(i)] for i in np.linspace(0, len(keys) - 1, 12)]
+    for f in glob.glob(os.path.join(SFX_DIR, '*.wav')):
+        os.remove(f)
+    for i, (t, seg, _, _) in enumerate(keys, 1):
+        write_wav(os.path.join(SFX_DIR, f'phim-{i:02d}.wav'), fades(norm(seg, 0.7)))
+    for i, (t, seg, _, _) in enumerate(spaces, 1):
+        write_wav(os.path.join(SFX_DIR, f'phim-cach-{i:02d}.wav'), fades(norm(seg, 0.55)))
+    for i, (t, d) in enumerate(BELLS, 1):
+        seg = x[int((t - 0.005) * SR):int((t + d) * SR)]
+        write_wav(os.path.join(SFX_DIR, f'chuong-{i:02d}.wav'), fades(norm(seg, 0.7), fout=0.4))
+    for i, (t, d) in enumerate(RETURNS, 1):
+        seg = x[int(t * SR):int((t + d) * SR)]
+        write_wav(os.path.join(SFX_DIR, f'gat-dong-{i:02d}.wav'), fades(norm(seg, 0.7), fin=0.02, fout=0.15))
+    print(f'Đã cắt {len(keys)} tiếng phím, {len(spaces)} phím cách, {len(BELLS)} chuông, {len(RETURNS)} gạt dòng '
+          f'(từ {len(ons)} tiếng gõ trong bản thu) vào {SFX_DIR}')
+    nghe_thu()
+
+
+def load_set():
+    ld = lambda pat: [read_wav(p) for p in sorted(glob.glob(os.path.join(SFX_DIR, pat)))]
+    return ld('phim-[0-9]*.wav'), ld('phim-cach-*.wav'), ld('gat-dong-*.wav'), ld('chuong-*.wav')
+
+
 def pitch(x, factor):
-    """Đổi cao độ nhẹ bằng cách co giãn mẫu (factor > 1 là cao hơn)."""
     idx = np.arange(0, len(x) - 1, factor)
     return np.interp(idx, np.arange(len(x)), x)
 
 
-KEYS = [key(s) for s in range(1, 7)]
-SPACES = [space(s) for s in (21, 22)]
-RETURN = carriage_return()
-BELL = bell()
-
-
 def go(text, cps, start=0.0, jitter=0.2, seed=1946, ret=False, ring=False, gain_db=0.0):
     """Trả về (âm thanh, danh sách thời điểm ký tự) cho một dòng chữ được đánh máy."""
+    keys, spaces, returns, bells = load_set()
     rng = np.random.default_rng(seed)
     chars = list(unicodedata.normalize('NFC', text))
     base = 1.0 / cps
@@ -155,57 +144,52 @@ def go(text, cps, start=0.0, jitter=0.2, seed=1946, ret=False, ring=False, gain_
         times = start + np.concatenate([[0], np.cumsum(iv)])
     else:
         times = np.array([start])
-    last = times[-1] if len(times) else start
-    tail = (0.12 + len(RETURN) / SR) if ret else 0.0
-    tail = max(tail, (0.08 + len(BELL) / SR) if ring else 0.0, 0.2)
-    buf = np.zeros(int((last + tail) * SR) + 1)
+    last = times[-1]
+    bell = bells[rng.integers(len(bells))] if ring else None
+    rtn = returns[rng.integers(len(returns))] if ret else None
+    t_bell = last + 0.06
+    t_ret = (t_bell + 0.6) if ring else (last + 0.15)
+    end = last + 0.3
+    if ring:
+        end = max(end, t_bell + len(bell) / SR)
+    if ret:
+        end = max(end, t_ret + len(rtn) / SR)
+    buf = np.zeros(int(end * SR) + 1)
     prev = -1
     for ch, tc in zip(chars, times):
-        if ch == '\n':
-            put(buf, RETURN, tc)
-            continue
         if ch.isspace():
-            s = SPACES[rng.integers(len(SPACES))]
+            s = spaces[rng.integers(len(spaces))]
         else:
-            k = rng.integers(len(KEYS))
+            k = rng.integers(len(keys))
             if k == prev:
-                k = (k + 1) % len(KEYS)
+                k = (k + 1) % len(keys)
             prev = k
-            s = KEYS[k]
-        s = pitch(s, rng.uniform(0.95, 1.05)) * 10 ** (rng.uniform(-1.5, 1.5) / 20)
+            s = keys[k]
+        s = pitch(s, rng.uniform(0.97, 1.03)) * 10 ** (rng.uniform(-2.0, 2.0) / 20)
         put(buf, s, tc)
     if ring:
-        put(buf, BELL, last + 0.08)
+        put(buf, bell * 0.8, t_bell)
     if ret:
-        put(buf, RETURN, last + (0.5 if ring else 0.12))
-    buf *= 10 ** (gain_db / 20)
+        put(buf, rtn, t_ret)
+    buf = norm(buf, 0.8) * 10 ** (gain_db / 20)
     return buf, [{'kyTu': c, 'giay': round(float(t), 4)} for c, t in zip(chars, times)]
 
 
-def tao():
-    os.makedirs(SFX_DIR, exist_ok=True)
-    for i, k in enumerate(KEYS, 1):
-        write_wav(os.path.join(SFX_DIR, f'phim-{i:02d}.wav'), k)
-    for i, s in enumerate(SPACES, 1):
-        write_wav(os.path.join(SFX_DIR, f'phim-cach-{i:02d}.wav'), s)
-    write_wav(os.path.join(SFX_DIR, 'gat-dong.wav'), RETURN)
-    write_wav(os.path.join(SFX_DIR, 'chuong.wav'), BELL)
-    # File nghe thử: ba dòng chữ trong video, đúng tốc độ thiết kế
-    demo = np.zeros(int(13 * SR))
+def nghe_thu():
+    demo = np.zeros(int(15 * SR))
     for text, cps, at, r_, b_ in (('Hà Nội · Tháng 12 năm 1946', 14, 0.3, True, False),
-                                  ('— Giải tán lực lượng tự vệ', 30, 4.2, True, False),
-                                  ('Hạn chót: sáng 20.12.1946', 24, 6.6, False, True),
-                                  ('1946 – 1950', 12, 10.4, False, True)):
+                                  ('— Giải tán lực lượng tự vệ', 30, 5.0, True, False),
+                                  ('Hạn chót: sáng 20.12.1946', 24, 7.9, False, True),
+                                  ('1946 – 1950', 12, 11.6, False, True)):
         x, _ = go(text, cps, 0, ret=r_, ring=b_)
         put(demo, x, at)
-    write_wav(os.path.join(SFX_DIR, 'nghe-thu.wav'), norm(demo, 0.8))
-    print('Đã tạo bộ tiếng trong', SFX_DIR)
+    write_wav(os.path.join(SFX_DIR, 'nghe-thu.wav'), fades(norm(demo, 0.8), fout=0.3))
 
 
 if __name__ == '__main__':
-    ap = argparse.ArgumentParser(description='Bộ tiếng máy chữ')
+    ap = argparse.ArgumentParser(description='Bộ tiếng máy chữ (cắt từ bản thu thật)')
     sub = ap.add_subparsers(dest='cmd', required=True)
-    sub.add_parser('tao', help='Tạo bộ tiếng mẫu vào sfx/may-chu/')
+    sub.add_parser('tach', help='Cắt bộ tiếng mẫu từ bản thu gốc vào sfx/may-chu/')
     g = sub.add_parser('go', help='Tạo đoạn tiếng gõ khớp một dòng chữ')
     g.add_argument('text')
     g.add_argument('--cps', type=float, default=26, help='Số ký tự mỗi giây (mặc định 26)')
@@ -217,8 +201,8 @@ if __name__ == '__main__':
     g.add_argument('--gain-db', type=float, default=0.0)
     g.add_argument('-o', '--out', required=True)
     a = ap.parse_args()
-    if a.cmd == 'tao':
-        tao()
+    if a.cmd == 'tach':
+        tach()
     else:
         x, times = go(a.text, a.cps, a.start, a.jitter, a.seed, a.ret, a.bell, a.gain_db)
         write_wav(a.out, x)

@@ -2451,13 +2451,14 @@
     }
   ],
   "sfxLibrary": {
+    "_nguonTiengMayChu": "Cắt từ bản thu máy chữ cơ thật: audio/sfx/may-chu/goc/sea-you-later-typewriter-301419.mp3 (do người làm video cung cấp). Cắt lại bằng: python3 audio/may_chu.py tach",
     "_congCuGoChu": "Tạo sẵn đoạn tiếng gõ cho một dòng chữ: python3 audio/may_chu.py go \"<chữ>\" --cps <tốc độ> [--return] [--bell] [--jitter 0] -o <file.wav>. Kèm file .json ghi thời điểm từng ký tự. Dùng --jitter 0 khi công cụ dựng gõ chữ đều (vd. CapCut).",
     "SFX-TYPE-KEY": {
-      "mo_ta": "Tiếng gõ phím máy chữ cơ (kiểu máy chữ thập niên 1940): 'tạch' khô, ngắn ~40 ms",
+      "mo_ta": "Tiếng gõ phím máy chữ cơ thật (cắt từ bản thu), tiếng 'cạch' chính nằm ở 10 ms đầu mỗi file",
       "khi_nao": "MỖI ký tự chữ/số khi đánh máy",
-      "bien_the": "Dùng luân phiên ngẫu nhiên 4–6 mẫu khác nhau, lệch cao độ ±5% để không nghe lặp máy móc",
+      "bien_the": "12 tiếng phím khác nhau, dùng luân phiên ngẫu nhiên, lệch cao độ ±3% và âm lượng ±2 dB để không nghe lặp",
       "am_luong": "-18 dB khi không có lời dẫn; -28 dB khi lời dẫn đang nói",
-      "file": "audio/sfx/may-chu/phim-01.wav … phim-06.wav (luân phiên ngẫu nhiên, không lặp 2 lần liền)"
+      "file": "audio/sfx/may-chu/phim-01.wav … phim-12.wav"
     },
     "SFX-TYPE-SPACE": {
       "mo_ta": "Tiếng phím cách, trầm và nhẹ hơn phím chữ",
@@ -2466,16 +2467,16 @@
       "file": "audio/sfx/may-chu/phim-cach-01.wav, phim-cach-02.wav"
     },
     "SFX-TYPE-RETURN": {
-      "mo_ta": "Tiếng gạt cần xuống dòng của máy chữ: 'cạch… xoẹt'",
+      "mo_ta": "Tiếng gạt cần xuống dòng thật: bánh cóc chạy 'rrrrt' khoảng 1,3 giây",
       "khi_nao": "Cuối dòng của phần tử có returnSound: true",
       "am_luong": "-20 dB",
-      "file": "audio/sfx/may-chu/gat-dong.wav"
+      "file": "audio/sfx/may-chu/gat-dong-01.wav, gat-dong-02.wav"
     },
     "SFX-TYPE-BELL": {
-      "mo_ta": "Tiếng chuông 'ting' của máy chữ",
+      "mo_ta": "Tiếng chuông 'ting' thật của máy chữ, ngân khoảng 1,7 giây",
       "khi_nao": "Gõ xong dòng 'Hạn chót: sáng 20.12.1946' (C4)",
       "am_luong": "-16 dB",
-      "file": "audio/sfx/may-chu/chuong.wav"
+      "file": "audio/sfx/may-chu/chuong-01.wav, chuong-02.wav"
     },
     "SFX-HIT": {
       "mo_ta": "Tiếng 'thịch' trầm, nặng (trống lớn tắt tiếng / sub-bass hit)",

@@ -174,11 +174,11 @@ Danh sách đầy đủ nằm trong `textStyles` của JSON.
 
 | Mục | Quy định |
 |---|---|
-| Loại âm | Phím máy chữ cơ thập niên 1940. Không dùng tiếng bàn phím máy tính |
-| Số mẫu | 4–6 mẫu tiếng gõ khác nhau, **dùng luân phiên ngẫu nhiên**, lệch cao độ ±5%, để không nghe như tiếng máy lặp lại |
+| Loại âm | Phím máy chữ cơ, lấy từ bản thu thật (xem dòng Nguồn). Không dùng tiếng bàn phím máy tính |
+| Số mẫu | 12 tiếng phím khác nhau, **dùng luân phiên ngẫu nhiên**, lệch cao độ ±3% và âm lượng ±2 dB, để không nghe như tiếng máy lặp lại |
 | Âm lượng | **−18 dB** khi không có lời dẫn (ví dụ dòng mở đầu C1, năm ở C11). **−28 dB** khi lời dẫn đang nói. **−30 dB** ở trích dẫn C8 (chỉ như tiếng nền, không được át giọng đọc) |
 | Đồng bộ | Tiếng gõ khớp **từng ký tự**. Không dùng một đoạn tiếng gõ chạy liên tục không khớp với chữ |
-| Nguồn | **Đã có sẵn trong repo** ở thư mục `video-hook/audio/sfx/may-chu/`: `phim-01…06.wav` (6 tiếng phím), `phim-cach-01…02.wav` (phím cách), `gat-dong.wav` (gạt dòng "cạch… xoẹt"), `chuong.wav` (chuông "ting"), `nghe-thu.wav` (nghe thử). Muốn thật hơn có thể thay bằng tiếng thu từ máy chữ thật, hoặc lấy từ Pixabay Sound Effects (từ khóa `typewriter key`, `typewriter return`, `typewriter bell`) |
+| Nguồn | **Tiếng máy chữ cơ thật**, cắt từ bản thu `video-hook/audio/sfx/may-chu/goc/sea-you-later-typewriter-301419.mp3`. Các file đã cắt sẵn trong `video-hook/audio/sfx/may-chu/`: `phim-01…12.wav` (12 tiếng phím, tiếng "cạch" chính nằm ở 10 ms đầu file), `phim-cach-01…02.wav` (phím cách), `gat-dong-01…02.wav` (gạt dòng, bánh cóc chạy "rrrrt"), `chuong-01…02.wav` (chuông "ting"), `nghe-thu.wav` (nghe thử). **Không dùng tiếng tổng hợp hay tiếng bàn phím máy tính.** |
 | Công cụ tạo sẵn tiếng gõ cho từng dòng | `python3 video-hook/audio/may_chu.py go "Hạn chót: sáng 20.12.1946" --cps 24 --bell -o han-chot.wav` tạo ra một file âm thanh có **đúng một tiếng gõ cho mỗi ký tự**, kèm tiếng gạt dòng (`--return`) hoặc chuông (`--bell`). Đi kèm là file `.json` ghi giây xuất hiện của từng ký tự. Dùng `--jitter 0` nếu công cụ dựng gõ chữ đều (ví dụ CapCut); mặc định nhịp gõ lệch ±20% cho giống người thật |
 
 **Nếu công cụ dựng không tự gắn tiếng theo ký tự** (ví dụ CapCut: hiệu ứng "Đánh máy" không có âm thanh):
