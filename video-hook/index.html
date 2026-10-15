@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Hook – 20 giờ, 19/12/1946</title>
+<style>
+  :root { --cream:#efe6d2; --red:#c8302a; --gold:#f2c14e; --ink:#0b0e14; }
+  html, body { margin:0; background:#000; overflow:hidden; }
+  #stage { position:absolute; left:0; top:0; width:1920px; height:1080px; overflow:hidden;
+           background:#000; transform-origin:0 0; color:var(--cream);
+           font-family:'Inter', sans-serif; }
+  #world { position:absolute; inset:0; }
+  .scene { position:absolute; inset:0; opacity:0; }
+  .serif { font-family:'DejaVu Serif', 'Liberation Serif', serif; }
+  .title { font-family:'Liberation Serif', 'DejaVu Serif', serif; font-weight:700; }
+  .mono  { font-family:'DejaVu Sans Mono', monospace; }
+  .center { position:absolute; left:0; right:0; text-align:center; }
+  .cur { color:var(--gold); }
+
+  /* Captions */
+  #capband { position:absolute; left:0; right:0; bottom:0; height:260px; opacity:0;
+             background:linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,0)); }
+  #cap { position:absolute; left:160px; right:160px; bottom:84px; text-align:center;
+         font-size:46px; line-height:1.35; text-shadow:0 2px 12px #000; opacity:0; }
+
+  /* Scene 1 */
+  #s1text { top:500px; font-size:46px; letter-spacing:2px; }
+
+  /* Street */
+  #sky { position:absolute; inset:0; background:linear-gradient(#070d18 0%, #142036 70%, #1d2a40 100%); }
+  #street svg { position:absolute; left:0; top:0; }
+
+  /* Timeline */
+  #timeline { position:absolute; left:0; top:0; width:1920px; height:420px; }
+  #tl-line { position:absolute; left:260px; top:196px; height:4px; width:0; background:var(--cream); opacity:.7; }
+  .node { position:absolute; top:180px; width:300px; margin-left:-150px; text-align:center; opacity:0; }
+  .node .dot { width:36px; height:36px; border-radius:50%; background:var(--cream); margin:0 auto 22px; }
+  .node .date { font-size:30px; color:var(--gold); }
+  .node .desc { font-size:30px; margin-top:6px; line-height:1.25; }
+  .node.hot .dot { background:var(--red); box-shadow:0 0 0 0 rgba(200,48,42,.6); }
+  .node.hot .desc { color:#ff8a7a; }
+
+  /* Scene 3 */
+  #s3 { background:radial-gradient(ellipse at 50% 45%, #2b2119 0%, #120d0a 75%); }
+  #cal { position:absolute; left:250px; top:230px; width:440px; height:540px; background:var(--cream);
+         color:#1a1410; border-radius:10px; box-shadow:0 30px 60px rgba(0,0,0,.6); overflow:hidden; }
+  #cal .band { background:var(--red); color:var(--cream); font-size:34px; padding:22px 0; text-align:center; letter-spacing:4px; }
+  #calnum { font-size:260px; text-align:center; line-height:1; margin-top:40px; transform-origin:50% 50%; }
+  #calday { font-size:36px; text-align:center; letter-spacing:6px; margin-top:22px; color:#5a4636; }
+  #doc { position:absolute; left:820px; top:170px; width:860px; height:700px; background:#e9dfc6; color:#2a1f16;
+         box-shadow:0 30px 70px rgba(0,0,0,.65); padding:60px 70px; box-sizing:border-box; transform-origin:50% 50%; }
+  #doc h1 { margin:0; font-size:66px; color:#8a1f18; letter-spacing:6px; }
+  #docdate { font-size:28px; margin:14px 0 40px; color:#6b5a48; }
+  .docline { font-size:34px; line-height:1.5; min-height:51px; }
+  #docdead { margin-top:34px; font-size:34px; color:#8a1f18; font-weight:bold; }
+
+  /* Scene 4 clock */
+  #clockwrap { position:absolute; left:0; right:0; top:120px; text-align:center; opacity:0; }
+  #clocklabel { font-size:34px; letter-spacing:6px; color:var(--cream); opacity:.85; }
+  #clock { font-size:180px; color:var(--gold); text-shadow:0 0 40px rgba(242,193,78,.45); margin-top:6px; }
+
+  /* Scene 5 */
+  #s5 { background:#000; }
+  #s5small { top:500px; font-size:40px; opacity:0; }
+  #s5glow { position:absolute; inset:0; opacity:0;
+            background:radial-gradient(ellipse at 50% 120%, rgba(255,120,40,.85) 0%, rgba(160,30,10,.45) 35%, rgba(0,0,0,0) 70%); }
+  #s5big { top:380px; font-size:124px; letter-spacing:6px; opacity:0; }
+  #s5sub { top:560px; font-size:42px; opacity:0; }
+  #flash { position:absolute; inset:0; background:#fff; opacity:0; }
+
+  /* Scene 6 */
+  #s6 { background:radial-gradient(ellipse at 40% 40%, #8e1a16 0%, #5a0d0b 60%, #2a0504 100%); }
+  #star { position:absolute; left:1250px; top:140px; width:800px; height:800px; opacity:.09; }
+  #quote { position:absolute; left:160px; top:150px; width:1640px; }
+  #qhead { font-size:58px; color:var(--gold); margin-bottom:36px; opacity:0; }
+  .qline { font-size:46px; line-height:1.5; min-height:75px; }
+  .qline.big { font-size:60px; color:var(--gold); }
+  #qattr { font-size:32px; margin-top:34px; opacity:0; color:#f1d9c9; }
+
+  /* Scene 7 */
+  #s7 svg { position:absolute; left:0; top:0; }
+  #s7dim { position:absolute; inset:0; background:#000; opacity:0; }
+  .lack { font-size:72px; opacity:0; }
+  #ask { top:470px; font-size:140px; color:var(--gold); opacity:0; }
+
+  /* Scene 8 */
+  #s8 { background:radial-gradient(ellipse at 50% 50%, #1b1512 0%, #050403 80%); }
+  #t8line { position:absolute; left:960px; top:380px; height:4px; width:0; background:var(--red); }
+  #t8a { top:420px; font-size:84px; letter-spacing:4px; opacity:0; }
+  #t8b { top:550px; font-size:44px; opacity:0; }
+  #t8c { top:630px; font-size:48px; color:var(--gold); letter-spacing:8px; opacity:0; }
+
+  /* Overlays */
+  #vignette { position:absolute; inset:0; pointer-events:none;
+              background:radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,.6) 100%); }
+  #grain { position:absolute; left:0; top:0; width:1920px; height:1080px; opacity:.05; pointer-events:none; image-rendering:pixelated; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="world">
+
+    <!-- Scene 1: mở đầu -->
+    <div class="scene" id="s1">
+      <svg id="s1clock" width="120" height="120" viewBox="-60 -60 120 120" style="position:absolute;left:900px;top:330px">
+        <circle r="50" fill="none" stroke="#efe6d2" stroke-width="5"/>
+        <line id="s1hand" x1="0" y1="0" x2="0" y2="-38" stroke="#f2c14e" stroke-width="5" stroke-linecap="round"/>
+        <circle r="5" fill="#efe6d2"/>
+      </svg>
+      <div class="center mono" id="s1text"></div>
+    </div>
+
+    <!-- Phố Hà Nội (dùng cho cảnh 2 và 4) -->
+    <div class="scene" id="street">
+      <div id="sky"></div>
+      <svg id="stars" width="1920" height="1080"></svg>
+      <svg id="moon" width="1920" height="1080">
+        <defs>
+          <radialGradient id="moonglow"><stop offset="0" stop-color="#e9e2cc" stop-opacity=".35"/><stop offset="1" stop-color="#e9e2cc" stop-opacity="0"/></radialGradient>
+        </defs>
+        <circle cx="1790" cy="300" r="140" fill="url(#moonglow)"/>
+        <circle cx="1790" cy="300" r="42" fill="#e9e2cc"/>
+      </svg>
+      <svg id="back" width="2800" height="1080"></svg>
+      <svg id="front" width="2800" height="1080"></svg>
+      <div id="timeline">
+        <div id="tl-line"></div>
+        <div class="node" id="n1" style="left:420px"><div class="dot"></div><div class="date mono">06.3.1946</div><div class="desc">Hiệp định Sơ bộ</div></div>
+        <div class="node" id="n2" style="left:960px"><div class="dot"></div><div class="date mono">14.9.1946</div><div class="desc">Tạm ước Việt – Pháp</div></div>
+        <div class="node hot" id="n3" style="left:1500px"><div class="dot"></div><div class="date mono">11.1946</div><div class="desc">Pháp đánh chiếm<br>Hải Phòng, Lạng Sơn</div></div>
+      </div>
+      <div id="clockwrap">
+        <div id="clocklabel" class="mono">TỐI 19.12.1946</div>
+        <div id="clock" class="mono">19:59:50</div>
+      </div>
+    </div>
+
+    <!-- Scene 3: 17/12 và tối hậu thư -->
+    <div class="scene" id="s3">
+      <div id="cal">
+        <div class="band">THÁNG 12 · 1946</div>
+        <div id="calnum" class="title">17</div>
+        <div id="calday">THỨ BA</div>
+      </div>
+      <div id="doc">
+        <h1 class="title">TỐI HẬU THƯ</h1>
+        <div id="docdate" class="mono">Hà Nội, 18.12.1946</div>
+        <div class="docline serif" id="d1"></div>
+        <div class="docline serif" id="d2"></div>
+        <div class="docline serif" id="d3"></div>
+        <div id="docdead" class="mono"></div>
+      </div>
+    </div>
+
+    <!-- Scene 5: 20 giờ -->
+    <div class="scene" id="s5">
+      <div class="center mono" id="s5small">Đèn điện Hà Nội vụt tắt.</div>
+      <div id="s5glow"></div>
+      <div class="center title" id="s5big">20 GIỜ · 19.12.1946</div>
+      <div class="center" id="s5sub">Pháo đài Láng nổ súng — Toàn quốc kháng chiến bùng nổ</div>
+      <div id="flash"></div>
+    </div>
+
+    <!-- Scene 6: Lời kêu gọi -->
+    <div class="scene" id="s6">
+      <svg id="star" viewBox="-100 -100 200 200">
+        <polygon fill="#f2c14e" points="0,-95 22.3,-30.7 90.4,-29.4 36.1,11.7 55.8,76.9 0,38 -55.8,76.9 -36.1,11.7 -90.4,-29.4 -22.3,-30.7"/>
+      </svg>
+      <div id="quote" class="serif">
+        <div id="qhead">Hỡi đồng bào toàn quốc!</div>
+        <div class="qline" id="q0"></div>
+        <div class="qline" id="q1"></div>
+        <div class="qline" id="q2"></div>
+        <div class="qline" id="q3"></div>
+        <div class="qline" id="q4"></div>
+        <div class="qline big" id="q5"></div>
+        <div id="qattr">— Chủ tịch Hồ Chí Minh, <i>Lời kêu gọi toàn quốc kháng chiến</i></div>
+      </div>
+    </div>
+
+    <!-- Scene 7: so sánh lực lượng -->
+    <div class="scene" id="s7">
+      <svg id="s7svg" width="1920" height="1080"></svg>
+      <div id="s7dim"></div>
+      <div class="center lack" id="l1" style="top:300px">Thiếu vũ khí.</div>
+      <div class="center lack" id="l2" style="top:420px">Thiếu tiền.</div>
+      <div class="center lack" id="l3" style="top:540px">Thiếu đồng minh.</div>
+      <div class="center title" id="ask">Lấy gì để thắng?</div>
+    </div>
+
+    <!-- Scene 8: tên đề tài -->
+    <div class="scene" id="s8">
+      <div id="t8line"></div>
+      <div class="center title" id="t8a">ĐƯỜNG LỐI KHÁNG CHIẾN TOÀN QUỐC</div>
+      <div class="center" id="t8b">và quá trình tổ chức thực hiện</div>
+      <div class="center mono" id="t8c">1946 – 1950</div>
+    </div>
+
+    <div id="capband"></div>
+    <div id="cap" class="serif"></div>
+  </div>
+  <div id="vignette"></div>
+  <canvas id="grain" width="480" height="270"></canvas>
+</div>
+
+<script>
+const DURATION = 78;
+const FPS = 30;
+const $ = id => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const prog = (t, a, b) => clamp((t - a) / (b - a));
+const easeOut = x => 1 - Math.pow(1 - x, 3);
+const easeInOut = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+// Độ mờ của phần tử hiện trong khoảng [a, b], có fade vào/ra
+const vis = (t, a, b, fi = .6, fo = .6) => (t < a || t > b) ? 0 : Math.min(1, (t - a) / fi, (b - t) / fo);
+
+function rng(seed) {
+  return () => {
+    seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+    let r = Math.imul(seed ^ seed >>> 15, 1 | seed);
+    r = r + Math.imul(r ^ r >>> 7, 61 | r) ^ r;
+    return ((r ^ r >>> 14) >>> 0) / 4294967296;
+  };
+}
+
+const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+// Hiệu ứng đánh máy: hiện dần từng ký tự, con trỏ nhấp nháy trong lúc gõ
+function type(el, text, t, start, cps, cursorHold = .5) {
+  const n = clamp(Math.floor((t - start) * cps), 0, text.length);
+  const done = start + text.length / cps;
+  const showCur = t >= start && t < done + cursorHold && (n < text.length || Math.floor(t * 3) % 2 === 0);
+  el.innerHTML = esc(text.slice(0, n)) + (showCur ? '<span class="cur">▌</span>' : '');
+  return done;
+}
+
+/* ---------- Dựng phố Hà Nội ---------- */
+const NS = 'http://www.w3.org/2000/svg';
+function svgEl(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  parent && parent.appendChild(e);
+  return e;
+}
+const GROUND = 930;
+function buildStreet() {
+  const R = rng(19121946);
+  // sao
+  const stars = $('stars');
+  for (let i = 0; i < 90; i++) svgEl('circle', { cx: R() * 1920, cy: R() * 420, r: .8 + R() * 1.6, fill: '#e9e2cc', opacity: .25 + R() * .5 }, stars);
+
+  // dãy nhà phía sau
+  const back = $('back');
+  const backWins = svgEl('g', { class: 'wins' }, back);
+  for (let x = -20; x < 2800;) {
+    const w = 140 + R() * 170, h = 360 + R() * 240, top = GROUND - h;
+    svgEl('rect', { x, y: top, width: w + 2, height: h, fill: '#141c2b' }, back);
+    for (let wy = top + 40; wy < GROUND - 80; wy += 70)
+      for (let wx = x + 22; wx < x + w - 30; wx += 46)
+        if (R() < .3) svgEl('rect', { x: wx, y: wy, width: 16, height: 26, fill: '#e8b85f', opacity: .45 }, backWins);
+    x += w;
+  }
+  back.appendChild(backWins);
+
+  // dãy nhà ống phía trước
+  const front = $('front');
+  const frontHouses = svgEl('g', {}, front);
+  const frontWins = svgEl('g', { class: 'wins' }, front);
+  for (let x = -10; x < 2800;) {
+    const w = 110 + R() * 70, h = 210 + R() * 190, top = GROUND - h;
+    svgEl('rect', { x, y: top, width: w + 1, height: h, fill: '#0a0d13' }, frontHouses);
+    if (R() < .55) svgEl('polygon', { points: `${x - 8},${top} ${x + w / 2},${top - 46 - R() * 20} ${x + w + 8},${top}`, fill: '#0a0d13' }, frontHouses);
+    else svgEl('rect', { x: x + 6, y: top - 22, width: w - 12, height: 22, fill: '#0a0d13' }, frontHouses);
+    for (let wy = top + 34; wy < GROUND - 110; wy += 86)
+      for (let wx = x + 24; wx < x + w - 40; wx += 52) {
+        const lit = R() < .45;
+        svgEl('rect', { x: wx, y: wy, width: 28, height: 42, fill: lit ? '#f5c46a' : '#151b27', opacity: lit ? .9 : 1 }, lit ? frontWins : frontHouses);
+      }
+    x += w + 4;
+  }
+  // mặt đường
+  svgEl('rect', { x: 0, y: GROUND, width: 2800, height: 150, fill: '#05070a' }, front);
+
+  // cột đèn đường
+  const defs = svgEl('defs', {}, front);
+  const g = svgEl('radialGradient', { id: 'lampglow' }, defs);
+  svgEl('stop', { offset: 0, 'stop-color': '#ffd27a', 'stop-opacity': .75 }, g);
+  svgEl('stop', { offset: .35, 'stop-color': '#ffb347', 'stop-opacity': .25 }, g);
+  svgEl('stop', { offset: 1, 'stop-color': '#ffb347', 'stop-opacity': 0 }, g);
+  const glows = svgEl('g', { id: 'glows' }, front);
+  for (let lx = 160; lx < 2800; lx += 430) {
+    svgEl('rect', { x: lx - 4, y: GROUND - 330, width: 8, height: 330, fill: '#020305' }, front);
+    svgEl('rect', { x: lx - 4, y: GROUND - 330, width: 46, height: 6, fill: '#020305' }, front);
+    svgEl('polygon', { points: `${lx + 26},${GROUND - 326} ${lx + 52},${GROUND - 326} ${lx + 46},${GROUND - 300} ${lx + 32},${GROUND - 300}`, fill: '#020305' }, front);
+    svgEl('circle', { cx: lx + 39, cy: GROUND - 296, r: 170, fill: 'url(#lampglow)' }, glows);
+    svgEl('ellipse', { cx: lx + 39, cy: GROUND + 20, rx: 150, ry: 26, fill: '#ffcf7a', opacity: .16 }, glows);
+    svgEl('circle', { cx: lx + 39, cy: GROUND - 298, r: 7, fill: '#fff1c9' }, glows);
+  }
+  front.appendChild(frontWins);
+  front.appendChild(glows);
+}
+
+/* ---------- So sánh lực lượng ---------- */
+function buildCompare() {
+  const s = $('s7svg');
+  svgEl('rect', { x: 0, y: 0, width: 960, height: 1080, fill: '#0f1a2b' }, s);
+  svgEl('rect', { x: 960, y: 0, width: 960, height: 1080, fill: '#3a2a17' }, s);
+  svgEl('rect', { x: 956, y: 0, width: 8, height: 1080, fill: '#c8302a' }, s);
+  const label = (x, txt) => { const e = svgEl('text', { x, y: 170, 'text-anchor': 'middle', 'font-size': 56, 'font-family': 'Inter', 'font-weight': 700, 'letter-spacing': 8, fill: '#efe6d2' }, s); e.textContent = txt; return e; };
+  label(480, 'QUÂN PHÁP');
+  label(1440, 'TA');
+  const C1 = '#9fb3cf', C2 = '#d9b77a';
+
+  // xe tăng
+  const tank = svgEl('g', { id: 'i_tank', transform: 'translate(250,540)' }, s);
+  svgEl('rect', { x: 0, y: 40, width: 300, height: 70, rx: 10, fill: C1 }, tank);
+  svgEl('rect', { x: 70, y: 0, width: 140, height: 50, rx: 8, fill: C1 }, tank);
+  svgEl('rect', { x: 200, y: 16, width: 150, height: 14, fill: C1 }, tank);
+  svgEl('rect', { x: -10, y: 110, width: 320, height: 46, rx: 23, fill: '#6f819b' }, tank);
+  for (let i = 0; i < 6; i++) svgEl('circle', { cx: 18 + i * 53, cy: 133, r: 16, fill: C1 }, tank);
+  // máy bay
+  const plane = svgEl('g', { id: 'i_plane', transform: 'translate(480,330)' }, s);
+  svgEl('ellipse', { cx: 0, cy: 0, rx: 190, ry: 26, fill: C1 }, plane);
+  svgEl('polygon', { points: '-40,-6 40,-6 -10,-120 -70,-120', fill: C1 }, plane);
+  svgEl('polygon', { points: '-40,6 40,6 -10,120 -70,120', fill: C1 }, plane);
+  svgEl('polygon', { points: '-150,-4 -190,-4 -205,-62 -175,-62', fill: C1 }, plane);
+  // tàu chiến
+  const ship = svgEl('g', { id: 'i_ship', transform: 'translate(480,900)' }, s);
+  svgEl('polygon', { points: '-260,0 260,0 220,60 -220,60', fill: C1 }, ship);
+  svgEl('rect', { x: -120, y: -50, width: 180, height: 50, fill: C1 }, ship);
+  svgEl('rect', { x: -70, y: -100, width: 70, height: 50, fill: C1 }, ship);
+  svgEl('rect', { x: 60, y: -36, width: 140, height: 12, fill: C1 }, ship);
+
+  // gậy tầm vông
+  const spears = svgEl('g', { id: 'i_spear', transform: 'translate(1440,560)' }, s);
+  [-24, 0, 24].forEach(a => {
+    const sp = svgEl('g', { transform: `rotate(${a})` }, spears);
+    svgEl('rect', { x: -9, y: -300, width: 18, height: 560, rx: 9, fill: C2 }, sp);
+    for (let k = -200; k < 260; k += 110) svgEl('rect', { x: -9, y: k, width: 18, height: 6, fill: '#8f6f3e' }, sp);
+    svgEl('polygon', { points: '-7,-300 7,-300 0,-370', fill: '#efe6d2' }, sp);
+  });
+  // súng trường cũ
+  const rifle = svgEl('g', { id: 'i_rifle', transform: 'translate(1470,930) rotate(-6) scale(1.35)' }, s);
+  svgEl('polygon', { points: '-260,-10 60,-10 120,-26 170,30 120,30 70,8 -260,8', fill: C2 }, rifle);
+  svgEl('rect', { x: -330, y: -18, width: 110, height: 9, fill: '#8f6f3e' }, rifle);
+}
+
+/* ---------- Phụ đề ---------- */
+const CAPTIONS = [
+  [5.6, 11.2, 'Hiệp định đã ký. Hòa bình tưởng như trong tầm tay.'],
+  [11.6, 19.6, 'Nhưng thực dân Pháp liên tục bội ước, lấn tới từng bước…'],
+  [20.4, 24.3, '17/12: Quân Pháp gây thảm sát ở phố Hàng Bún, Yên Ninh.'],
+  [25.0, 29.8, '18/12: Pháp gửi tối hậu thư, buộc ta hạ vũ khí.'],
+  [30.6, 35.0, 'Đêm 19 tháng 12. Hà Nội vẫn sáng đèn…'],
+  [35.3, 39.7, 'Mệnh lệnh đã truyền đi. Cả thành phố nín thở chờ tín hiệu.'],
+];
+
+/* ---------- Lời kêu gọi ---------- */
+const QUOTE = [
+  'Chúng ta muốn hòa bình, chúng ta phải nhân nhượng.',
+  'Nhưng chúng ta càng nhân nhượng, thực dân Pháp càng lấn tới,',
+  'vì chúng quyết tâm cướp nước ta lần nữa!',
+  'Không! Chúng ta thà hy sinh tất cả,',
+  'chứ nhất định không chịu mất nước,',
+  'nhất định không chịu làm nô lệ.',
+];
+const QCPS = 27, QSTART = 45.8, QPAUSE = .35;
+const QTIMES = [];
+{ let s = QSTART; for (const l of QUOTE) { QTIMES.push(s); s += l.length / QCPS + QPAUSE; } }
+
+/* ---------- Hạt nhiễu phim ---------- */
+const grainCtx = $('grain').getContext('2d');
+const grainImg = grainCtx.createImageData(480, 270);
+function drawGrain(frame) {
+  const R = rng(frame * 7919 + 1);
+  const d = grainImg.data;
+  for (let i = 0; i < d.length; i += 4) {
+    const v = R() * 255;
+    d[i] = d[i + 1] = d[i + 2] = v; d[i + 3] = 255;
+  }
+  grainCtx.putImageData(grainImg, 0, 0);
+}
+
+/* ---------- Dòng thời gian chính: vẽ khung hình tại thời điểm t ---------- */
+function seek(t) {
+  const frame = Math.round(t * FPS);
+  drawGrain(Math.floor(frame / 4));
+
+  // Cảnh 1 (0–5s)
+  $('s1').style.opacity = vis(t, 0, 5.2, .8, .6);
+  $('s1hand').setAttribute('transform', `rotate(${Math.floor(t) * 30})`);
+  type($('s1text'), 'Hà Nội · Tháng 12 năm 1946', t, 1.0, 14);
+
+  // Phố Hà Nội (5–20s và 30–40s)
+  const streetOn = Math.max(vis(t, 4.8, 20.4, 1.0, .5), vis(t, 29.8, 40.0, .6, .02));
+  $('street').style.opacity = streetOn;
+  const pan = easeInOut(prog(t, 4.8, 40));
+  $('front').style.transform = `translateX(${-560 * pan}px)`;
+  $('back').style.transform = `translateX(${-260 * pan}px)`;
+  // đèn chập chờn rồi tắt lúc 20:00
+  let light = 1;
+  if (t > 39.1 && t < 40) {
+    const f = rng(frame)();
+    light = f < .35 ? .15 : 1;
+  }
+  if (t >= 39.95) light = 0;
+  document.querySelectorAll('.wins').forEach(g => g.style.opacity = light);
+  $('glows').style.opacity = light;
+
+  // dòng thời gian 1946
+  $('timeline').style.opacity = vis(t, 6.0, 19.6, .4, .6);
+  $('tl-line').style.width = 1240 * easeOut(prog(t, 6.2, 13.8)) + 'px';
+  [['n1', 7.0], ['n2', 9.8], ['n3', 13.4]].forEach(([id, a]) => {
+    const p = easeOut(prog(t, a, a + .6));
+    $(id).style.opacity = p;
+    $(id).style.transform = `translateY(${(1 - p) * 30}px)`;
+  });
+  const pulse = (t - 13.4) % 1.2 / 1.2;
+  $('n3').querySelector('.dot').style.boxShadow = t > 13.4 ? `0 0 0 ${pulse * 30}px rgba(200,48,42,${.6 * (1 - pulse)})` : 'none';
+
+  // đồng hồ đếm ngược 19:59:50 → 20:00:00
+  $('clockwrap').style.opacity = vis(t, 30.2, 40.0, .8, .02);
+  const sec = clamp(Math.floor(t - 30) + 50, 50, 60);
+  $('clock').textContent = sec >= 60 ? '20:00:00' : `19:59:${sec}`;
+  $('clock').style.transform = `scale(${1 + .04 * Math.max(0, 1 - ((t - 30) % 1) * 4) * (t > 35 ? 1 : 0)})`;
+
+  // Cảnh 3 (20–30s)
+  $('s3').style.opacity = vis(t, 19.9, 30.2, .6, .5);
+  const flip = prog(t, 24.3, 24.8);
+  $('calnum').style.transform = `scaleY(${Math.abs(Math.cos(flip * Math.PI))})`;
+  $('calnum').textContent = flip < .5 ? '17' : '18';
+  $('calday').textContent = flip < .5 ? 'THỨ BA' : 'THỨ TƯ';
+  $('cal').style.transform = `translateY(${(1 - easeOut(prog(t, 19.9, 20.8))) * 60}px)`;
+  const dp = easeOut(prog(t, 25.0, 25.8));
+  $('doc').style.opacity = dp;
+  $('doc').style.transform = `translateX(${(1 - dp) * 500}px) rotate(${-2 + (1 - dp) * 6}deg)`;
+  let d = type($('d1'), '— Tước vũ khí của lực lượng tự vệ', t, 26.0, 26, .1);
+  d = type($('d2'), '— Phá bỏ công sự, chiến lũy', t, d + .2, 26, .1);
+  d = type($('d3'), '— Giao cho Pháp quyền kiểm soát Thủ đô', t, d + .2, 26, .1);
+  type($('docdead'), 'Hạn chót: sáng 20.12.1946', t, d + .3, 22);
+
+  // Cảnh 5 (40–44s)
+  $('s5').style.opacity = vis(t, 39.97, 44.6, .01, .5);
+  $('s5small').style.opacity = vis(t, 40.1, 40.85, .15, .05);
+  const boom = 40.85;
+  $('flash').style.opacity = t >= boom ? Math.max(0, 1 - (t - boom) / .45) : 0;
+  $('s5glow').style.opacity = t >= boom ? .55 + .3 * Math.sin((t - boom) * 6) * Math.exp(-(t - boom)) + .15 * (rng(frame)() - .5) : 0;
+  const bp = easeOut(prog(t, boom + .1, boom + .9));
+  $('s5big').style.opacity = bp;
+  $('s5big').style.transform = `scale(${1.25 - .25 * bp})`;
+  $('s5sub').style.opacity = easeOut(prog(t, boom + .9, boom + 1.5));
+  const shake = t >= boom ? 18 * Math.max(0, 1 - (t - boom) / .9) : 0;
+  const sr = rng(frame * 31);
+  $('world').style.transform = `translate(${(sr() - .5) * shake}px, ${(sr() - .5) * shake}px)`;
+
+  // Cảnh 6 (44–59.5s) Lời kêu gọi
+  $('s6').style.opacity = vis(t, 44.4, 59.6, .8, .5);
+  $('star').style.transform = `rotate(${(t - 44) * 2}deg) scale(${1 + (t - 44) * .01})`;
+  $('qhead').style.opacity = easeOut(prog(t, 44.8, 45.5));
+  QUOTE.forEach((l, i) => type($('q' + i), l, t, QTIMES[i], QCPS, i === QUOTE.length - 1 ? .8 : .05));
+  $('qattr').style.opacity = easeOut(prog(t, 57.4, 58.2));
+
+  // Cảnh 7 (59.5–70.5s) so sánh lực lượng
+  $('s7').style.opacity = vis(t, 59.4, 70.6, .5, .4);
+  [['i_plane', 60.2], ['i_tank', 60.8], ['i_ship', 61.4], ['i_spear', 62.2], ['i_rifle', 62.8]].forEach(([id, a]) => {
+    const p = easeOut(prog(t, a, a + .6));
+    const el = $(id);
+    el.style.opacity = p;
+    el.style.transformBox = 'fill-box';
+    el.style.transformOrigin = 'center';
+    el.style.scale = .7 + .3 * p;
+  });
+  $('s7dim').style.opacity = .78 * easeOut(prog(t, 64.0, 64.6));
+  [['l1', 64.4], ['l2', 65.2], ['l3', 66.0]].forEach(([id, a]) => {
+    const p = easeOut(prog(t, a, a + .4)) * (1 - prog(t, 67.3, 67.7));
+    $(id).style.opacity = p;
+    $(id).style.transform = `translateY(${(1 - easeOut(prog(t, a, a + .4))) * 30}px)`;
+  });
+  const ap = easeOut(prog(t, 67.8, 68.5));
+  $('ask').style.opacity = ap;
+  $('ask').style.transform = `scale(${1.4 - .4 * ap})`;
+
+  // Cảnh 8 (70.5–78s) tên đề tài
+  $('s8').style.opacity = vis(t, 70.5, DURATION, .4, 1.2);
+  const lp = easeOut(prog(t, 70.8, 71.8));
+  $('t8line').style.width = 900 * lp + 'px';
+  $('t8line').style.marginLeft = -450 * lp + 'px';
+  [['t8a', 71.3], ['t8b', 72.2], ['t8c', 72.9]].forEach(([id, a]) => {
+    const p = easeOut(prog(t, a, a + .8));
+    $(id).style.opacity = p;
+    $(id).style.transform = `translateY(${(1 - p) * 24}px)`;
+  });
+
+  // Phụ đề
+  let capOp = 0, capTxt = '';
+  for (const [a, b, txt] of CAPTIONS) if (t >= a && t <= b) { capOp = vis(t, a, b, .35, .35); capTxt = txt; }
+  $('cap').textContent = capTxt;
+  $('cap').style.opacity = capOp;
+  $('capband').style.opacity = Math.max(vis(t, 5.4, 19.8, .5, .5), vis(t, 30.4, 39.9, .5, .1)) ;
+}
+
+buildStreet();
+buildCompare();
+window.seek = seek;
+window.DURATION = DURATION;
+window.FPS = FPS;
+
+// Chế độ xem trước trong trình duyệt (không dùng khi render)
+if (!location.search.includes('render')) {
+  const fit = () => {
+    const s = Math.min(innerWidth / 1920, innerHeight / 1080);
+    $('stage').style.transform = `translate(${(innerWidth - 1920 * s) / 2}px, ${(innerHeight - 1080 * s) / 2}px) scale(${s})`;
+  };
+  addEventListener('resize', fit); fit();
+  let t0 = performance.now();
+  addEventListener('click', () => t0 = performance.now());
+  const loop = now => { seek(((now - t0) / 1000) % DURATION); requestAnimationFrame(loop); };
+  requestAnimationFrame(loop);
+}
+</script>
+</body>
+</html>
