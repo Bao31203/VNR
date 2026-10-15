@@ -9,6 +9,7 @@ Video hook (78 giây, 1920x1080) cho phần thuyết trình *Đường lối kh�
 
 ## Tài liệu đi kèm
 
+- `ke-hoach-san-xuat.md`: kế hoạch sản xuất video mới, gồm 8 bước, thiết kế chi tiết từng cảnh, quy chuẩn thiết kế và các danh sách kiểm tra.
 - `tu-lieu-lich-su.md`: tư liệu lịch sử từ giáo trình và các nguồn trên mạng (bối cảnh 11-1946, tương quan lực lượng, trang bị hai bên, các điểm số liệu lệch nhau), có ghi nguồn.
 - `kich-ban-loi-dan.md`: kịch bản lời dẫn theo từng cảnh, bản đầy đủ (~2 phút) và bản rút gọn (~1 phút 25).
 - `thiet-ke-anh-minh-hoa.md`: thiết kế 13 ảnh minh họa (A01–A13) và 4 ảnh slide, kèm prompt tiếng Anh cho AI tạo ảnh.
