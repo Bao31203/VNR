@@ -78,6 +78,25 @@ Với Midjourney, thêm tham số: `--ar 16:9 --style raw`. Với A11a và A11b 
 
 ---
 
+### 1.5. Vùng chừa chỗ cho chữ (khớp với wireframe trong `style/wireframes/`)
+
+Mỗi ảnh phải chừa sẵn một vùng **tối, ít chi tiết** để đặt chữ. Vị trí chính xác xem ở ảnh wireframe cùng số cảnh.
+
+| Ảnh | Vùng phải chừa trống | Trọng tâm ảnh đặt ở |
+|---|---|---|
+| A01 | Nửa trái | Đồng hồ ở 1/3 bên phải |
+| A02 | 1/3 phía trên (bầu trời), dành cho đường thời gian | Con phố ở giữa và dưới |
+| A03 | Dải trên (y < 340) và dải đáy (y > 860) | Con tàu ở giữa phải |
+| A04 | Dải đáy (chú thích) | Xe bọc thép ở giữa |
+| A06 | Góc trên trái (ngày tháng) và dải đáy (khẩu hiệu) | Khung cửa sáng ở giữa |
+| A07 | Góc trên trái | Chiến lũy và người ở nửa dưới |
+| A08 | 1/3 phía trên (đồng hồ đếm ngược) | Bảng điện và bàn tay ở giữa dưới |
+| A09 | **Nửa trên** là trời đêm tối (tiêu đề "20 GIỜ 3 PHÚT") | Khẩu pháo và chớp lửa ở nửa dưới bên trái |
+| A10 | **Nửa trái** tối (trích dẫn) | Gia đình ở nửa phải |
+| A11a / A11b | 15% trên (nhãn) và 30% dưới (con số) ít chi tiết | Người và xe ở giữa |
+| A12 | 1/3 phía trên (câu hỏi) | Người chiến sĩ ở giữa dưới |
+| A13 | Khoảng trời giữa khung (tên đề tài) | Mái nhà và lá cờ ở dải đáy |
+
 ## 2. Tư liệu hình ảnh cho người vẽ
 
 ### 2.1. Hà Nội cuối năm 1946
@@ -170,7 +189,7 @@ Top-down still life on an old wooden desk at night: a typed military letter on y
 - **Chuyển động:** dolly chậm tiến về phía khung cửa sáng.
 
 ```
-Night exterior of a traditional northern Vietnamese village house with a low clay tile roof in Van Phuc silk-weaving village near Hanoi, 1946, wooden doors half open with warm oil lamp light spilling into the dark courtyard, inside the doorway the silhouettes of several men in simple clothes leaning over a table covered with papers and a map, faces not visible, a wooden silk loom under the eaves, bamboo grove and areca palms around, a lone sentry with a rifle standing in the shadows near the gate, deep blue night, secret and decisive mood
+Night exterior of a traditional northern Vietnamese village house with a low clay tile roof in Van Phuc silk-weaving village near Hanoi, 1946, wooden doors half open with warm oil lamp light spilling into the dark courtyard, inside the doorway the silhouettes of several men in simple clothes leaning over a table covered with papers and a map, faces not visible, a wooden silk loom under the eaves, bamboo grove and areca palms around, a lone sentry with a rifle standing in the shadows near the gate, dark empty areas in the top-left corner and along the bottom of the frame, deep blue night, secret and decisive mood
 ```
 
 ### A07. Chiến lũy đêm 19-12-1946 (C6, 0:55–1:01). Tách lớp.
@@ -192,7 +211,7 @@ Night street in Hanoi on 19 December 1946, a barricade across the street built f
 - **Chuyển động:** zoom chậm vào bàn tay và cầu dao.
 
 ```
-Interior of a 1940s French colonial coal-fired power station in Hanoi at night, large old steam-driven generators, a marble switchboard with brass gauges and big knife switches, dim yellow work lamps, steam and long shadows, two Vietnamese workers in grease-stained work clothes standing by the switchboard, one checking a pocket watch, the other with his hand near a large lever, tense focused expressions, the moment just before a signal
+Interior of a 1940s French colonial coal-fired power station in Hanoi at night, large old steam-driven generators, a marble switchboard with brass gauges and big knife switches, dim yellow work lamps, steam and long shadows, two Vietnamese workers in grease-stained work clothes standing by the switchboard, one checking a pocket watch, the other with his hand near a large lever, tense focused expressions, the upper third of the frame dark and empty, the moment just before a signal
 ```
 
 ### A09. Pháo đài Láng khai hỏa, 20 giờ 03 (C7, 1:08–1:15)
@@ -203,7 +222,7 @@ Interior of a 1940s French colonial coal-fired power station in Hanoi at night, 
 - **Chuyển động:** rung mạnh khung hình đúng nhịp tiếng pháo, sau đó zoom ra chậm.
 
 ```
-Night, an old earthwork artillery fortification on the western edge of Hanoi in December 1946, low angle shot, Vietnamese artillerymen in simple uniforms and caps firing an old field gun, an enormous bright muzzle flash lighting their determined faces from below, smoke and sparks, in the far background the dark silhouette of the city with every light out, only a few distant fires, explosive and historic moment
+Night, an old earthwork artillery fortification on the western edge of Hanoi in December 1946, low angle shot, Vietnamese artillerymen in simple uniforms and caps firing an old field gun, an enormous bright muzzle flash lighting their determined faces from below, smoke and sparks, in the far background the dark silhouette of the city with every light out, only a few distant fires, the gun and the crew placed in the lower half of the frame, the upper half kept as empty dark night sky for title text, explosive and historic moment
 ```
 
 ### A10. Lời kêu gọi (C8, 1:15–1:37)

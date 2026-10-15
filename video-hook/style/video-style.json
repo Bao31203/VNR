@@ -1,0 +1,2546 @@
+{
+  "meta": {
+    "name": "Hook – 20 giờ 3 phút, đêm 19/12/1946",
+    "version": "1.0",
+    "doc": "Xem thiet-ke-style-video.md để hiểu ý nghĩa từng trường. Tọa độ tính bằng px trên khung 1920x1080, gốc (0,0) ở góc trên trái; x,y là góc trên trái của hộp chữ; w là bề rộng hộp; align căn chữ trong hộp. Thời gian 't' tính bằng giây kể từ đầu cảnh (bản đầy đủ); 'tShort' là mốc cho bản rút gọn; 'short': false nghĩa là bỏ phần tử đó trong bản rút gọn.",
+    "canvas": {
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "colorSpace": "Rec.709 SDR"
+    },
+    "safeArea": {
+      "x": 96,
+      "y": 54,
+      "w": 1728,
+      "h": 972
+    },
+    "outro": {
+      "fadeToBlack": 1.5,
+      "holdBlack": 1.0
+    },
+    "intro": {
+      "holdBlack": 0.5
+    },
+    "textRule": "MẶC ĐỊNH mọi dòng chữ thông tin hiện ra NHƯ ĐÁNH MÁY: từng ký tự một, có con trỏ ▌ vàng nhấp nháy, MỖI KÝ TỰ ĐI KÈM MỘT TIẾNG GÕ PHÍM MÁY CHỮ (SFX-TYPE-KEY). Chỉ 4 ngoại lệ không đánh máy: '20 giờ 3 phút' (slam + tiếng nổ), 'Không!' (slam + tiếng thịch), 'Lấy gì để thắng?' (softScaleIn + tiếng thịch trầm), và các con số đếm (countUp + tiếng bộ đếm). Trường 'appear' và 'sound' của từng phần tử mô tả bằng lời cách hiện và âm thanh."
+  },
+  "colors": {
+    "navy": "#0D1626",
+    "navy2": "#1D2A40",
+    "gold": "#F2C14E",
+    "goldLight": "#FFD27A",
+    "red": "#C8302A",
+    "redDeep": "#7A1414",
+    "redDark": "#5A0D0B",
+    "cream": "#EFE6D2",
+    "brown": "#3A2A17",
+    "black": "#000000",
+    "hotText": "#FF8A7A",
+    "paper": "#E9DFC6",
+    "ink": "#2A1F16",
+    "inkRed": "#8A1F18",
+    "inkGrey": "#6B5A48"
+  },
+  "fonts": {
+    "serif": {
+      "primary": "Noto Serif",
+      "fallback": [
+        "Liberation Serif",
+        "DejaVu Serif",
+        "Times New Roman"
+      ]
+    },
+    "sans": {
+      "primary": "Be Vietnam Pro",
+      "fallback": [
+        "Inter",
+        "Arial"
+      ]
+    },
+    "mono": {
+      "primary": "Noto Sans Mono",
+      "fallback": [
+        "DejaVu Sans Mono",
+        "Consolas"
+      ]
+    },
+    "note": "Cả 3 phông chính đều miễn phí trên Google Fonts và có đủ dấu tiếng Việt."
+  },
+  "textStyles": {
+    "titleXL": {
+      "font": "serif",
+      "weight": 700,
+      "size": 150,
+      "tracking": 4,
+      "case": "upper",
+      "color": "cream",
+      "shadow": "0 6px 30px rgba(0,0,0,0.85)"
+    },
+    "titleDate": {
+      "font": "serif",
+      "weight": 700,
+      "size": 72,
+      "tracking": 10,
+      "color": "gold",
+      "shadow": "0 4px 20px rgba(0,0,0,0.85)"
+    },
+    "titleL": {
+      "font": "serif",
+      "weight": 700,
+      "size": 74,
+      "tracking": 3,
+      "case": "upper",
+      "color": "cream",
+      "shadow": "0 4px 24px rgba(0,0,0,0.8)"
+    },
+    "statement": {
+      "font": "serif",
+      "weight": 700,
+      "size": 64,
+      "tracking": 4,
+      "case": "upper",
+      "color": "cream",
+      "shadow": "0 4px 20px rgba(0,0,0,0.9)"
+    },
+    "question": {
+      "font": "serif",
+      "weight": 700,
+      "size": 140,
+      "tracking": 0,
+      "color": "gold",
+      "shadow": "0 0 40px rgba(242,193,78,0.35), 0 6px 30px rgba(0,0,0,0.9)"
+    },
+    "caption": {
+      "font": "serif",
+      "weight": 400,
+      "size": 46,
+      "lineHeight": 1.35,
+      "color": "cream",
+      "shadow": "0 2px 12px rgba(0,0,0,0.9)",
+      "maxLines": 2,
+      "maxCharsPerLine": 42
+    },
+    "stamp": {
+      "font": "mono",
+      "weight": 400,
+      "size": 30,
+      "tracking": 4,
+      "case": "upper",
+      "color": "gold",
+      "bar": {
+        "w": 6,
+        "h": 36,
+        "color": "red",
+        "gap": 18
+      }
+    },
+    "type": {
+      "font": "mono",
+      "weight": 400,
+      "size": 46,
+      "tracking": 2,
+      "color": "cream"
+    },
+    "subLine": {
+      "font": "sans",
+      "weight": 400,
+      "size": 42,
+      "color": "cream",
+      "shadow": "0 2px 12px rgba(0,0,0,0.9)"
+    },
+    "tlDate": {
+      "font": "mono",
+      "weight": 400,
+      "size": 30,
+      "color": "gold"
+    },
+    "tlDesc": {
+      "font": "sans",
+      "weight": 400,
+      "size": 30,
+      "lineHeight": 1.25,
+      "color": "cream",
+      "shadow": "0 2px 10px rgba(0,0,0,0.9)"
+    },
+    "tlDescHot": {
+      "font": "sans",
+      "weight": 600,
+      "size": 30,
+      "lineHeight": 1.25,
+      "color": "hotText",
+      "shadow": "0 2px 10px rgba(0,0,0,0.9)"
+    },
+    "calMonth": {
+      "font": "sans",
+      "weight": 500,
+      "size": 34,
+      "tracking": 4,
+      "color": "cream"
+    },
+    "calDay": {
+      "font": "serif",
+      "weight": 700,
+      "size": 260,
+      "color": "#1A1410"
+    },
+    "calWeekday": {
+      "font": "sans",
+      "weight": 500,
+      "size": 36,
+      "tracking": 6,
+      "color": "#5A4636"
+    },
+    "docTitle": {
+      "font": "serif",
+      "weight": 700,
+      "size": 66,
+      "tracking": 6,
+      "color": "inkRed"
+    },
+    "docDate": {
+      "font": "mono",
+      "weight": 400,
+      "size": 28,
+      "color": "inkGrey"
+    },
+    "docLine": {
+      "font": "serif",
+      "weight": 400,
+      "size": 34,
+      "color": "ink"
+    },
+    "docDeadline": {
+      "font": "mono",
+      "weight": 700,
+      "size": 34,
+      "color": "inkRed"
+    },
+    "clockLabel": {
+      "font": "mono",
+      "weight": 400,
+      "size": 34,
+      "tracking": 6,
+      "color": "cream",
+      "opacity": 0.85
+    },
+    "clockDigits": {
+      "font": "mono",
+      "weight": 400,
+      "size": 180,
+      "color": "gold",
+      "shadow": "0 0 40px rgba(242,193,78,0.45)"
+    },
+    "quoteHead": {
+      "font": "serif",
+      "weight": 400,
+      "size": 52,
+      "color": "gold"
+    },
+    "quote": {
+      "font": "serif",
+      "weight": 400,
+      "size": 44,
+      "lineHeight": 1.4,
+      "color": "cream"
+    },
+    "quoteNo": {
+      "font": "serif",
+      "weight": 700,
+      "size": 64,
+      "color": "gold"
+    },
+    "quoteEmph": {
+      "font": "serif",
+      "weight": 700,
+      "size": 58,
+      "color": "gold"
+    },
+    "quoteAttr": {
+      "font": "serif",
+      "weight": 400,
+      "style": "italic",
+      "size": 30,
+      "color": "#F1D9C9"
+    },
+    "label": {
+      "font": "sans",
+      "weight": 700,
+      "size": 56,
+      "tracking": 8,
+      "case": "upper",
+      "color": "cream",
+      "shadow": "0 2px 14px rgba(0,0,0,0.9)"
+    },
+    "number": {
+      "font": "sans",
+      "weight": 800,
+      "size": 120,
+      "color": "gold",
+      "shadow": "0 4px 20px rgba(0,0,0,0.9)"
+    },
+    "numberSub": {
+      "font": "sans",
+      "weight": 400,
+      "size": 32,
+      "color": "cream",
+      "shadow": "0 2px 10px rgba(0,0,0,0.9)"
+    },
+    "lack": {
+      "font": "sans",
+      "weight": 400,
+      "size": 64,
+      "color": "cream",
+      "shadow": "0 2px 14px rgba(0,0,0,0.9)"
+    },
+    "titleSub": {
+      "font": "sans",
+      "weight": 400,
+      "size": 44,
+      "color": "cream"
+    },
+    "titleYears": {
+      "font": "mono",
+      "weight": 400,
+      "size": 48,
+      "tracking": 8,
+      "color": "gold"
+    },
+    "subtitle": {
+      "font": "sans",
+      "weight": 500,
+      "size": 40,
+      "color": "#FFFFFF",
+      "box": "rgba(0,0,0,0.6)",
+      "padding": [
+        8,
+        16
+      ],
+      "note": "Chỉ dùng cho bản có phụ đề lời dẫn; đặt ở y=960 (đáy hộp), căn giữa, tối đa 2 dòng."
+    }
+  },
+  "easing": {
+    "easeOut": "cubic-bezier(0.33, 1, 0.68, 1)",
+    "easeIn": "cubic-bezier(0.32, 0, 0.67, 0)",
+    "easeInOut": "cubic-bezier(0.37, 0, 0.63, 1)",
+    "linear": "linear"
+  },
+  "motionPresets": {
+    "fadeIn": {
+      "opacity": [
+        0,
+        1
+      ],
+      "duration": 0.6,
+      "easing": "easeOut",
+      "sound": "không có"
+    },
+    "riseIn": {
+      "opacity": [
+        0,
+        1
+      ],
+      "translateY": [
+        30,
+        0
+      ],
+      "duration": 0.6,
+      "easing": "easeOut",
+      "sound": "không có",
+      "note": "Chỉ còn dùng cho khối giấy/tờ lịch; chữ thông tin dùng type"
+    },
+    "riseInBig": {
+      "opacity": [
+        0,
+        1
+      ],
+      "translateY": [
+        60,
+        0
+      ],
+      "duration": 0.8,
+      "easing": "easeOut"
+    },
+    "type": {
+      "mo_ta": "CHỮ HIỆN RA NHƯ ĐÁNH MÁY: từng ký tự xuất hiện lần lượt từ trái sang phải (không mờ dần, không trượt). Con trỏ ▌ màu vàng đứng ngay sau ký tự cuối, nhấp nháy 3 lần/giây trong lúc gõ, còn thêm cursorHoldAfter giây sau khi gõ xong rồi tắt.",
+      "charsPerSecond": 26,
+      "cursor": "▌",
+      "cursorColor": "gold",
+      "cursorBlinkHz": 3,
+      "cursorHoldAfter": 0.5,
+      "sound": "BẮT BUỘC: mỗi ký tự = 1 tiếng SFX-TYPE-KEY đúng khung hình ký tự đó hiện; dấu cách = SFX-TYPE-SPACE; nếu returnSound: true thì cuối dòng thêm SFX-TYPE-RETURN",
+      "jitter": "Khoảng cách giữa các ký tự dao động ngẫu nhiên ±20% để giống người gõ thật (seed cố định)"
+    },
+    "dotPop": {
+      "dotScale": [
+        0,
+        1.15,
+        1
+      ],
+      "dotTimes": [
+        0,
+        0.25,
+        0.4
+      ],
+      "label": "riseIn",
+      "labelDelay": 0.1,
+      "sound": "1 tiếng SFX-TYPE-KEY to hơn bình thường 4 dB khi chấm hiện"
+    },
+    "pulse": {
+      "ringSpread": [
+        0,
+        30
+      ],
+      "ringOpacity": [
+        0.6,
+        0
+      ],
+      "period": 1.2,
+      "loop": true,
+      "color": "red",
+      "sound": "không có"
+    },
+    "lineGrow": {
+      "property": "width",
+      "easing": "easeOut",
+      "sound": "không có"
+    },
+    "lineGrowCenter": {
+      "property": "width",
+      "origin": "center",
+      "duration": 0.8,
+      "easing": "easeOut",
+      "sound": "không có (C11 có SFX-DRUM riêng)"
+    },
+    "slam": {
+      "opacity": [
+        0,
+        1
+      ],
+      "scale": [
+        1.25,
+        1
+      ],
+      "duration": 0.8,
+      "easing": "easeOut",
+      "sound": "SFX-HIT (hoặc SFX-BOOM nếu cảnh quy định)"
+    },
+    "softScaleIn": {
+      "opacity": [
+        0,
+        1
+      ],
+      "scale": [
+        1.4,
+        1
+      ],
+      "duration": 0.7,
+      "easing": "easeOut",
+      "sound": "SFX-HIT nhẹ hơn 4 dB"
+    },
+    "countUp": {
+      "duration": 1.2,
+      "easing": "easeOut",
+      "thousandsSeparator": ".",
+      "note": "Giữ nguyên tiền tố/hậu tố như '~' hoặc '+'",
+      "sound": "SFX-COUNTER suốt thời gian đếm, kết thúc bằng 1 tiếng 'cạch'"
+    },
+    "flip": {
+      "scaleY": [
+        1,
+        0,
+        1
+      ],
+      "times": [
+        0,
+        0.25,
+        0.5
+      ],
+      "swapContentAt": 0.25,
+      "sound": "SFX-FLIP"
+    },
+    "slideInPaper": {
+      "opacity": [
+        0,
+        1
+      ],
+      "translateX": [
+        500,
+        0
+      ],
+      "rotate": [
+        4,
+        -2
+      ],
+      "duration": 0.8,
+      "easing": "easeOut",
+      "sound": "SFX-PAPER"
+    },
+    "slideFromLeft": {
+      "translateX": [
+        -960,
+        0
+      ],
+      "duration": 0.6,
+      "easing": "easeOut",
+      "sound": "SFX-WHOOSH-SOFT"
+    },
+    "slideFromRight": {
+      "translateX": [
+        960,
+        0
+      ],
+      "duration": 0.6,
+      "easing": "easeOut",
+      "sound": "(dùng chung SFX-WHOOSH-SOFT với slideFromLeft)"
+    },
+    "growVertical": {
+      "property": "height",
+      "origin": "center",
+      "duration": 0.5,
+      "easing": "easeOut",
+      "sound": "không có"
+    },
+    "fadeOut": {
+      "opacity": [
+        1,
+        0
+      ],
+      "duration": 0.4,
+      "easing": "easeIn",
+      "sound": "không có"
+    },
+    "dimOthers": {
+      "opacity": [
+        1,
+        0.55
+      ],
+      "duration": 0.4,
+      "easing": "easeOut",
+      "note": "Áp cho các dòng trích dẫn đã hiện trước đó",
+      "sound": "không có"
+    },
+    "clockTick": {
+      "scale": [
+        1.04,
+        1
+      ],
+      "duration": 0.25,
+      "easing": "easeOut",
+      "trigger": "mỗi khi đổi giây",
+      "sound": "SFX-TICK"
+    },
+    "flicker": {
+      "duration": 0.8,
+      "chancePerFrame": 0.35,
+      "dimTo": 0.15,
+      "note": "Đèn/cửa sổ/ánh sáng trong ảnh chập chờn; dùng seed cố định",
+      "sound": "SFX-BUZZ"
+    },
+    "shake": {
+      "amplitude": 18,
+      "duration": 0.8,
+      "decay": "linear",
+      "note": "Lệch ngẫu nhiên x,y mỗi khung, biên độ giảm từ 18px về 0",
+      "sound": "đi cùng SFX-BOOM"
+    }
+  },
+  "cameraPresets": {
+    "zoomIn": {
+      "scale": [
+        1.0,
+        1.08
+      ],
+      "easing": "easeInOut",
+      "origin": "focus"
+    },
+    "zoomInSlow": {
+      "scale": [
+        1.0,
+        1.06
+      ],
+      "easing": "easeInOut",
+      "origin": "focus"
+    },
+    "zoomInShip": {
+      "scale": [
+        1.0,
+        1.12
+      ],
+      "easing": "easeInOut",
+      "origin": "focus"
+    },
+    "dolly": {
+      "scale": [
+        1.0,
+        1.1
+      ],
+      "easing": "easeInOut",
+      "origin": "focus"
+    },
+    "panRight": {
+      "baseScale": 1.12,
+      "translateX": [
+        0,
+        -0.1
+      ],
+      "easing": "easeInOut",
+      "unit": "phần bề rộng khung"
+    },
+    "panLeft": {
+      "baseScale": 1.12,
+      "translateX": [
+        0,
+        0.08
+      ],
+      "easing": "easeInOut"
+    },
+    "hitZoomOut": {
+      "scale": [
+        1.15,
+        1.0
+      ],
+      "duration": 3.0,
+      "easing": "easeOut"
+    },
+    "static": {
+      "scale": [
+        1.0,
+        1.02
+      ],
+      "easing": "linear"
+    },
+    "parallax": {
+      "layerSpeeds": [
+        0.3,
+        0.6,
+        1.0
+      ],
+      "note": "Chỉ khi ảnh có file tách lớp; lớp 1 là nền trời"
+    },
+    "rules": "Ảnh luôn phóng tối thiểu 1.04 để không lộ mép; tốc độ zoom tối đa 1.5%/giây; không xoay máy; chuyển động kéo dài suốt cảnh kể cả phần chồng chuyển cảnh."
+  },
+  "transitions": {
+    "dissolve": {
+      "duration": 0.8
+    },
+    "dissolveSlow": {
+      "duration": 1.0
+    },
+    "hardCut": {
+      "duration": 0
+    },
+    "flash": {
+      "color": "#FFFFFF",
+      "peakOpacity": 1.0,
+      "decay": 0.45,
+      "note": "Lớp trắng phủ toàn khung, giảm tuyến tính về 0"
+    },
+    "flashSoft": {
+      "color": "#FFFFFF",
+      "peakOpacity": 0.6,
+      "decay": 0.35
+    },
+    "dipBlack": {
+      "out": 0.5,
+      "hold": 0.3,
+      "in": 0.5
+    },
+    "dipRed": {
+      "color": "#5A0D0B",
+      "out": 0.4,
+      "in": 0.6
+    },
+    "lightsOut": {
+      "flicker": 0.8,
+      "then": "cắt ngay sang đen tuyệt đối #000"
+    },
+    "slideSplit": {
+      "duration": 0.6,
+      "note": "Nửa trái trượt từ trái vào, nửa phải trượt từ phải vào, vạch đỏ giữa mọc từ tâm"
+    },
+    "fadeToBlack": {
+      "duration": 1.5,
+      "easing": "easeIn"
+    }
+  },
+  "overlays": {
+    "grain": {
+      "opacity": 0.05,
+      "refreshEveryFrames": 4,
+      "monochrome": true,
+      "offOnPureBlack": true
+    },
+    "vignette": {
+      "gradient": "radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.6) 100%)",
+      "always": true
+    },
+    "band": {
+      "gradient": "linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0))",
+      "y": 800,
+      "h": 280,
+      "fade": 0.5,
+      "note": "Hiện cùng chú thích/khẩu hiệu ở vùng dưới"
+    },
+    "dim": {
+      "color": "#000000",
+      "opacity": 0.6,
+      "fade": 1.0
+    },
+    "explosionGlow": {
+      "gradient": "radial-gradient(ellipse at 50% 120%, rgba(255,120,40,0.85) 0%, rgba(160,30,10,0.45) 35%, rgba(0,0,0,0) 70%)",
+      "opacity": "0.55 ± 0.15 dao động, tắt dần trong 3 giây"
+    },
+    "quoteScrim": {
+      "gradient": "linear-gradient(to right, rgba(90,13,11,0.96) 0%, rgba(90,13,11,0.88) 48%, rgba(90,13,11,0) 72%)"
+    },
+    "paperBg": {
+      "gradient": "radial-gradient(ellipse at 50% 45%, #2B2119 0%, #120D0A 75%)"
+    },
+    "star": {
+      "shape": "sao vàng 5 cánh",
+      "color": "gold",
+      "opacity": 0.08,
+      "size": 820,
+      "x": -160,
+      "y": 160,
+      "rotateDegPerSec": 2
+    }
+  },
+  "zones": {
+    "stamp": {
+      "x": 96,
+      "y": 64,
+      "w": 1100,
+      "h": 44,
+      "align": "left",
+      "use": "Ngày tháng, địa điểm"
+    },
+    "top": {
+      "x": 96,
+      "y": 110,
+      "w": 1728,
+      "h": 240,
+      "align": "center",
+      "use": "Đường thời gian, đồng hồ, nhãn chia đôi"
+    },
+    "center": {
+      "x": 96,
+      "y": 360,
+      "w": 1728,
+      "h": 360,
+      "align": "center",
+      "use": "Tiêu đề lớn, câu hỏi"
+    },
+    "lower": {
+      "x": 160,
+      "y": 860,
+      "w": 1600,
+      "h": 140,
+      "align": "center",
+      "use": "Chú thích sự kiện, khẩu hiệu (luôn có band)"
+    },
+    "leftCol": {
+      "x": 120,
+      "y": 100,
+      "w": 1040,
+      "h": 880,
+      "align": "left",
+      "use": "Trích dẫn, chữ đánh máy"
+    }
+  },
+  "audioRules": {
+    "voLoudness": "-16 LUFS",
+    "musicUnderVoice": "-12 dB so với lời (ducking: attack 0.2s, release 0.6s)",
+    "truePeak": "-1 dBTP",
+    "textLead": "Chữ hiện cùng lúc hoặc sớm hơn lời nói tương ứng tối đa 0.3s; không bao giờ hiện sau khi lời đã nói xong",
+    "hitSync": "Chớp sáng + rung + tiếng nổ phải cùng một khung hình",
+    "sceneStretch": "Nếu file lời dẫn dài hơn kế hoạch: thời lượng cảnh = thời điểm lời bắt đầu + độ dài lời + 0.8s. Phần dôi ra thêm vào cuối cảnh; các mốc phần tử giữ nguyên, trừ phần tử ghi 'anchor': 'end' thì neo theo cuối cảnh."
+  },
+  "scenes": [
+    {
+      "id": "C1",
+      "name": "Mở đầu",
+      "duration": 5,
+      "durationShort": 5,
+      "transitionIn": "dipBlack (từ đen mở đầu: đen 0.5s rồi hiện dần 0.8s)",
+      "voStart": 1.5,
+      "background": [
+        {
+          "asset": "A01",
+          "title": "Đồng hồ treo tường",
+          "from": 0,
+          "to": "end",
+          "camera": "zoomIn",
+          "focus": {
+            "x": 1180,
+            "y": 160,
+            "w": 560,
+            "h": 760
+          }
+        }
+      ],
+      "overlays": [
+        "grain",
+        "vignette"
+      ],
+      "keyframe": 4.5,
+      "elements": [
+        {
+          "id": "c1-type",
+          "kind": "text",
+          "text": "Hà Nội · Tháng 12 năm 1946",
+          "style": "type",
+          "x": 120,
+          "y": 510,
+          "w": 1000,
+          "align": "left",
+          "in": {
+            "t": 1.2,
+            "preset": "type",
+            "charsPerSecond": 14
+          },
+          "out": {
+            "t": "end",
+            "preset": "transition"
+          },
+          "appear": "Đánh máy từng ký tự, chậm (14 ký tự/giây), con trỏ vàng nhấp nháy",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY) — đây là âm thanh đầu tiên người xem nghe sau tiếng tích tắc, để to rõ (-16 dB); cuối dòng có tiếng gạt dòng",
+          "returnSound": true
+        }
+      ],
+      "audio": [
+        {
+          "t": 0.3,
+          "sfx": "tích tắc",
+          "repeat": "mỗi 1.0s đến hết cảnh"
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "name": "Hòa bình mong manh",
+      "duration": 15,
+      "durationShort": 8,
+      "transitionIn": "dissolveSlow",
+      "voStart": 0.8,
+      "background": [
+        {
+          "asset": "A02",
+          "title": "Phố cổ Hà Nội chập tối",
+          "from": 0,
+          "to": "end",
+          "camera": "panRight",
+          "parallax": true,
+          "focus": {
+            "x": 200,
+            "y": 420,
+            "w": 1500,
+            "h": 560
+          }
+        }
+      ],
+      "overlays": [
+        "grain",
+        "vignette"
+      ],
+      "keyframe": 9,
+      "note": "Đường thời gian là lớp phủ dùng chung cho C2 và C3, KHÔNG mờ đi khi chuyển từ C2 sang C3.",
+      "elements": [
+        {
+          "id": "tl-line",
+          "kind": "rect",
+          "x": 260,
+          "y": 198,
+          "w": 700,
+          "h": 4,
+          "fill": "cream",
+          "opacity": 0.7,
+          "in": {
+            "t": 1.0,
+            "tShort": 0.6,
+            "preset": "lineGrow",
+            "widthFrom": 0,
+            "widthTo": 160,
+            "duration": 0.7
+          },
+          "keys": [
+            {
+              "t": 4.0,
+              "tShort": 2.4,
+              "widthTo": 700,
+              "duration": 0.7
+            }
+          ],
+          "out": {
+            "t": "continuesInC3"
+          },
+          "appear": "Vạch kẻ dài ra (lineGrow), không có âm thanh",
+          "sound": "không có"
+        },
+        {
+          "id": "tl-node1",
+          "kind": "node",
+          "cx": 420,
+          "cy": 200,
+          "r": 18,
+          "fill": "cream",
+          "date": {
+            "text": "06.3.1946",
+            "style": "tlDate",
+            "x": 250,
+            "y": 240,
+            "w": 340,
+            "align": "center"
+          },
+          "desc": {
+            "text": "Hiệp định Sơ bộ",
+            "style": "tlDesc",
+            "x": 250,
+            "y": 280,
+            "w": 340,
+            "align": "center"
+          },
+          "in": {
+            "t": 2.0,
+            "tShort": 1.2,
+            "preset": "dotPop+type",
+            "charsPerSecond": 24
+          },
+          "out": {
+            "t": "continuesInC3"
+          },
+          "appear": "Chấm tròn phồng ra (dotPop), ngay sau đó ngày tháng rồi dòng mô tả được ĐÁNH MÁY (24 ký tự/giây)",
+          "sound": "1 tiếng gõ to khi chấm hiện, sau đó mỗi ký tự 1 tiếng gõ phím (SFX-TYPE-KEY, -28 dB vì đang có lời dẫn)"
+        },
+        {
+          "id": "tl-node2",
+          "kind": "node",
+          "cx": 960,
+          "cy": 200,
+          "r": 18,
+          "fill": "cream",
+          "date": {
+            "text": "14.9.1946",
+            "style": "tlDate",
+            "x": 790,
+            "y": 240,
+            "w": 340,
+            "align": "center"
+          },
+          "desc": {
+            "text": "Tạm ước Việt – Pháp",
+            "style": "tlDesc",
+            "x": 790,
+            "y": 280,
+            "w": 340,
+            "align": "center"
+          },
+          "in": {
+            "t": 5.0,
+            "tShort": 3.0,
+            "preset": "dotPop+type",
+            "charsPerSecond": 24
+          },
+          "out": {
+            "t": "continuesInC3"
+          },
+          "appear": "Chấm tròn phồng ra (dotPop), ngay sau đó ngày tháng rồi dòng mô tả được ĐÁNH MÁY (24 ký tự/giây)",
+          "sound": "1 tiếng gõ to khi chấm hiện, sau đó mỗi ký tự 1 tiếng gõ phím (SFX-TYPE-KEY, -28 dB vì đang có lời dẫn)"
+        }
+      ],
+      "audio": [
+        {
+          "t": 0.0,
+          "music": "nhạc 1 vào dần trong 2s, mức thấp"
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "name": "Hải Phòng bốc cháy",
+      "duration": 12,
+      "durationShort": 8,
+      "transitionIn": "hardCut + flashSoft (đúng tiếng pháo đầu tiên)",
+      "voStart": 1.0,
+      "background": [
+        {
+          "asset": "A03",
+          "title": "Tàu chiến Pháp nã pháo vào Hải Phòng",
+          "from": 0,
+          "to": "end",
+          "camera": "zoomInShip",
+          "focus": {
+            "x": 1000,
+            "y": 330,
+            "w": 820,
+            "h": 420
+          }
+        }
+      ],
+      "overlays": [
+        "grain",
+        "vignette",
+        "band"
+      ],
+      "keyframe": 6,
+      "flashes": [
+        {
+          "t": 0.0,
+          "preset": "flashSoft"
+        },
+        {
+          "t": 3.0,
+          "tShort": 2.5,
+          "preset": "flashSoft"
+        },
+        {
+          "t": 7.0,
+          "tShort": 5.0,
+          "preset": "flashSoft"
+        }
+      ],
+      "elements": [
+        {
+          "id": "tl-line",
+          "kind": "rect",
+          "x": 260,
+          "y": 198,
+          "w": 1240,
+          "h": 4,
+          "fill": "cream",
+          "opacity": 0.7,
+          "in": {
+            "t": 0.2,
+            "preset": "lineGrow",
+            "widthFrom": 700,
+            "widthTo": 1240,
+            "duration": 0.6
+          },
+          "out": {
+            "t": 11.0,
+            "tShort": 7.0,
+            "preset": "fadeOut"
+          },
+          "appear": "Vạch kẻ dài ra (lineGrow), không có âm thanh",
+          "sound": "không có"
+        },
+        {
+          "id": "tl-node1",
+          "kind": "node",
+          "cx": 420,
+          "cy": 200,
+          "r": 18,
+          "fill": "cream",
+          "date": {
+            "text": "06.3.1946",
+            "style": "tlDate",
+            "x": 250,
+            "y": 240,
+            "w": 340,
+            "align": "center"
+          },
+          "desc": {
+            "text": "Hiệp định Sơ bộ",
+            "style": "tlDesc",
+            "x": 250,
+            "y": 280,
+            "w": 340,
+            "align": "center"
+          },
+          "in": {
+            "t": "fromC2"
+          },
+          "out": {
+            "t": 11.0,
+            "tShort": 7.0,
+            "preset": "fadeOut"
+          }
+        },
+        {
+          "id": "tl-node2",
+          "kind": "node",
+          "cx": 960,
+          "cy": 200,
+          "r": 18,
+          "fill": "cream",
+          "date": {
+            "text": "14.9.1946",
+            "style": "tlDate",
+            "x": 790,
+            "y": 240,
+            "w": 340,
+            "align": "center"
+          },
+          "desc": {
+            "text": "Tạm ước Việt – Pháp",
+            "style": "tlDesc",
+            "x": 790,
+            "y": 280,
+            "w": 340,
+            "align": "center"
+          },
+          "in": {
+            "t": "fromC2"
+          },
+          "out": {
+            "t": 11.0,
+            "tShort": 7.0,
+            "preset": "fadeOut"
+          }
+        },
+        {
+          "id": "tl-node3",
+          "kind": "node",
+          "cx": 1500,
+          "cy": 200,
+          "r": 18,
+          "fill": "red",
+          "pulse": true,
+          "date": {
+            "text": "11.1946",
+            "style": "tlDate",
+            "x": 1330,
+            "y": 240,
+            "w": 340,
+            "align": "center"
+          },
+          "desc": {
+            "text": "Hải Phòng · Lạng Sơn",
+            "style": "tlDescHot",
+            "x": 1330,
+            "y": 280,
+            "w": 340,
+            "align": "center"
+          },
+          "in": {
+            "t": 0.8,
+            "preset": "dotPop+type",
+            "charsPerSecond": 24
+          },
+          "out": {
+            "t": 11.0,
+            "tShort": 7.0,
+            "preset": "fadeOut"
+          },
+          "appear": "Chấm tròn phồng ra (dotPop), ngay sau đó ngày tháng rồi dòng mô tả được ĐÁNH MÁY (24 ký tự/giây)",
+          "sound": "1 tiếng gõ to khi chấm hiện, sau đó mỗi ký tự 1 tiếng gõ phím (SFX-TYPE-KEY, -28 dB vì đang có lời dẫn); chấm đỏ nhấp nháy lan vòng (pulse) không có âm thanh"
+        },
+        {
+          "id": "c3-cap",
+          "kind": "text",
+          "text": "23.11.1946 · Pháp nã pháo vào Hải Phòng",
+          "style": "caption",
+          "x": 160,
+          "y": 900,
+          "w": 1600,
+          "align": "center",
+          "in": {
+            "t": 1.5,
+            "tShort": 1.2,
+            "preset": "type",
+            "charsPerSecond": 24
+          },
+          "out": {
+            "t": 11.0,
+            "tShort": 7.0,
+            "preset": "fadeOut"
+          },
+          "appear": "Đánh máy (24 ký tự/giây) trên dải tối ở đáy khung",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -28 dB (dưới lời dẫn)"
+        }
+      ],
+      "audio": [
+        {
+          "t": 0.0,
+          "sfx": "pháo hạm vọng xa"
+        },
+        {
+          "t": 3.0,
+          "tShort": 2.5,
+          "sfx": "pháo hạm vọng xa"
+        },
+        {
+          "t": 7.0,
+          "tShort": 5.0,
+          "sfx": "pháo hạm vọng xa"
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Đến lượt Hà Nội",
+      "duration": 14,
+      "durationShort": 9,
+      "transitionIn": "dissolve",
+      "voStart": 0.6,
+      "voStartShort": 0.4,
+      "note": "Bản rút gọn bỏ phần A (ảnh A04 + chú thích), bắt đầu thẳng vào phần B (tờ lịch + tối hậu thư).",
+      "background": [
+        {
+          "asset": "A04",
+          "title": "Xe bọc thép Pháp trên phố Hà Nội",
+          "from": 0,
+          "to": 6,
+          "camera": "panLeft",
+          "focus": {
+            "x": 560,
+            "y": 260,
+            "w": 1100,
+            "h": 580
+          },
+          "short": false
+        },
+        {
+          "asset": "paperBg",
+          "title": "Nền đồ họa giấy (không cần ảnh)",
+          "from": 6,
+          "fromShort": 0,
+          "to": "end",
+          "transitionIn": "dissolve",
+          "camera": "none"
+        }
+      ],
+      "overlays": [
+        "grain",
+        "vignette"
+      ],
+      "keyframe": 13.5,
+      "elements": [
+        {
+          "id": "c4-cap",
+          "kind": "text",
+          "text": "17.12.1946 · Thảm sát phố Yên Ninh, Hàng Bún",
+          "style": "caption",
+          "x": 160,
+          "y": 900,
+          "w": 1600,
+          "align": "center",
+          "band": true,
+          "short": false,
+          "in": {
+            "t": 0.8,
+            "preset": "type",
+            "charsPerSecond": 24
+          },
+          "out": {
+            "t": 5.4,
+            "preset": "fadeOut"
+          },
+          "appear": "Đánh máy (24 ký tự/giây) trên dải tối ở đáy khung",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -28 dB"
+        },
+        {
+          "id": "c4-cal",
+          "kind": "group",
+          "x": 250,
+          "y": 230,
+          "w": 440,
+          "h": 540,
+          "fill": "cream",
+          "radius": 10,
+          "shadow": "0 30px 60px rgba(0,0,0,0.6)",
+          "in": {
+            "t": 6.2,
+            "tShort": 0.2,
+            "preset": "riseInBig"
+          },
+          "out": {
+            "t": "end",
+            "preset": "transition"
+          },
+          "children": [
+            {
+              "kind": "rect",
+              "x": 0,
+              "y": 0,
+              "w": 440,
+              "h": 80,
+              "fill": "red"
+            },
+            {
+              "kind": "text",
+              "text": "THÁNG 12 · 1946",
+              "style": "calMonth",
+              "x": 0,
+              "y": 20,
+              "w": 440,
+              "align": "center"
+            },
+            {
+              "kind": "text",
+              "text": "17 → 18",
+              "display": "18",
+              "style": "calDay",
+              "x": 0,
+              "y": 110,
+              "w": 440,
+              "align": "center",
+              "flip": {
+                "t": 6.8,
+                "tShort": 0.8,
+                "preset": "flip",
+                "from": "17",
+                "to": "18"
+              }
+            },
+            {
+              "kind": "text",
+              "text": "THỨ BA → THỨ TƯ",
+              "display": "THỨ TƯ",
+              "style": "calWeekday",
+              "x": 0,
+              "y": 410,
+              "w": 440,
+              "align": "center",
+              "flip": {
+                "t": 6.8,
+                "tShort": 0.8,
+                "from": "THỨ BA",
+                "to": "THỨ TƯ"
+              }
+            }
+          ],
+          "appear": "Tờ lịch trồi lên (riseInBig) rồi lật 17 → 18 (flip)",
+          "sound": "Lúc lật: tiếng lật giấy SFX-FLIP"
+        },
+        {
+          "id": "c4-doc",
+          "kind": "group",
+          "x": 820,
+          "y": 170,
+          "w": 860,
+          "h": 700,
+          "fill": "paper",
+          "rotate": -2,
+          "shadow": "0 30px 70px rgba(0,0,0,0.65)",
+          "in": {
+            "t": 7.2,
+            "tShort": 1.2,
+            "preset": "slideInPaper"
+          },
+          "out": {
+            "t": "end",
+            "preset": "transition"
+          },
+          "children": [
+            {
+              "kind": "text",
+              "text": "TỐI HẬU THƯ",
+              "style": "docTitle",
+              "x": 70,
+              "y": 56,
+              "w": 720,
+              "align": "left",
+              "appear": "Có sẵn trên tờ giấy khi giấy trượt vào"
+            },
+            {
+              "kind": "text",
+              "text": "Hà Nội, 18.12.1946 · liên tiếp 3 bức",
+              "style": "docDate",
+              "x": 70,
+              "y": 150,
+              "w": 720,
+              "align": "left",
+              "appear": "Có sẵn trên tờ giấy khi giấy trượt vào"
+            },
+            {
+              "kind": "text",
+              "id": "c4-l1",
+              "text": "— Giải tán lực lượng tự vệ",
+              "style": "docLine",
+              "x": 70,
+              "y": 230,
+              "w": 720,
+              "align": "left",
+              "in": {
+                "t": 7.9,
+                "tShort": 1.9,
+                "preset": "type",
+                "charsPerSecond": 30
+              },
+              "appear": "Đánh máy 30 ký tự/giây",
+              "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY) + cuối dòng SFX-TYPE-RETURN",
+              "returnSound": true
+            },
+            {
+              "kind": "text",
+              "id": "c4-l2",
+              "text": "— Phá bỏ công sự, chiến lũy",
+              "style": "docLine",
+              "x": 70,
+              "y": 292,
+              "w": 720,
+              "align": "left",
+              "in": {
+                "t": 9.0,
+                "tShort": 3.0,
+                "preset": "type",
+                "charsPerSecond": 30
+              },
+              "appear": "Đánh máy 30 ký tự/giây",
+              "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY) + cuối dòng SFX-TYPE-RETURN",
+              "returnSound": true
+            },
+            {
+              "kind": "text",
+              "id": "c4-l3",
+              "text": "— Giao cho Pháp kiểm soát an ninh Thủ đô",
+              "style": "docLine",
+              "x": 70,
+              "y": 354,
+              "w": 720,
+              "align": "left",
+              "in": {
+                "t": 10.1,
+                "tShort": 4.1,
+                "preset": "type",
+                "charsPerSecond": 30
+              },
+              "appear": "Đánh máy 30 ký tự/giây",
+              "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY) + cuối dòng SFX-TYPE-RETURN",
+              "returnSound": true
+            },
+            {
+              "kind": "text",
+              "id": "c4-dl",
+              "text": "Hạn chót: sáng 20.12.1946",
+              "style": "docDeadline",
+              "x": 70,
+              "y": 460,
+              "w": 720,
+              "align": "left",
+              "in": {
+                "t": 11.7,
+                "tShort": 5.7,
+                "preset": "type",
+                "charsPerSecond": 24
+              },
+              "appear": "Đánh máy 24 ký tự/giây, chữ đỏ đậm",
+              "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY) (to hơn 2 dB) + gõ xong có chuông TING (SFX-TYPE-BELL)",
+              "bell": true
+            }
+          ],
+          "appear": "Tờ giấy trượt từ phải vào, xoay nhẹ (slideInPaper); các dòng bên trong được ĐÁNH MÁY lần lượt",
+          "sound": "Lúc trượt: SFX-PAPER. Các dòng: mỗi ký tự 1 tiếng gõ phím, cuối mỗi dòng có tiếng gạt dòng (SFX-TYPE-RETURN); dòng hạn chót gõ xong có chuông TING (SFX-TYPE-BELL)"
+        }
+      ],
+      "audio": [
+        {
+          "t": 0.5,
+          "sfx": "tiếng xích xe bọc thép xa",
+          "short": false
+        },
+        {
+          "t": 7.9,
+          "tShort": 1.9,
+          "sfx": "máy chữ theo từng dòng"
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "Quyết định ở Vạn Phúc",
+      "duration": 9,
+      "durationShort": 9,
+      "transitionIn": "dipBlack",
+      "voStart": 0.8,
+      "background": [
+        {
+          "asset": "A06",
+          "title": "Làng Vạn Phúc đêm 18-12-1946",
+          "from": 0,
+          "to": "end",
+          "camera": "dolly",
+          "focus": {
+            "x": 640,
+            "y": 220,
+            "w": 640,
+            "h": 580
+          }
+        }
+      ],
+      "overlays": [
+        "grain",
+        "vignette",
+        "band"
+      ],
+      "keyframe": 8,
+      "elements": [
+        {
+          "id": "c5-stamp",
+          "kind": "text",
+          "text": "18.12.1946 · Làng Vạn Phúc, Hà Đông",
+          "style": "stamp",
+          "x": 96,
+          "y": 64,
+          "w": 1100,
+          "align": "left",
+          "in": {
+            "t": 0.8,
+            "preset": "type",
+            "charsPerSecond": 20
+          },
+          "out": {
+            "t": 8.4,
+            "preset": "fadeOut"
+          },
+          "appear": "Đánh máy (20 ký tự/giây) ở góc trên trái, vạch đỏ nhỏ hiện trước",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -28 dB"
+        },
+        {
+          "id": "c5-statement",
+          "kind": "text",
+          "text": "Phát động toàn quốc kháng chiến",
+          "style": "statement",
+          "x": 96,
+          "y": 880,
+          "w": 1728,
+          "align": "center",
+          "band": true,
+          "in": {
+            "t": 5.0,
+            "preset": "type",
+            "charsPerSecond": 16
+          },
+          "out": {
+            "t": "end",
+            "preset": "transition"
+          },
+          "appear": "Đánh máy CHẬM (16 ký tự/giây), chữ in hoa lớn trên dải tối ở đáy — từng chữ nặng nề như đang gõ một mệnh lệnh",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), để rõ (-20 dB), cuối dòng có tiếng gạt dòng",
+          "returnSound": true
+        }
+      ],
+      "audio": [
+        {
+          "t": 0.0,
+          "music": "nhạc lắng xuống"
+        },
+        {
+          "t": 0.0,
+          "sfx": "tiếng dế đêm, rất nhỏ"
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Chờ hiệu lệnh",
+      "duration": 12,
+      "durationShort": 8,
+      "transitionIn": "hardCut",
+      "voStart": 0.5,
+      "background": [
+        {
+          "asset": "A07",
+          "title": "Chiến lũy đêm 19-12",
+          "from": 0,
+          "to": 6,
+          "toShort": 3,
+          "camera": "panRight",
+          "parallax": true,
+          "focus": {
+            "x": 160,
+            "y": 380,
+            "w": 1600,
+            "h": 640
+          }
+        },
+        {
+          "asset": "A08",
+          "title": "Nhà máy điện Yên Phụ",
+          "from": 6,
+          "fromShort": 3,
+          "to": "end",
+          "transitionIn": "hardCut",
+          "camera": "zoomIn",
+          "focus": {
+            "x": 600,
+            "y": 420,
+            "w": 800,
+            "h": 560
+          }
+        }
+      ],
+      "overlays": [
+        "grain",
+        "vignette"
+      ],
+      "keyframe": 10,
+      "elements": [
+        {
+          "id": "c6-stamp",
+          "kind": "text",
+          "text": "Tối 19.12.1946",
+          "style": "stamp",
+          "x": 96,
+          "y": 64,
+          "w": 1100,
+          "align": "left",
+          "in": {
+            "t": 0.6,
+            "tShort": 0.4,
+            "preset": "type",
+            "charsPerSecond": 20
+          },
+          "out": {
+            "t": 5.6,
+            "tShort": 2.8,
+            "preset": "fadeOut"
+          },
+          "appear": "Đánh máy (20 ký tự/giây) ở góc trên trái",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -28 dB"
+        },
+        {
+          "id": "c6-clock-label",
+          "kind": "text",
+          "text": "TỐI 19.12.1946",
+          "style": "clockLabel",
+          "x": 0,
+          "y": 120,
+          "w": 1920,
+          "align": "center",
+          "anchor": "end",
+          "in": {
+            "t": 7.0,
+            "tShort": 3.0,
+            "preset": "type",
+            "charsPerSecond": 20
+          },
+          "out": {
+            "t": "end",
+            "preset": "cutToBlack"
+          },
+          "appear": "Đánh máy nhanh (20 ký tự/giây) ngay trên đồng hồ",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -24 dB"
+        },
+        {
+          "id": "c6-clock",
+          "kind": "clock",
+          "text": "20:02:55",
+          "style": "clockDigits",
+          "x": 0,
+          "y": 160,
+          "w": 1920,
+          "align": "center",
+          "anchor": "end",
+          "in": {
+            "t": 7.0,
+            "tShort": 3.0,
+            "preset": "fadeIn"
+          },
+          "out": {
+            "t": "end",
+            "preset": "cutToBlack"
+          },
+          "ticks": "20:02:55 lúc (cuối cảnh − 5s), mỗi giây +1, đến 20:03:00 đúng lúc C7 bắt đầu; mỗi lần đổi giây dùng clockTick",
+          "appear": "Chữ số hiện dần (fadeIn 0.4s) rồi đổi từng giây, mỗi lần đổi nảy nhẹ (clockTick)",
+          "sound": "Mỗi lần đổi giây 1 tiếng tích tắc (SFX-TICK), to dần"
+        }
+      ],
+      "effects": [
+        {
+          "t": 11.2,
+          "tShort": 7.2,
+          "preset": "flicker",
+          "anchor": "end",
+          "target": "ảnh nền (đèn/ánh sáng)"
+        }
+      ],
+      "audio": [
+        {
+          "t": 7.0,
+          "tShort": 3.0,
+          "sfx": "tích tắc, nhanh và to dần"
+        },
+        {
+          "t": 11.0,
+          "tShort": 7.0,
+          "music": "tắt hẳn"
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "20 giờ 3 phút",
+      "duration": 8,
+      "durationShort": 8,
+      "transitionIn": "lightsOut (flicker cuối C6) → đen tuyệt đối 1.0s → flash",
+      "voStart": 1.8,
+      "background": [
+        {
+          "asset": "black",
+          "title": "ĐEN TUYỆT ĐỐI – không chữ, không grain, không âm thanh trừ tiếng 'tách' ở 0.0",
+          "from": 0,
+          "to": 1.0
+        },
+        {
+          "asset": "A09",
+          "title": "Pháo đài Láng khai hỏa",
+          "from": 1.0,
+          "to": "end",
+          "transitionIn": "flash",
+          "camera": "hitZoomOut",
+          "shake": {
+            "t": 1.0,
+            "preset": "shake"
+          },
+          "focus": {
+            "x": 160,
+            "y": 600,
+            "w": 1100,
+            "h": 440
+          }
+        }
+      ],
+      "overlays": [
+        "grain (từ 1.0s)",
+        "vignette",
+        "explosionGlow (từ 1.0s)"
+      ],
+      "keyframe": 6,
+      "elements": [
+        {
+          "id": "c7-time",
+          "kind": "text",
+          "text": "20 giờ 3 phút",
+          "style": "titleXL",
+          "x": 96,
+          "y": 170,
+          "w": 1728,
+          "align": "center",
+          "in": {
+            "t": 1.1,
+            "preset": "slam"
+          },
+          "out": {
+            "t": "end",
+            "preset": "transition"
+          },
+          "appear": "KHÔNG đánh máy: cả dòng đập vào màn hình (slam: từ 125% về 100% trong 0.8s) ngay sau chớp trắng",
+          "sound": "Đi cùng tiếng đại bác SFX-BOOM ở 1.0s"
+        },
+        {
+          "id": "c7-date",
+          "kind": "text",
+          "text": "19 · 12 · 1946",
+          "style": "titleDate",
+          "x": 96,
+          "y": 360,
+          "w": 1728,
+          "align": "center",
+          "in": {
+            "t": 1.7,
+            "preset": "type",
+            "charsPerSecond": 16
+          },
+          "out": {
+            "t": "end",
+            "preset": "transition"
+          },
+          "appear": "Đánh máy (16 ký tự/giây), màu vàng",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -18 dB (lúc này chưa có lời dẫn, tiếng vang đại bác đang tắt dần)"
+        },
+        {
+          "id": "c7-sub",
+          "kind": "text",
+          "text": "Pháo đài Láng nổ súng — Toàn quốc kháng chiến bùng nổ",
+          "style": "subLine",
+          "x": 96,
+          "y": 470,
+          "w": 1728,
+          "align": "center",
+          "in": {
+            "t": 2.4,
+            "preset": "type",
+            "charsPerSecond": 30
+          },
+          "out": {
+            "t": "end",
+            "preset": "transition"
+          },
+          "appear": "Đánh máy nhanh (30 ký tự/giây)",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -28 dB (lời dẫn đang nói)"
+        }
+      ],
+      "audio": [
+        {
+          "t": 0.0,
+          "sfx": "tiếng 'tách' cầu dao, sau đó im lặng tuyệt đối"
+        },
+        {
+          "t": 1.0,
+          "sfx": "ĐẠI BÁC nổ + vang, cùng khung với flash và shake"
+        }
+      ]
+    },
+    {
+      "id": "C8",
+      "name": "Lời kêu gọi",
+      "duration": 22,
+      "durationShort": 10,
+      "transitionIn": "dipRed",
+      "voStart": 0.8,
+      "voStartShort": 0.6,
+      "background": [
+        {
+          "asset": "A10",
+          "title": "Gia đình đọc Lời kêu gọi dưới đèn dầu",
+          "from": 0,
+          "to": "end",
+          "camera": "zoomInSlow",
+          "focus": {
+            "x": 1060,
+            "y": 200,
+            "w": 760,
+            "h": 760
+          }
+        }
+      ],
+      "overlays": [
+        "quoteScrim",
+        "star",
+        "grain",
+        "vignette"
+      ],
+      "keyframe": 21,
+      "note": "Mỗi dòng bắt đầu gõ đúng lúc giọng đọc bắt đầu câu đó; tốc độ gõ = số ký tự / (80% thời lượng câu nói). Các mốc dưới đây là ước tính, phải căn lại theo file VO-C08 thật. Khi dòng 'Không!' xuất hiện, các dòng trước áp dimOthers.",
+      "elements": [
+        {
+          "id": "q-head",
+          "kind": "text",
+          "text": "Hỡi đồng bào toàn quốc!",
+          "style": "quoteHead",
+          "x": 120,
+          "y": 110,
+          "w": 1040,
+          "align": "left",
+          "short": false,
+          "in": {
+            "t": 0.8,
+            "preset": "type",
+            "charsPerSecond": 22
+          },
+          "appear": "Đánh máy (22 ký tự/giây), màu vàng",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -30 dB (rất nhỏ, nằm dưới giọng đọc)"
+        },
+        {
+          "id": "q1",
+          "kind": "text",
+          "text": "Chúng ta muốn hòa bình,",
+          "style": "quote",
+          "x": 120,
+          "y": 196,
+          "w": 1040,
+          "align": "left",
+          "short": false,
+          "in": {
+            "t": 2.0,
+            "preset": "type",
+            "charsPerSecond": "auto (= số ký tự / (0.8 × thời lượng câu nói trong VO-C08))"
+          },
+          "appear": "ĐÁNH MÁY khớp với giọng đọc: bắt đầu gõ đúng lúc giọng đọc bắt đầu câu này, gõ xong trước khi giọng đọc hết câu",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -30 dB (rất nhỏ, chỉ như tiếng nền, không được át giọng đọc)"
+        },
+        {
+          "id": "q2",
+          "kind": "text",
+          "text": "chúng ta phải nhân nhượng.",
+          "style": "quote",
+          "x": 120,
+          "y": 258,
+          "w": 1040,
+          "align": "left",
+          "short": false,
+          "in": {
+            "t": 3.3,
+            "preset": "type",
+            "charsPerSecond": "auto (= số ký tự / (0.8 × thời lượng câu nói trong VO-C08))"
+          },
+          "appear": "ĐÁNH MÁY khớp với giọng đọc: bắt đầu gõ đúng lúc giọng đọc bắt đầu câu này, gõ xong trước khi giọng đọc hết câu",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -30 dB (rất nhỏ, chỉ như tiếng nền, không được át giọng đọc)"
+        },
+        {
+          "id": "q3",
+          "kind": "text",
+          "text": "Nhưng chúng ta càng nhân nhượng,",
+          "style": "quote",
+          "x": 120,
+          "y": 320,
+          "w": 1040,
+          "align": "left",
+          "short": false,
+          "in": {
+            "t": 5.0,
+            "preset": "type",
+            "charsPerSecond": "auto (= số ký tự / (0.8 × thời lượng câu nói trong VO-C08))"
+          },
+          "appear": "ĐÁNH MÁY khớp với giọng đọc: bắt đầu gõ đúng lúc giọng đọc bắt đầu câu này, gõ xong trước khi giọng đọc hết câu",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -30 dB (rất nhỏ, chỉ như tiếng nền, không được át giọng đọc)"
+        },
+        {
+          "id": "q4",
+          "kind": "text",
+          "text": "thực dân Pháp càng lấn tới,",
+          "style": "quote",
+          "x": 120,
+          "y": 382,
+          "w": 1040,
+          "align": "left",
+          "short": false,
+          "in": {
+            "t": 6.8,
+            "preset": "type",
+            "charsPerSecond": "auto (= số ký tự / (0.8 × thời lượng câu nói trong VO-C08))"
+          },
+          "appear": "ĐÁNH MÁY khớp với giọng đọc: bắt đầu gõ đúng lúc giọng đọc bắt đầu câu này, gõ xong trước khi giọng đọc hết câu",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -30 dB (rất nhỏ, chỉ như tiếng nền, không được át giọng đọc)"
+        },
+        {
+          "id": "q5",
+          "kind": "text",
+          "text": "vì chúng quyết tâm cướp nước ta lần nữa!",
+          "style": "quote",
+          "x": 120,
+          "y": 444,
+          "w": 1040,
+          "align": "left",
+          "short": false,
+          "in": {
+            "t": 8.4,
+            "preset": "type",
+            "charsPerSecond": "auto (= số ký tự / (0.8 × thời lượng câu nói trong VO-C08))"
+          },
+          "appear": "ĐÁNH MÁY khớp với giọng đọc: bắt đầu gõ đúng lúc giọng đọc bắt đầu câu này, gõ xong trước khi giọng đọc hết câu",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -30 dB (rất nhỏ, chỉ như tiếng nền, không được át giọng đọc)"
+        },
+        {
+          "id": "q6",
+          "kind": "text",
+          "text": "Không!",
+          "style": "quoteNo",
+          "x": 120,
+          "y": 524,
+          "yShort": 300,
+          "w": 1040,
+          "align": "left",
+          "in": {
+            "t": 11.4,
+            "tShort": 0.8,
+            "preset": "slam",
+            "then": "dimOthers"
+          },
+          "appear": "KHÔNG đánh máy: chữ \"Không!\" đập vào (slam), các dòng trước mờ xuống 55%",
+          "sound": "SFX-HIT (tiếng thịch trầm) đúng lúc giọng đọc nói \"Không!\""
+        },
+        {
+          "id": "q7",
+          "kind": "text",
+          "text": "Chúng ta thà hy sinh tất cả,",
+          "style": "quote",
+          "x": 120,
+          "y": 616,
+          "yShort": 392,
+          "w": 1040,
+          "align": "left",
+          "in": {
+            "t": 12.6,
+            "tShort": 1.8,
+            "preset": "type",
+            "charsPerSecond": "auto (= số ký tự / (0.8 × thời lượng câu nói trong VO-C08))"
+          },
+          "appear": "ĐÁNH MÁY khớp với giọng đọc: bắt đầu gõ đúng lúc giọng đọc bắt đầu câu này, gõ xong trước khi giọng đọc hết câu",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -30 dB (rất nhỏ, chỉ như tiếng nền, không được át giọng đọc)"
+        },
+        {
+          "id": "q8",
+          "kind": "text",
+          "text": "chứ nhất định không chịu mất nước,",
+          "style": "quote",
+          "x": 120,
+          "y": 678,
+          "yShort": 454,
+          "w": 1040,
+          "align": "left",
+          "in": {
+            "t": 14.4,
+            "tShort": 3.6,
+            "preset": "type",
+            "charsPerSecond": "auto (= số ký tự / (0.8 × thời lượng câu nói trong VO-C08))"
+          },
+          "appear": "ĐÁNH MÁY khớp với giọng đọc: bắt đầu gõ đúng lúc giọng đọc bắt đầu câu này, gõ xong trước khi giọng đọc hết câu",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -30 dB (rất nhỏ, chỉ như tiếng nền, không được át giọng đọc)"
+        },
+        {
+          "id": "q9",
+          "kind": "text",
+          "text": "nhất định không chịu làm nô lệ.",
+          "style": "quoteEmph",
+          "x": 120,
+          "y": 744,
+          "yShort": 520,
+          "w": 1040,
+          "align": "left",
+          "in": {
+            "t": 16.2,
+            "tShort": 5.4,
+            "preset": "type",
+            "cursorHoldAfter": 0.8,
+            "charsPerSecond": "auto (= số ký tự / (0.8 × thời lượng câu nói trong VO-C08))"
+          },
+          "appear": "ĐÁNH MÁY khớp với giọng đọc: bắt đầu gõ đúng lúc giọng đọc bắt đầu câu này, gõ xong trước khi giọng đọc hết câu",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -30 dB (rất nhỏ, chỉ như tiếng nền, không được át giọng đọc)"
+        },
+        {
+          "id": "q-attr",
+          "kind": "text",
+          "text": "— Chủ tịch Hồ Chí Minh, Lời kêu gọi toàn quốc kháng chiến, 19.12.1946",
+          "style": "quoteAttr",
+          "x": 120,
+          "y": 850,
+          "yShort": 626,
+          "w": 1100,
+          "align": "left",
+          "in": {
+            "t": 19.0,
+            "tShort": 8.0,
+            "preset": "type",
+            "charsPerSecond": 30
+          },
+          "appear": "Đánh máy nhanh (30 ký tự/giây), chữ nghiêng",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -30 dB"
+        }
+      ],
+      "audio": [
+        {
+          "t": 0.0,
+          "music": "nhạc 2 hùng tráng vào"
+        }
+      ]
+    },
+    {
+      "id": "C9",
+      "name": "Tương quan lực lượng",
+      "duration": 13,
+      "durationShort": 5,
+      "transitionIn": "slideSplit",
+      "voStart": 0.6,
+      "voStartShort": null,
+      "note": "Bản rút gọn không có lời dẫn ở cảnh này, chỉ có chữ và số.",
+      "background": [
+        {
+          "asset": "A11a",
+          "title": "Quân Pháp (tỉ lệ 8:9)",
+          "region": {
+            "x": 0,
+            "y": 0,
+            "w": 956,
+            "h": 1080
+          },
+          "from": 0,
+          "to": "end",
+          "in": "slideFromLeft",
+          "camera": "zoomInSlow",
+          "focus": {
+            "x": 120,
+            "y": 200,
+            "w": 716,
+            "h": 520
+          }
+        },
+        {
+          "asset": "A11b",
+          "title": "Quân dân Hà Nội (tỉ lệ 8:9)",
+          "region": {
+            "x": 964,
+            "y": 0,
+            "w": 956,
+            "h": 1080
+          },
+          "from": 0,
+          "to": "end",
+          "in": "slideFromRight",
+          "camera": "zoomInSlow",
+          "focus": {
+            "x": 1084,
+            "y": 200,
+            "w": 716,
+            "h": 520
+          }
+        }
+      ],
+      "overlays": [
+        "grain",
+        "vignette",
+        "band (mỗi nửa riêng, y 740–1080)"
+      ],
+      "keyframe": 12,
+      "elements": [
+        {
+          "id": "c9-divider",
+          "kind": "rect",
+          "x": 956,
+          "y": 0,
+          "w": 8,
+          "h": 1080,
+          "fill": "red",
+          "in": {
+            "t": 0.1,
+            "preset": "growVertical"
+          },
+          "appear": "Vạch đỏ mọc từ giữa ra hai đầu",
+          "sound": "Đi cùng SFX-WHOOSH-SOFT của hai nửa màn hình"
+        },
+        {
+          "id": "c9-label-l",
+          "kind": "text",
+          "text": "Quân Pháp",
+          "style": "label",
+          "x": 0,
+          "y": 110,
+          "w": 956,
+          "align": "center",
+          "in": {
+            "t": 0.6,
+            "tShort": 0.5,
+            "preset": "type",
+            "charsPerSecond": 16
+          },
+          "appear": "Đánh máy (16 ký tự/giây), chữ in hoa",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -24 dB"
+        },
+        {
+          "id": "c9-label-r",
+          "kind": "text",
+          "text": "Ta",
+          "style": "label",
+          "x": 964,
+          "y": 110,
+          "w": 956,
+          "align": "center",
+          "in": {
+            "t": 0.6,
+            "tShort": 0.5,
+            "preset": "type",
+            "charsPerSecond": 16
+          },
+          "appear": "Đánh máy (16 ký tự/giây), chữ in hoa",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -24 dB"
+        },
+        {
+          "id": "c9-num-l",
+          "kind": "number",
+          "text": "6.000+",
+          "value": 6000,
+          "suffix": "+",
+          "style": "number",
+          "x": 0,
+          "y": 770,
+          "w": 956,
+          "align": "center",
+          "in": {
+            "t": 1.4,
+            "tShort": 0.8,
+            "preset": "countUp"
+          },
+          "appear": "KHÔNG đánh máy: con số chạy từ 0 lên giá trị (countUp 1.2s)",
+          "sound": "Tiếng bộ đếm lách cách (SFX-COUNTER) trong lúc chạy, dừng bằng 1 tiếng \"cạch\""
+        },
+        {
+          "id": "c9-sub-l",
+          "kind": "text",
+          "text": "quân chính quy · xe tăng · xe bọc thép · máy bay",
+          "style": "numberSub",
+          "x": 0,
+          "y": 920,
+          "w": 956,
+          "align": "center",
+          "in": {
+            "t": 2.0,
+            "tShort": 1.2,
+            "preset": "type",
+            "charsPerSecond": 30
+          },
+          "appear": "Đánh máy nhanh (30 ký tự/giây) ngay dưới con số",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -28 dB"
+        },
+        {
+          "id": "c9-num-r",
+          "kind": "number",
+          "text": "~2.000",
+          "value": 2000,
+          "prefix": "~",
+          "style": "number",
+          "x": 964,
+          "y": 770,
+          "w": 956,
+          "align": "center",
+          "in": {
+            "t": 8.8,
+            "tShort": 2.0,
+            "preset": "countUp"
+          },
+          "appear": "KHÔNG đánh máy: con số chạy từ 0 lên giá trị (countUp 1.2s)",
+          "sound": "Tiếng bộ đếm lách cách (SFX-COUNTER) trong lúc chạy, dừng bằng 1 tiếng \"cạch\""
+        },
+        {
+          "id": "c9-sub-r",
+          "kind": "text",
+          "text": "khẩu súng · cho hơn 10.000 vệ quốc quân và tự vệ",
+          "style": "numberSub",
+          "x": 964,
+          "y": 920,
+          "w": 956,
+          "align": "center",
+          "in": {
+            "t": 9.4,
+            "tShort": 2.5,
+            "preset": "type",
+            "charsPerSecond": 30
+          },
+          "appear": "Đánh máy nhanh (30 ký tự/giây) ngay dưới con số",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -28 dB"
+        }
+      ],
+      "audio": [
+        {
+          "t": 0.0,
+          "sfx": "tim đập, khoảng 70 nhịp/phút, kéo sang C10"
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "name": "Câu hỏi",
+      "duration": 9,
+      "durationShort": 9,
+      "transitionIn": "dissolve",
+      "voStart": 0.4,
+      "background": [
+        {
+          "asset": "A12",
+          "title": "Quyết tử quân ôm bom ba càng",
+          "from": 0,
+          "to": "end",
+          "camera": "zoomInSlow",
+          "focus": {
+            "x": 560,
+            "y": 420,
+            "w": 800,
+            "h": 620
+          }
+        }
+      ],
+      "overlays": [
+        "dim (0→0.6 trong 1.0s)",
+        "grain",
+        "vignette"
+      ],
+      "keyframe": 8.5,
+      "elements": [
+        {
+          "id": "c10-l1",
+          "kind": "text",
+          "text": "Thiếu vũ khí.",
+          "style": "lack",
+          "x": 96,
+          "y": 140,
+          "w": 1728,
+          "align": "center",
+          "in": {
+            "t": 0.6,
+            "preset": "type",
+            "charsPerSecond": 22
+          },
+          "out": {
+            "t": 5.0,
+            "preset": "fadeOut"
+          },
+          "appear": "Đánh máy (22 ký tự/giây), lần lượt từng dòng, khớp với lời dẫn",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -24 dB; cuối mỗi dòng có tiếng gạt dòng",
+          "returnSound": true
+        },
+        {
+          "id": "c10-l2",
+          "kind": "text",
+          "text": "Kinh tế kiệt quệ.",
+          "style": "lack",
+          "x": 96,
+          "y": 240,
+          "w": 1728,
+          "align": "center",
+          "in": {
+            "t": 1.6,
+            "preset": "type",
+            "charsPerSecond": 22
+          },
+          "out": {
+            "t": 5.0,
+            "preset": "fadeOut"
+          },
+          "appear": "Đánh máy (22 ký tự/giây), lần lượt từng dòng, khớp với lời dẫn",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -24 dB; cuối mỗi dòng có tiếng gạt dòng",
+          "returnSound": true
+        },
+        {
+          "id": "c10-l3",
+          "kind": "text",
+          "text": "Không một nước nào công nhận.",
+          "style": "lack",
+          "x": 96,
+          "y": 340,
+          "w": 1728,
+          "align": "center",
+          "in": {
+            "t": 2.6,
+            "preset": "type",
+            "charsPerSecond": 22
+          },
+          "out": {
+            "t": 5.0,
+            "preset": "fadeOut"
+          },
+          "appear": "Đánh máy (22 ký tự/giây), lần lượt từng dòng, khớp với lời dẫn",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -24 dB; cuối mỗi dòng có tiếng gạt dòng",
+          "returnSound": true
+        },
+        {
+          "id": "c10-q",
+          "kind": "text",
+          "text": "Lấy gì để thắng?",
+          "style": "question",
+          "x": 96,
+          "y": 180,
+          "w": 1728,
+          "align": "center",
+          "in": {
+            "t": 5.9,
+            "preset": "softScaleIn"
+          },
+          "out": {
+            "t": "end",
+            "preset": "transition"
+          },
+          "appear": "KHÔNG đánh máy: cả câu hiện ra bằng softScaleIn (từ 140% thu về 100%) sau 0.5s im lặng hoàn toàn",
+          "sound": "SFX-HIT trầm, nhẹ, đúng lúc chữ hiện; tim đập đã dừng trước đó"
+        }
+      ],
+      "audio": [
+        {
+          "t": 5.4,
+          "sfx": "tim đập DỪNG; im lặng 0.5s"
+        },
+        {
+          "t": 5.9,
+          "vo": "\"Vậy… lấy gì để thắng?\""
+        }
+      ]
+    },
+    {
+      "id": "C11",
+      "name": "Tên đề tài",
+      "duration": 6,
+      "durationShort": 5,
+      "transitionIn": "dissolveSlow",
+      "voStart": 1.2,
+      "background": [
+        {
+          "asset": "A13",
+          "title": "Bình minh trên mái phố",
+          "from": 0,
+          "to": "end",
+          "camera": "static",
+          "focus": {
+            "x": 0,
+            "y": 720,
+            "w": 1920,
+            "h": 360
+          }
+        }
+      ],
+      "overlays": [
+        "grain",
+        "vignette"
+      ],
+      "keyframe": 5,
+      "note": "Sau khi cảnh kết thúc: fadeToBlack 1.5s rồi giữ đen 1.0s (meta.outro).",
+      "elements": [
+        {
+          "id": "c11-rule",
+          "kind": "rect",
+          "x": 510,
+          "y": 380,
+          "w": 900,
+          "h": 4,
+          "fill": "red",
+          "in": {
+            "t": 0.6,
+            "tShort": 0.4,
+            "preset": "lineGrowCenter"
+          },
+          "appear": "Vạch đỏ dài ra từ tâm",
+          "sound": "Tiếng trống lớn SFX-DRUM"
+        },
+        {
+          "id": "c11-title",
+          "kind": "text",
+          "text": "Đường lối kháng chiến toàn quốc",
+          "style": "titleL",
+          "x": 96,
+          "y": 410,
+          "w": 1728,
+          "align": "center",
+          "in": {
+            "t": 1.0,
+            "tShort": 0.7,
+            "preset": "type",
+            "charsPerSecond": 20
+          },
+          "appear": "Đánh máy (20 ký tự/giây), chữ in hoa lớn",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -18 dB, cuối dòng có tiếng gạt dòng",
+          "returnSound": true
+        },
+        {
+          "id": "c11-sub",
+          "kind": "text",
+          "text": "và quá trình tổ chức thực hiện",
+          "style": "titleSub",
+          "x": 96,
+          "y": 530,
+          "w": 1728,
+          "align": "center",
+          "in": {
+            "t": 2.8,
+            "tShort": 2.3,
+            "preset": "type",
+            "charsPerSecond": 26
+          },
+          "appear": "Đánh máy (26 ký tự/giây)",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -20 dB"
+        },
+        {
+          "id": "c11-years",
+          "kind": "text",
+          "text": "1946 – 1950",
+          "style": "titleYears",
+          "x": 96,
+          "y": 610,
+          "w": 1728,
+          "align": "center",
+          "in": {
+            "t": 4.1,
+            "tShort": 3.6,
+            "preset": "type",
+            "charsPerSecond": 12
+          },
+          "appear": "Đánh máy chậm (12 ký tự/giây), màu vàng — từng con số rõ ràng",
+          "sound": "Mỗi ký tự 1 tiếng gõ phím máy chữ (SFX-TYPE-KEY), -16 dB; gõ xong có chuông TING (SFX-TYPE-BELL)",
+          "bell": true
+        }
+      ],
+      "audio": [
+        {
+          "t": 0.6,
+          "tShort": 0.4,
+          "sfx": "trống lớn một tiếng"
+        },
+        {
+          "t": "end",
+          "music": "ngân rồi tắt cùng fadeToBlack"
+        }
+      ]
+    }
+  ],
+  "sfxLibrary": {
+    "SFX-TYPE-KEY": {
+      "mo_ta": "Tiếng gõ phím máy chữ cơ (kiểu máy chữ thập niên 1940): 'tạch' khô, ngắn ~40 ms",
+      "khi_nao": "MỖI ký tự chữ/số khi đánh máy",
+      "bien_the": "Dùng luân phiên ngẫu nhiên 4–6 mẫu khác nhau, lệch cao độ ±5% để không nghe lặp máy móc",
+      "am_luong": "-18 dB khi không có lời dẫn; -28 dB khi lời dẫn đang nói"
+    },
+    "SFX-TYPE-SPACE": {
+      "mo_ta": "Tiếng phím cách, trầm và nhẹ hơn phím chữ",
+      "khi_nao": "Mỗi dấu cách khi đánh máy",
+      "am_luong": "thấp hơn SFX-TYPE-KEY 4 dB"
+    },
+    "SFX-TYPE-RETURN": {
+      "mo_ta": "Tiếng gạt cần xuống dòng của máy chữ: 'cạch… xoẹt'",
+      "khi_nao": "Cuối dòng của phần tử có returnSound: true",
+      "am_luong": "-20 dB"
+    },
+    "SFX-TYPE-BELL": {
+      "mo_ta": "Tiếng chuông 'ting' của máy chữ",
+      "khi_nao": "Gõ xong dòng 'Hạn chót: sáng 20.12.1946' (C4)",
+      "am_luong": "-16 dB"
+    },
+    "SFX-HIT": {
+      "mo_ta": "Tiếng 'thịch' trầm, nặng (trống lớn tắt tiếng / sub-bass hit)",
+      "khi_nao": "Chữ 'Không!' và 'Lấy gì để thắng?'",
+      "am_luong": "-10 dB"
+    },
+    "SFX-BOOM": {
+      "mo_ta": "Tiếng đại bác nổ gần, có vang",
+      "khi_nao": "C7 lúc 1.0s (cùng khung với flash, shake, chữ '20 giờ 3 phút')",
+      "am_luong": "-3 dB đỉnh"
+    },
+    "SFX-NAVAL": {
+      "mo_ta": "Tiếng pháo hạm vọng từ xa, trầm và rền",
+      "khi_nao": "C3, cùng khung với chớp sáng",
+      "am_luong": "-8 dB"
+    },
+    "SFX-COUNTER": {
+      "mo_ta": "Tiếng bộ đếm cơ học lách cách, nhanh dần rồi dừng 'cạch'",
+      "khi_nao": "Suốt thời gian số đếm (countUp) ở C9",
+      "am_luong": "-20 dB"
+    },
+    "SFX-TICK": {
+      "mo_ta": "Tiếng tích tắc đồng hồ quả lắc",
+      "khi_nao": "C1 mỗi giây; C6 mỗi lần đồng hồ đổi giây (to dần)",
+      "am_luong": "-22 dB (C1) → -12 dB (giây cuối C6)"
+    },
+    "SFX-SWITCH": {
+      "mo_ta": "Tiếng cầu dao điện sập 'tách' khô",
+      "khi_nao": "C7 lúc 0.0s (tắt đèn)",
+      "am_luong": "-10 dB"
+    },
+    "SFX-BUZZ": {
+      "mo_ta": "Tiếng điện rè chập chờn",
+      "khi_nao": "Trong hiệu ứng flicker cuối C6",
+      "am_luong": "-22 dB"
+    },
+    "SFX-PAPER": {
+      "mo_ta": "Tiếng giấy trượt trên mặt bàn",
+      "khi_nao": "Tờ tối hậu thư trượt vào (C4)",
+      "am_luong": "-20 dB"
+    },
+    "SFX-FLIP": {
+      "mo_ta": "Tiếng lật tờ lịch giấy 'phạch'",
+      "khi_nao": "Lịch lật 17 → 18 (C4)",
+      "am_luong": "-18 dB"
+    },
+    "SFX-WHOOSH-SOFT": {
+      "mo_ta": "Tiếng gió lướt nhẹ, trầm",
+      "khi_nao": "Hai nửa màn hình trượt vào (C9)",
+      "am_luong": "-20 dB"
+    },
+    "SFX-TRACKS": {
+      "mo_ta": "Tiếng xích xe/động cơ xe bọc thép từ xa",
+      "khi_nao": "C4 phần A",
+      "am_luong": "-22 dB"
+    },
+    "SFX-CRICKETS": {
+      "mo_ta": "Tiếng dế kêu đêm",
+      "khi_nao": "C5",
+      "am_luong": "-28 dB"
+    },
+    "SFX-HEART": {
+      "mo_ta": "Tiếng tim đập trầm ~70 nhịp/phút",
+      "khi_nao": "C9 → C10 (dừng ở C10 lúc 5.4s)",
+      "am_luong": "-16 dB"
+    },
+    "SFX-DRUM": {
+      "mo_ta": "Một tiếng trống lớn, ngân dài",
+      "khi_nao": "C11 khi vạch đỏ xuất hiện",
+      "am_luong": "-8 dB"
+    }
+  }
+}

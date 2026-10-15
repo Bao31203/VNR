@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Wireframe cảnh</title>
+<style>
+  html, body { margin:0; background:#111; }
+  #page { position:relative; width:1920px; height:1180px; background:#16181d; font-family:'Inter',sans-serif; }
+  #stage { position:absolute; left:0; top:0; width:1920px; height:1080px; overflow:hidden; background:#000; }
+  .abs { position:absolute; }
+  .ph { position:absolute; overflow:hidden; background:linear-gradient(160deg,#243044 0%,#141b26 60%,#0d1219 100%); }
+  .ph::before { content:''; position:absolute; inset:0;
+    background:repeating-linear-gradient(45deg, rgba(255,255,255,0.025) 0 2px, transparent 2px 22px); }
+  .ph-label { position:absolute; left:0; right:0; text-align:center; color:rgba(255,255,255,0.22); font:600 38px 'Inter',sans-serif; }
+  .ph-cam { position:absolute; left:0; right:0; text-align:center; color:rgba(255,255,255,0.18); font:400 26px 'DejaVu Sans Mono',monospace; }
+  .focus { position:absolute; border:3px dashed #ff9f43; background:rgba(255,159,67,0.07); box-sizing:border-box; }
+  .focus span { position:absolute; left:8px; bottom:6px; color:#ffb870; font:600 18px 'Inter',sans-serif; background:rgba(0,0,0,0.55); padding:2px 8px; }
+  .safe { position:absolute; left:96px; top:54px; width:1728px; height:972px; border:1px dashed rgba(255,255,255,0.28); box-sizing:border-box; pointer-events:none; }
+  .tag { position:absolute; font:500 17px 'DejaVu Sans Mono',monospace; color:#7fe7ff; background:rgba(0,0,0,0.72); padding:1px 7px; white-space:nowrap; border-radius:3px; z-index:50; }
+  .el { white-space:pre-wrap; box-sizing:border-box; }
+  #info { position:absolute; left:0; top:1080px; width:1920px; height:100px; box-sizing:border-box; padding:16px 28px; color:#e6e6e6; font:400 24px 'Inter',sans-serif; border-top:4px solid #C8302A; }
+  #info b { color:#F2C14E; font-weight:700; }
+  #info .row2 { margin-top:8px; color:#9aa4b2; font-size:21px; }
+</style>
+</head>
+<body>
+<div id="page">
+  <div id="stage"></div>
+  <div id="info"></div>
+</div>
+<script>
+const S = window.STYLE;
+const sceneId = new URLSearchParams(location.search).get('scene');
+const sc = S.scenes.find(s => s.id === sceneId);
+const stage = document.getElementById('stage');
+const FAM = {
+  serif: "'Noto Serif','Liberation Serif','DejaVu Serif',serif",
+  sans: "'Be Vietnam Pro','Inter',sans-serif",
+  mono: "'Noto Sans Mono','DejaVu Sans Mono',monospace"
+};
+const col = c => (c && S.colors[c]) || c;
+const add = (parent, cls, css, html) => {
+  const d = document.createElement('div');
+  if (cls) d.className = cls;
+  Object.assign(d.style, css || {});
+  if (html !== undefined) d.innerHTML = html;
+  parent.appendChild(d);
+  return d;
+};
+const key = sc.keyframe;
+const tagFor = (el) => {
+  const p = [];
+  if (el.in && el.in.t !== undefined) {
+    const cps = typeof el.in.charsPerSecond === 'number' ? ' ' + el.in.charsPerSecond + '/s' : (el.in.charsPerSecond ? ' auto' : '');
+    const typed = (el.in.preset || '').includes('type') ? ' ♪gõ' + (el.returnSound ? '+gạt dòng' : '') + (el.bell ? '+ting' : '') : '';
+    p.push(`in ${typeof el.in.t === 'number' ? el.in.t + 's' : el.in.t}${el.in.preset ? ' ' + el.in.preset : ''}${cps}${typed}`);
+  }
+  if (el.out && typeof el.out.t === 'number') p.push(`out ${el.out.t}s`);
+  if (el.short === false) p.push('bỏ ở bản rút gọn');
+  return `${el.id}${p.length ? ' · ' + p.join(' · ') : ''}`;
+};
+function applyText(d, styleName) {
+  const st = S.textStyles[styleName];
+  d.style.fontFamily = FAM[st.font];
+  d.style.fontWeight = st.weight;
+  d.style.fontSize = st.size + 'px';
+  d.style.lineHeight = st.lineHeight || 1.15;
+  d.style.color = col(st.color);
+  if (st.tracking) d.style.letterSpacing = st.tracking + 'px';
+  if (st.case === 'upper') d.style.textTransform = 'uppercase';
+  if (st.shadow) d.style.textShadow = st.shadow;
+  if (st.style === 'italic') d.style.fontStyle = 'italic';
+  if (st.opacity) d.style.opacity = st.opacity;
+  if (st.bar) { d.style.borderLeft = `${st.bar.w}px solid ${col(st.bar.color)}`; d.style.paddingLeft = st.bar.gap + 'px'; }
+}
+function textEl(parent, el) {
+  const d = add(parent, 'abs el', { left: el.x + 'px', top: el.y + 'px', width: el.w + 'px', textAlign: el.align || 'left' });
+  applyText(d, el.style);
+  d.textContent = el.display || el.text;
+  return d;
+}
+function renderEl(parent, el, withTag) {
+  let box = { x: el.x, y: el.y, w: el.w };
+  if (el.kind === 'text' || el.kind === 'number' || el.kind === 'clock') {
+    textEl(parent, el);
+  } else if (el.kind === 'rect') {
+    add(parent, 'abs', { left: el.x + 'px', top: el.y + 'px', width: el.w + 'px', height: el.h + 'px', background: col(el.fill), opacity: el.opacity || 1 });
+  } else if (el.kind === 'node') {
+    add(parent, 'abs', { left: (el.cx - el.r) + 'px', top: (el.cy - el.r) + 'px', width: el.r * 2 + 'px', height: el.r * 2 + 'px', borderRadius: '50%', background: col(el.fill),
+      boxShadow: el.pulse ? '0 0 0 16px rgba(200,48,42,0.25)' : 'none' });
+    textEl(parent, el.date); textEl(parent, el.desc);
+    box = { x: el.date.x, y: el.cy - el.r - 6, w: el.date.w };
+  } else if (el.kind === 'group') {
+    const g = add(parent, 'abs', { left: el.x + 'px', top: el.y + 'px', width: el.w + 'px', height: el.h + 'px', background: col(el.fill),
+      borderRadius: (el.radius || 0) + 'px', boxShadow: el.shadow || 'none', transform: el.rotate ? `rotate(${el.rotate}deg)` : 'none', overflow: 'hidden' });
+    el.children.forEach(ch => renderEl(g, ch, false));
+  }
+  if (withTag) {
+    const t = add(stage, 'tag', {}, tagFor(el));
+    const tw = t.getBoundingClientRect().width;
+    t.style.left = Math.max(4, Math.min(1916 - tw, box.x + box.w - tw)) + 'px';
+    t.style.top = Math.max(4, box.y - 26) + 'px';
+  }
+}
+
+// Nền: các lớp ảnh đang hiện ở thời điểm keyframe
+const toNum = (v, def) => typeof v === 'number' ? v : def;
+sc.background.filter(b => toNum(b.from, 0) <= key && key < toNum(b.to, 1e9)).forEach(b => {
+  const r = b.region || { x: 0, y: 0, w: 1920, h: 1080 };
+  if (b.asset === 'black') { add(stage, 'abs', { left: 0, top: 0, width: '1920px', height: '1080px', background: '#000' }); return; }
+  if (b.asset === 'paperBg') { add(stage, 'abs', { left: 0, top: 0, width: '1920px', height: '1080px', background: S.overlays.paperBg.gradient }); return; }
+  const ph = add(stage, 'ph', { left: r.x + 'px', top: r.y + 'px', width: r.w + 'px', height: r.h + 'px' });
+  add(ph, 'ph-label', { top: (r.h - 150) + 'px' }, `${b.asset} · ${b.title}`);
+  add(ph, 'ph-cam', { top: (r.h - 92) + 'px' }, `camera: ${b.camera || '–'}${b.parallax ? ' + parallax' : ''}`);
+  if (b.focus) {
+    const f = add(stage, 'focus', { left: b.focus.x + 'px', top: b.focus.y + 'px', width: b.focus.w + 'px', height: b.focus.h + 'px' });
+    add(f, '', {}, '<span>VÙNG TRỌNG TÂM ẢNH · không đặt chữ</span>');
+  }
+});
+
+// Lớp phủ
+const ov = sc.overlays.join(' ');
+if (ov.includes('quoteScrim')) add(stage, 'abs', { left: 0, top: 0, width: '1920px', height: '1080px', background: S.overlays.quoteScrim.gradient });
+if (ov.includes('star')) {
+  const s = S.overlays.star;
+  add(stage, 'abs', { left: s.x + 'px', top: s.y + 'px', width: s.size + 'px', height: s.size + 'px', opacity: s.opacity },
+    `<svg viewBox="-100 -100 200 200" width="${s.size}" height="${s.size}"><polygon fill="#F2C14E" points="0,-95 22.3,-30.7 90.4,-29.4 36.1,11.7 55.8,76.9 0,38 -55.8,76.9 -36.1,11.7 -90.4,-29.4 -22.3,-30.7"/></svg>`);
+}
+if (ov.includes('explosionGlow')) add(stage, 'abs', { left: 0, top: 0, width: '1920px', height: '1080px', background: S.overlays.explosionGlow.gradient, opacity: 0.5 });
+if (ov.includes('dim')) add(stage, 'abs', { left: 0, top: 0, width: '1920px', height: '1080px', background: '#000', opacity: S.overlays.dim.opacity });
+const needBand = ov.includes('band') || sc.elements.some(e => e.band && (e.out === undefined || typeof e.out.t !== 'number' || e.out.t > key) && e.in.t <= key);
+if (needBand) add(stage, 'abs', { left: 0, top: S.overlays.band.y + 'px', width: '1920px', height: S.overlays.band.h + 'px', background: S.overlays.band.gradient });
+add(stage, 'abs', { left: 0, top: 0, width: '1920px', height: '1080px', background: S.overlays.vignette.gradient });
+
+// Phần tử: những phần tử đang hiện ở keyframe
+const visibleAt = el => {
+  const tin = typeof el.in?.t === 'number' ? el.in.t : 0;
+  const tout = typeof el.out?.t === 'number' ? el.out.t : 1e9;
+  return tin <= key && key < tout;
+};
+sc.elements.filter(visibleAt).forEach(el => renderEl(stage, el, true));
+add(stage, 'safe');
+
+// Thanh thông tin
+const bgList = sc.background.map(b => `${b.asset}${b.camera && b.camera !== 'none' ? ' (' + b.camera + ')' : ''}`).join(' → ');
+document.getElementById('info').innerHTML =
+  `<div><b>${sc.id} · ${sc.name}</b> &nbsp;|&nbsp; Đầy đủ ${sc.duration}s · Rút gọn ${sc.durationShort}s &nbsp;|&nbsp; Khung minh họa tại t = ${key}s &nbsp;|&nbsp; Vào cảnh: ${sc.transitionIn}</div>` +
+  `<div class="row2">Nền: ${bgList} &nbsp;|&nbsp; Lời dẫn bắt đầu: ${sc.voStart}s &nbsp;|&nbsp; Khung nét đứt trắng = vùng an toàn chữ · Khung cam = vùng trọng tâm ảnh</div>`;
+window.READY = true;
+</script>
+</body>
+</html>

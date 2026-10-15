@@ -158,7 +158,7 @@ Mình đã có bộ tự tạo, gồm tích tắc, pháo, tim đập, trống. N
 - tiếng đại bác
 - tiếng cầu dao điện
 - tiếng xích xe tăng
-- tiếng máy chữ
+- **tiếng máy chữ (bắt buộc):** 4–6 mẫu tiếng gõ phím, tiếng gạt dòng, tiếng chuông "ting". Mọi dòng chữ trong video đều hiện ra như đánh máy, kèm tiếng gõ
 - tiếng dế kêu đêm
 - tiếng tim đập
 - tiếng trống lớn
@@ -248,6 +248,8 @@ Tối đa **2 vòng sửa** (ra v2, v3) để không kéo dài.
 ---
 
 ## Phụ lục A. Thiết kế chi tiết từng cảnh
+
+> **Thông số chi tiết và mới nhất** nằm ở `style/thiet-ke-style-video.md`, `style/video-style.json` và `style/wireframes/`. Ở đó gồm cách chữ hiện ra như đánh máy kèm tiếng gõ phím, vị trí chữ, chuyển cảnh, màn đen và âm thanh. Nếu bảng dưới đây khác với các file đó, **theo thư mục `style/`**.
 
 Thời gian ghi theo dạng **bản đầy đủ / bản rút gọn**. Mã ảnh xem trong `thiet-ke-anh-minh-hoa.md`, lời dẫn xem trong `kich-ban-loi-dan.md`.
 
