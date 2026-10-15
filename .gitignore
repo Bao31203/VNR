@@ -1,2 +1,3 @@
 video-hook/out/*
 !video-hook/out/hook.mp4
+__pycache__/
