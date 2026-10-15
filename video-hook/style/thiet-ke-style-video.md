@@ -327,6 +327,8 @@ Mốc thời gian dưới đây tính theo bản đầy đủ.
 | Chuông "ting" | `may-chu/chuong-01…02.wav` | Các dòng có `bell` |
 | **Đại bác nổ gần + vang** | `phao/phao-gan-vang.wav` (bản không vang: `phao/phao-gan.wav`) | **C7 lúc 1,0 s**, cùng khung hình với chớp trắng và rung |
 | **Pháo hạm vọng từ xa** | `phao/phao-xa-01.wav`, `phao-xa-02.wav`, `phao-xa-03.wav` | **C3**, mỗi lần chớp sáng một file, theo thứ tự |
+| **Súng giao tranh khắp phố** | `sung/giao-tranh-xa.wav` (10 s) | **C7 từ 1,8 s** đến hết cảnh, nhỏ dần trong 2 s đầu C8. Thấp hơn tiếng đại bác khoảng 12 dB, hạ thêm 6 dB khi lời dẫn nói |
+| Súng máy, phát súng lẻ (dự phòng) | `sung/sung-may-loat.wav`, `sung/sung-ban-lien-tiep.wav`, `sung/phat-sung-01…06.wav` | Rải thêm nếu muốn tiếng giao tranh dày hơn |
 
 Tất cả đều làm từ **bản thu thật** do người làm video cung cấp. Các file gốc nằm trong thư mục `goc/`.
 - Mọi file đều đã **căn đầu tiếng (tiếng "cạch" của phím hoặc tiếng nổ) về đúng 10 ms đầu file**. Khi dựng, đặt file **sớm hơn 10 ms** so với khung hình chữ hiện ra hoặc khung hình chớp sáng.
@@ -436,7 +438,7 @@ Phần này viết cho người đọc. Vị trí px chính xác xem trong JSON 
 | 0,0 – 1,0 | **ĐEN TUYỆT ĐỐI** | Tiếng "tách" của cầu dao, rồi **im lặng tuyệt đối** |
 | 1,0 | Chớp trắng (`flash`), rung (`shake`), ảnh A09 với `hitZoomOut`, quầng lửa đáy khung. `20 GIỜ 3 PHÚT` **đập vào** màn hình (`slam`, không đánh máy) ở **nửa trên** (y=170) | **ĐẠI BÁC** nổ và vang |
 | 1,7 | **Gõ** `19 · 12 · 1946` màu vàng (16 ký tự/s) | Tiếng gõ (−18 dB), nghe rõ trên tiếng vang đại bác đang tắt |
-| 1,8 | — | Lời dẫn bắt đầu |
+| 1,8 | — | **Tiếng súng giao tranh nổ ran khắp phố** (`giao-tranh-xa.wav`, nhỏ hơn đại bác khoảng 12 dB). Lời dẫn bắt đầu, tiếng súng hạ xuống thêm 6 dB |
 | 2,4 | **Gõ nhanh** (30 ký tự/s) `Pháo đài Láng nổ súng — Toàn quốc kháng chiến bùng nổ` | Tiếng gõ (−28 dB) |
 
 ### C8 · Lời kêu gọi (22 s / 10 s)
@@ -445,7 +447,7 @@ Phần này viết cho người đọc. Vị trí px chính xác xem trong JSON 
 
 | Thời điểm | Hình và chữ | Âm thanh |
 |---|---|---|
-| 0,0 | Đi qua màu đỏ (`dipRed`) vào A10. Nền đỏ phủ dần từ trái, ngôi sao mờ xoay chậm | Nhạc 2 vào |
+| 0,0 | Đi qua màu đỏ (`dipRed`) vào A10. Nền đỏ phủ dần từ trái, ngôi sao mờ xoay chậm | Tiếng súng giao tranh nhỏ dần về 0 trong 2 s. Nhạc 2 vào |
 | 0,8 | **Gõ** `Hỡi đồng bào toàn quốc!` màu vàng | Tiếng gõ **rất nhỏ** (−30 dB) |
 | 2,0 → 8,4 | Năm dòng đầu được **gõ khớp với giọng đọc**: mỗi dòng bắt đầu gõ đúng lúc giọng đọc bắt đầu câu đó, gõ xong trước khi giọng đọc hết câu | Tiếng gõ rất nhỏ (−30 dB), không được át giọng đọc |
 | 11,4 / 0,8 | `Không!` **đập vào** (`slam`, không đánh máy). Các dòng trước mờ xuống 55% | Tiếng **"thịch" trầm**, đúng lúc giọng đọc nói "Không!" |

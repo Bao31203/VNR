@@ -47,6 +47,24 @@ Làm từ **bản thu pháo thật** `sfx/phao/goc/universfield-powerful-cannon-
 - Đầu tiếng nổ nằm ở **10 ms đầu file**. Khi dựng, đặt file sớm 10 ms so với khung hình chớp sáng.
 - Tiếng pháo nặng về dải trầm: **thử trên loa của lớp học**. Nếu không rõ thì tăng âm lượng.
 
+## Tiếng súng, giao tranh: `sfx/sung/`
+
+Làm từ **2 bản thu thật** do người làm video cung cấp, nằm trong `sfx/sung/goc/`:
+- `freesound_community-clean-machine-gun-burst-98224.mp3`: một loạt súng máy 16 phát.
+- `dragon-studio-gunshots-firing-repeatedly-511326.mp3`: tràng bắn dày đặc.
+
+Chạy `python3 sung.py` để tạo lại. Script này cần `phao.py` nằm cùng thư mục.
+
+| File | Âm thanh | Dùng ở |
+|---|---|---|
+| `giao-tranh-xa.wav` | **Nền giao tranh khắp thành phố**, 10 s: tràng bắn dày, loạt súng máy, phát lẻ ở xa gần và trái phải khác nhau, vang giữa các dãy nhà, nhỏ dần ở cuối | **C7 từ 1,8 s** (ngay sau đại bác) đến hết cảnh, nhỏ dần trong 2 s đầu C8 |
+| `sung-may-loat.wav` | Loạt súng máy gần, nguyên gốc | Dự phòng |
+| `sung-ban-lien-tiep.wav` | Tràng bắn dày đặc, nguyên gốc | Dự phòng |
+| `phat-sung-01…06.wav` | Phát súng lẻ (cắt từ loạt súng máy), có chút vang | Rải thêm nếu muốn dày hơn |
+| `nghe-thu-sung.wav` | Nghe thử đúng như cảnh C7: im lặng, đại bác nổ, rồi giao tranh nổ ran | Để nghe trước |
+
+Khi trộn, nền giao tranh **thấp hơn tiếng đại bác khoảng 12 dB**. Khi lời dẫn đang nói, hạ thêm 6 dB.
+
 ## Mức âm lượng khi trộn
 
 Theo `style/thiet-ke-style-video.md`, mục 5.2:

@@ -79,7 +79,7 @@ Ký hiệu dùng trong kịch bản:
 
 - **Hình:** màn hình tắt đen trong 1 giây, rồi chớp sáng, rồi A09: pháo đài Láng khai hỏa trong đêm.
 - **Chữ trên màn hình:** **20 GIỜ 3 PHÚT · 19.12.1946**
-- **Âm thanh:** tiếng "tách" khi điện tắt, im lặng, rồi tiếng đại bác nổ và rung màn hình.
+- **Âm thanh:** tiếng "tách" khi điện tắt, im lặng, rồi tiếng đại bác nổ và rung màn hình. Ngay sau đó, tiếng súng giao tranh nổ ran khắp phố, nằm dưới lời dẫn.
 
 > **Lời dẫn** (sau tiếng pháo): Hai mươi giờ ba phút. [ngừng] Đèn điện vụt tắt. Pháo đài Láng nổ súng. [ngừng]
 > Toàn quốc kháng chiến… bắt đầu.

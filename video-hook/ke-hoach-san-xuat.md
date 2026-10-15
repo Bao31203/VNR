@@ -152,7 +152,7 @@ Cần **1 bản nhạc dài khoảng 2 phút có cao trào**, hoặc **2 bản**
 
 ### 4.2. Hiệu ứng âm thanh
 
-Mình đã có bộ tự tạo, gồm tích tắc, pháo, tim đập, trống, và **bộ tiếng máy chữ thật** (12 tiếng phím, phím cách, gạt dòng, chuông, cắt từ bản thu bạn cung cấp) ở `audio/sfx/may-chu/`, **tiếng pháo thật** (pháo gần có vang cho C7, pháo vọng xa cho C3) ở `audio/sfx/phao/`, kèm công cụ `audio/may_chu.py` để tạo tiếng gõ khớp từng dòng chữ. Nếu muốn thật hơn, bạn có thể lấy thêm từ Pixabay Sound Effects:
+Mình đã có bộ tự tạo, gồm tích tắc, pháo, tim đập, trống, và **bộ tiếng máy chữ thật** (12 tiếng phím, phím cách, gạt dòng, chuông, cắt từ bản thu bạn cung cấp) ở `audio/sfx/may-chu/`, **tiếng pháo thật** (pháo gần có vang cho C7, pháo vọng xa cho C3) ở `audio/sfx/phao/`, **tiếng súng giao tranh thật** cho C7 ở `audio/sfx/sung/`, kèm công cụ `audio/may_chu.py` để tạo tiếng gõ khớp từng dòng chữ. Nếu muốn thật hơn, bạn có thể lấy thêm từ Pixabay Sound Effects:
 - tiếng đồng hồ quả lắc
 - tiếng pháo hạm từ xa
 - tiếng đại bác
@@ -176,6 +176,7 @@ Mình đã có bộ tự tạo, gồm tích tắc, pháo, tim đập, trống, v
 | 1:02–1:07 | Tích tắc nhanh dần, nhạc **tắt hẳn ở 1:06** |
 | 1:07,0 | Tiếng "tách" của cầu dao, rồi **im lặng 1 giây** |
 | 1:08,0 | **Đại bác nổ** và vang, màn hình rung |
+| 1:08,8 | **Súng giao tranh nổ ran khắp phố**, kéo dài hết C7, nhỏ dần sang C8 |
 | 1:15 | Nhạc 2 hùng tráng vào |
 | 1:37 | Tiếng tim đập |
 | 1:57 | Tim đập dừng, im lặng 0,5 giây, rồi câu hỏi |

@@ -1770,6 +1770,10 @@
         {
           "t": 1.0,
           "sfx": "ĐẠI BÁC nổ + vang, cùng khung với flash và shake"
+        },
+        {
+          "t": 1.8,
+          "sfx": "SFX-GUNFIRE: giao tranh nổ ran khắp phố, kéo dài đến hết cảnh và nhỏ dần sang C8"
         }
       ]
     },
@@ -2011,6 +2015,10 @@
         }
       ],
       "audio": [
+        {
+          "t": 0.0,
+          "sfx": "SFX-GUNFIRE (tiếp từ C7) nhỏ dần về 0 trong 2 s"
+        },
         {
           "t": 0.0,
           "music": "nhạc 2 hùng tráng vào"
@@ -2451,6 +2459,7 @@
     }
   ],
   "sfxLibrary": {
+    "_nguonTiengSung": "Làm từ 2 bản thu thật do người làm video cung cấp: audio/sfx/sung/goc/freesound_community-clean-machine-gun-burst-98224.mp3 và dragon-studio-gunshots-firing-repeatedly-511326.mp3. Tạo lại bằng: python3 audio/sung.py",
     "_nguonTiengPhao": "Làm từ bản thu pháo thật: audio/sfx/phao/goc/universfield-powerful-cannon-shot-02-487887.mp3 (do người làm video cung cấp). Tạo lại bằng: python3 audio/phao.py",
     "_nguonTiengMayChu": "Cắt từ bản thu máy chữ cơ thật: audio/sfx/may-chu/goc/sea-you-later-typewriter-301419.mp3 (do người làm video cung cấp). Cắt lại bằng: python3 audio/may_chu.py tach",
     "_congCuGoChu": "Tạo sẵn đoạn tiếng gõ cho một dòng chữ: python3 audio/may_chu.py go \"<chữ>\" --cps <tốc độ> [--return] [--bell] [--jitter 0] -o <file.wav>. Kèm file .json ghi thời điểm từng ký tự. Dùng --jitter 0 khi công cụ dựng gõ chữ đều (vd. CapCut).",
@@ -2550,6 +2559,22 @@
       "mo_ta": "Một tiếng trống lớn, ngân dài",
       "khi_nao": "C11 khi vạch đỏ xuất hiện",
       "am_luong": "-8 dB"
+    },
+    "SFX-GUNFIRE": {
+      "mo_ta": "Nền tiếng súng giao tranh khắp thành phố: các tràng bắn dày, loạt súng máy và phát lẻ ở xa gần, trái phải khác nhau, vang giữa các dãy nhà (làm từ bản thu thật)",
+      "khi_nao": "C7 từ 1,8 s (ngay sau tiếng đại bác) đến hết C7, rồi nhỏ dần về 0 trong 2 s đầu C8",
+      "am_luong": "Thấp hơn tiếng đại bác khoảng 12 dB; khi lời dẫn nói, hạ thêm 6 dB (ducking)",
+      "file": "audio/sfx/sung/giao-tranh-xa.wav (10 s, đã có sẵn đoạn nhỏ dần ở cuối)"
+    },
+    "SFX-MG": {
+      "mo_ta": "Một loạt súng máy gần, rõ (16 phát)",
+      "khi_nao": "Dự phòng, hoặc nhấn thêm khi cần một loạt súng rõ",
+      "file": "audio/sfx/sung/sung-may-loat.wav"
+    },
+    "SFX-SHOT": {
+      "mo_ta": "Phát súng lẻ, có chút vang",
+      "khi_nao": "Dự phòng: rải thêm phát lẻ nếu muốn tiếng giao tranh dày hơn",
+      "file": "audio/sfx/sung/phat-sung-01.wav … phat-sung-06.wav; tràng bắn dày: audio/sfx/sung/sung-ban-lien-tiep.wav"
     }
   }
 }
