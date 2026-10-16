@@ -1,0 +1,47 @@
+{
+  "sourceArticle": "https://baotanglichsu.vn/vi/Articles/3097/19663/19-12-1946-ngay-toan-quoc-khang-chien.html",
+  "retrievedOn": "2026-10-17",
+  "markdownContentKind": "summary-not-verbatim",
+  "images": [
+    {
+      "file": "images/01-hiep-dinh-so-bo.jpg",
+      "source": "https://baotanglichsu.vn/DataFiles/Uploaded/image/data%20Hung/thang%2012%20nam%202016/19%20thang%2012%20toan%20quoc%20khang%20chien/1.jpg",
+      "bytes": 41706,
+      "width": 340,
+      "height": 480,
+      "sha256": "cf8aa5f46306b9016d4ed1d1bf3fee01d23ed8e83ba9a00fb692fb2cf59ea742"
+    },
+    {
+      "file": "images/02-tau-chien-hai-phong.jpg",
+      "source": "https://baotanglichsu.vn/DataFiles/Uploaded/image/data%20Hung/thang%2012%20nam%202016/19%20thang%2012%20toan%20quoc%20khang%20chien/2.jpg",
+      "bytes": 36152,
+      "width": 480,
+      "height": 316,
+      "sha256": "89820e84bc5f1d4f498c682b06372ed42378f575470df67fcfde48532084cbbf"
+    },
+    {
+      "file": "images/03-nha-van-phuc.jpg",
+      "source": "https://baotanglichsu.vn/DataFiles/Uploaded/image/data%20Hung/thang%2012%20nam%202016/19%20thang%2012%20toan%20quoc%20khang%20chien/3.jpg",
+      "bytes": 42049,
+      "width": 480,
+      "height": 360,
+      "sha256": "ad529139cd500a8007409c97f0dca375e0f2302ad42252ee3001347b704d2da7"
+    },
+    {
+      "file": "images/04-bac-bo-phu.jpg",
+      "source": "https://baotanglichsu.vn/DataFiles/Uploaded/image/data%20Hung/thang%2012%20nam%202016/19%20thang%2012%20toan%20quoc%20khang%20chien/4.jpg",
+      "bytes": 58467,
+      "width": 480,
+      "height": 327,
+      "sha256": "9db98057646747a5baaee5d3ffd6ba41aa625c072ddca489e3e8452481b84b3c"
+    },
+    {
+      "file": "images/05-ban-thao-loi-keu-goi.jpg",
+      "source": "https://baotanglichsu.vn/DataFiles/Uploaded/image/data%20Hung/thang%2012%20nam%202016/19%20thang%2012%20toan%20quoc%20khang%20chien/5.jpg",
+      "bytes": 93337,
+      "width": 480,
+      "height": 373,
+      "sha256": "33138f8eb4a41fa77797f92f0ca6190dbbf80f77ef3013557fe2900a0ac03537"
+    }
+  ]
+}
