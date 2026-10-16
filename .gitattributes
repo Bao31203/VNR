@@ -1,3 +1,5 @@
 video-hook/out/history-1946-v6/hook.mp4 filter=lfs diff=lfs merge=lfs -text
 video-hook/out/history-1946-v6/hook-720p.mp4 filter=lfs diff=lfs merge=lfs -text
 video-hook/out/history-1946-v6/fort-review.mp4 filter=lfs diff=lfs merge=lfs -text
+video-hook/assets/references/chinh-sua-video/video-tham-khao.mp4 filter=lfs diff=lfs merge=lfs -text
+video-hook/assets/references/chinh-sua-video/am-thanh-video-tham-khao.mp3 filter=lfs diff=lfs merge=lfs -text
