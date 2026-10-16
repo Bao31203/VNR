@@ -1,0 +1,196 @@
+{
+ "phim": [
+  {
+   "file": "phim/T1.mp4",
+   "ma": "T1",
+   "nguon": "video-tham-khao.mp4 (người dùng cung cấp); phần lớn phim gốc của British Pathé",
+   "mocGoc": [
+    33.2,
+    35.0
+   ],
+   "thoiLuong": 1.8,
+   "kichThuoc": "938x720",
+   "moTa": "Nhà hát Lớn Hà Nội treo chân dung và băng rôn \"Hồ Chủ tịch muôn năm\"",
+   "diaDiem": "Hà Nội (nhận ra Nhà hát Lớn); khoảng 1945–1946",
+   "dungCho": "C1",
+   "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
+   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+  },
+  {
+   "file": "phim/T2.mp4",
+   "ma": "T2",
+   "nguon": "video-tham-khao.mp4 (người dùng cung cấp); phần lớn phim gốc của British Pathé",
+   "mocGoc": [
+    61.5,
+    64.4
+   ],
+   "thoiLuong": 2.9,
+   "kichThuoc": "1088x720",
+   "moTa": "Ảnh Hồ Chí Minh ngồi cạnh Jean Sainteny (ảnh tĩnh, có máy quay lia nhẹ)",
+   "diaDiem": "Không rõ nơi chụp; năm 1946",
+   "dungCho": "C2",
+   "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
+   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+  },
+  {
+   "file": "phim/T3.mp4",
+   "ma": "T3",
+   "nguon": "video-tham-khao.mp4 (người dùng cung cấp); phần lớn phim gốc của British Pathé",
+   "mocGoc": [
+    152.95,
+    157.4
+   ],
+   "thoiLuong": 4.45,
+   "kichThuoc": "1280x720",
+   "moTa": "Ảnh chiến hạm cập bến, lính và xe tải trên bãi",
+   "diaDiem": "Chưa xác định",
+   "dungCho": "C3",
+   "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
+   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+  },
+  {
+   "file": "phim/T4.mp4",
+   "ma": "T4",
+   "nguon": "video-tham-khao.mp4 (người dùng cung cấp); phần lớn phim gốc của British Pathé",
+   "mocGoc": [
+    157.45,
+    160.95
+   ],
+   "thoiLuong": 3.5,
+   "kichThuoc": "1280x720",
+   "moTa": "Ảnh tuần dương hạm chạy trên biển",
+   "diaDiem": "Chưa xác định",
+   "dungCho": "C3",
+   "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
+   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+  },
+  {
+   "file": "phim/T5.mp4",
+   "ma": "T5",
+   "nguon": "video-tham-khao.mp4 (người dùng cung cấp); phần lớn phim gốc của British Pathé",
+   "mocGoc": [
+    161.05,
+    164.65
+   ],
+   "thoiLuong": 3.6,
+   "kichThuoc": "964x720",
+   "moTa": "Phim: cột khói nổ, người chạy trên bãi đất",
+   "diaDiem": "Chưa xác định",
+   "dungCho": "C3, C7",
+   "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
+   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+  },
+  {
+   "file": "phim/T6a.mp4",
+   "ma": "T6a",
+   "nguon": "video-tham-khao.mp4 (người dùng cung cấp); phần lớn phim gốc của British Pathé",
+   "mocGoc": [
+    112.58,
+    114.3
+   ],
+   "thoiLuong": 1.72,
+   "kichThuoc": "938x720",
+   "moTa": "Phim Pathé: nhìn qua vai lính đội mũ sắt xuống phố có đồ đạc đổ nát",
+   "diaDiem": "Chưa xác định",
+   "dungCho": "C7, C9 trái",
+   "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
+   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+  },
+  {
+   "file": "phim/T6b.mp4",
+   "ma": "T6b",
+   "nguon": "video-tham-khao.mp4 (người dùng cung cấp); phần lớn phim gốc của British Pathé",
+   "mocGoc": [
+    114.34,
+    116.38
+   ],
+   "thoiLuong": 2.04,
+   "kichThuoc": "938x720",
+   "moTa": "Phim Pathé: lính bên xe hoặc pháo trong khói",
+   "diaDiem": "Chưa xác định",
+   "dungCho": "C7",
+   "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
+   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+  },
+  {
+   "file": "phim/T6c.mp4",
+   "ma": "T6c",
+   "nguon": "video-tham-khao.mp4 (người dùng cung cấp); phần lớn phim gốc của British Pathé",
+   "mocGoc": [
+    116.42,
+    118.66
+   ],
+   "thoiLuong": 2.24,
+   "kichThuoc": "938x720",
+   "moTa": "Phim Pathé: khói trên khu đổ nát",
+   "diaDiem": "Chưa xác định",
+   "dungCho": "C7, C11",
+   "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
+   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+  },
+  {
+   "file": "phim/T7a.mp4",
+   "ma": "T7a",
+   "nguon": "video-tham-khao.mp4 (người dùng cung cấp); phần lớn phim gốc của British Pathé",
+   "mocGoc": [
+    164.7,
+    166.4
+   ],
+   "thoiLuong": 1.7,
+   "kichThuoc": "938x720",
+   "moTa": "Phim Pathé: lính Pháp đi trên phố",
+   "diaDiem": "Chưa xác định",
+   "dungCho": "C9 trái",
+   "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
+   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+  },
+  {
+   "file": "phim/T7b.mp4",
+   "ma": "T7b",
+   "nguon": "video-tham-khao.mp4 (người dùng cung cấp); phần lớn phim gốc của British Pathé",
+   "mocGoc": [
+    166.45,
+    169.2
+   ],
+   "thoiLuong": 2.75,
+   "kichThuoc": "938x720",
+   "moTa": "Phim Pathé: đám cháy trên mặt đất",
+   "diaDiem": "Chưa xác định",
+   "dungCho": "C7",
+   "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
+   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+  },
+  {
+   "file": "phim/T8a.mp4",
+   "ma": "T8a",
+   "nguon": "video-tham-khao.mp4 (người dùng cung cấp); phần lớn phim gốc của British Pathé",
+   "mocGoc": [
+    13.02,
+    15.26
+   ],
+   "thoiLuong": 2.24,
+   "kichThuoc": "934x720",
+   "moTa": "Phim: người đi qua ngõ phố ngổn ngang gạch vụn",
+   "diaDiem": "Chưa xác định",
+   "dungCho": "C11",
+   "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
+   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+  },
+  {
+   "file": "phim/T8b.mp4",
+   "ma": "T8b",
+   "nguon": "video-tham-khao.mp4 (người dùng cung cấp); phần lớn phim gốc của British Pathé",
+   "mocGoc": [
+    15.3,
+    18.74
+   ],
+   "thoiLuong": 3.44,
+   "kichThuoc": "940x720",
+   "moTa": "Phim: người dọn đống đổ nát bên đường",
+   "diaDiem": "Chưa xác định",
+   "dungCho": "C11",
+   "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
+   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+  }
+ ]
+}
