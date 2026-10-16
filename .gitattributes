@@ -3,3 +3,14 @@ video-hook/out/history-1946-v6/hook-720p.mp4 filter=lfs diff=lfs merge=lfs -text
 video-hook/out/history-1946-v6/fort-review.mp4 filter=lfs diff=lfs merge=lfs -text
 video-hook/assets/references/chinh-sua-video/video-tham-khao.mp4 filter=lfs diff=lfs merge=lfs -text
 video-hook/assets/references/chinh-sua-video/am-thanh-video-tham-khao.mp3 filter=lfs diff=lfs merge=lfs -text
+video-hook/assets/audio/loi-keu-goi-user-recording.mp3 filter=lfs diff=lfs merge=lfs -text
+video-hook/assets/history-1946/*.png filter=lfs diff=lfs merge=lfs -text
+video-hook/assets/history-1946-v2/*.png filter=lfs diff=lfs merge=lfs -text
+video-hook/templates/history/assets/*.png filter=lfs diff=lfs merge=lfs -text
+video-hook/templates/history/assets/*.ttf filter=lfs diff=lfs merge=lfs -text
+video-hook/templates/history-v2/assets/*.png filter=lfs diff=lfs merge=lfs -text
+video-hook/templates/history-v2/assets/*.ttf filter=lfs diff=lfs merge=lfs -text
+video-hook/templates/history-v3/assets/*.png filter=lfs diff=lfs merge=lfs -text
+video-hook/templates/history-v3/assets/*.ttf filter=lfs diff=lfs merge=lfs -text
+video-hook/templates/history-v4/assets/*.png filter=lfs diff=lfs merge=lfs -text
+video-hook/templates/history-v4/assets/*.ttf filter=lfs diff=lfs merge=lfs -text

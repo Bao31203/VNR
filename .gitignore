@@ -1,6 +1,17 @@
 video-hook/out/*
 !video-hook/out/hook.mp4
 __pycache__/
+*.py[cod]
+.venv*/
+venv/
+node_modules/
+.cache/
+.studio/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
 !video-hook/out/history-1946-v6/
 video-hook/out/history-1946-v6/*
 !video-hook/out/history-1946-v6/hook.mp4
