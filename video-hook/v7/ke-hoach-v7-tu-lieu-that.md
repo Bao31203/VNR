@@ -233,3 +233,17 @@ Phương án B tốn công hơn, và chữ có thể lệch vài khung hình so 
 3. Cảnh nào **không tìm được tư liệu thật** thì dùng **nền tối chỉ có chữ** (đề xuất của mình), hay giữ tạm tranh AI của V6 nhưng chuyển sang đen trắng?
 4. Có thêm **màn "Tư liệu sử dụng"** khoảng 4–5 giây ở cuối không?
 5. Bạn có máy chạy được **Upscayl hoặc Real-ESRGAN** để phóng to ảnh nhỏ không?
+
+---
+
+## 9. Đã chốt (cập nhật sau khi bạn trả lời)
+
+| Câu hỏi | Trả lời | Cách làm |
+|---|---|---|
+| 1. Mã nguồn V6 | Đã đẩy lên repo | Repo vẫn thiếu `out/history-1946-v6/timeline.json` và `variables.json` (bị `.gitignore` bỏ qua). Đã **dựng lại hai file này** từ `scripts/render-history-v4.ts` + `render-history-v6.ts`, thời lượng cảnh đo từ `hook.mp4` V6. Kết quả trùng V6 đến từng khung hình, nên làm được theo **phương án A**. |
+| 2. Dùng phim cắt từ video tham khảo | Có | Dùng T1, T2, T4, T5, T6a–c, T7a–b, T8a–b. Giữ logo Pathé. |
+| 3. Cảnh không có tư liệu thật | Giữ tranh AI, chuyển đen trắng | C6 (cả hai phần), C7 lúc pháo đài Láng khai hỏa, C9 nửa phải, C10. Ghi "Tranh minh họa (AI)" ở góc. |
+| 4. Màn "Tư liệu sử dụng" | Không | Nguồn ghi ngay trên từng hình, chữ nhỏ góc dưới phải. |
+| 5. Phóng to ảnh | Mình chạy Real-ESRGAN ngay trong môi trường này | `v7/phong-to-anh.py`; kết quả trong `assets/tu-lieu/anh/`. |
+
+Kết quả và cách dựng lại: xem `v7/README.md`.

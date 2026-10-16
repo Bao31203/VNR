@@ -14,7 +14,8 @@
    "diaDiem": "Hà Nội (nhận ra Nhà hát Lớn); khoảng 1945–1946",
    "dungCho": "C1",
    "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
-   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn",
+   "ghiChuCat": "Có 2 cảnh: khung 0–23 toàn cảnh Nhà hát Lớn, khung 24–53 cận băng rôn."
   },
   {
    "file": "phim/T2.mp4",
@@ -30,7 +31,8 @@
    "diaDiem": "Không rõ nơi chụp; năm 1946",
    "dungCho": "C2",
    "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
-   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn",
+   "ghiChuCat": "Chỉ dùng khung 0–68 (2,3 s đầu): từ khoảng 2,4 s video tham khảo chèn chú thích tiếng Anh \"Jean Sainteny 29 May 1907 – 25 Feb 1978\"."
   },
   {
    "file": "phim/T3.mp4",
@@ -110,7 +112,8 @@
    "diaDiem": "Chưa xác định",
    "dungCho": "C7",
    "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
-   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn",
+   "ghiChuCat": "Bỏ 4 khung đầu bị nháy."
   },
   {
    "file": "phim/T6c.mp4",
@@ -142,7 +145,8 @@
    "diaDiem": "Chưa xác định",
    "dungCho": "C9 trái",
    "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
-   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+   "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn",
+   "ghiChuCat": "Chỉ dùng khung 0–47; khung 48 trở đi là cảnh khác."
   },
   {
    "file": "phim/T7b.mp4",
@@ -191,6 +195,44 @@
    "dungCho": "C11",
    "xuLy": "bỏ viền đen, chuyển đen trắng, tắt tiếng, 30 fps; không xóa logo",
    "ghiChuQuyen": "chỉ dùng cho thuyết trình trên lớp, ghi nguồn"
+  }
+ ],
+ "anh": [
+  {
+   "file": "anh/BT1-tuyen-bo-hiep-dinh-so-bo.jpg",
+   "ma": "BT1",
+   "goc": "assets/references/bao-tang-19-12-1946/images/01-hiep-dinh-so-bo.jpg (340×480)",
+   "nguon": "Bảo tàng Lịch sử Quốc gia, bài \"19-12-1946: Ngày toàn quốc kháng chiến\"",
+   "url": "https://baotanglichsu.vn/vi/Articles/3097/19663/19-12-1946-ngay-toan-quoc-khang-chien.html",
+   "moTa": "Bản tuyên bố (DÉCLARATION) về Hiệp định Sơ bộ 6-3-1946, chữ ký J. Sainteny và Hồ Chí Minh",
+   "ngayChup": "3-1946",
+   "dungCho": "C2 (0–5 s)",
+   "xuLy": "phóng to ×4 bằng Real-ESRGAN x4plus (v7/phong-to-anh.py), chuyển đen trắng, JPG 92",
+   "ghiChuQuyen": "dùng cho thuyết trình trên lớp, ghi nguồn trên khung hình"
+  },
+  {
+   "file": "anh/BT2-tau-chien-hai-phong-3-1946.jpg",
+   "ma": "BT2",
+   "goc": "assets/references/bao-tang-19-12-1946/images/02-tau-chien-hai-phong.jpg (480×316)",
+   "nguon": "Bảo tàng Lịch sử Quốc gia",
+   "url": "https://baotanglichsu.vn/vi/Articles/3097/19663/19-12-1946-ngay-toan-quoc-khang-chien.html",
+   "moTa": "Tàu chiến Pháp ở cảng Hải Phòng",
+   "ngayChup": "5-3-1946 (theo chú thích của bảo tàng; không phải ngày 23-11-1946)",
+   "dungCho": "C3 (0–3 s)",
+   "xuLy": "phóng to ×4 bằng Real-ESRGAN x4plus, chuyển đen trắng, JPG 92",
+   "ghiChuQuyen": "dùng cho thuyết trình trên lớp, ghi nguồn trên khung hình"
+  },
+  {
+   "file": "anh/BT3-nha-van-phuc.jpg",
+   "ma": "BT3",
+   "goc": "assets/references/bao-tang-19-12-1946/images/03-nha-van-phuc.jpg (480×360)",
+   "nguon": "Bảo tàng Lịch sử Quốc gia",
+   "url": "https://baotanglichsu.vn/vi/Articles/3097/19663/19-12-1946-ngay-toan-quoc-khang-chien.html",
+   "moTa": "Ngôi nhà ở làng Vạn Phúc (Hà Đông), nơi họp Hội nghị Ban Thường vụ Trung ương Đảng mở rộng ngày 18-12-1946 (giáo trình, dòng 3119–3120)",
+   "ngayChup": "không rõ",
+   "dungCho": "C5",
+   "xuLy": "phóng to ×4 bằng Real-ESRGAN x4plus, chuyển đen trắng, JPG 92",
+   "ghiChuQuyen": "dùng cho thuyết trình trên lớp, ghi nguồn trên khung hình"
   }
  ]
 }
