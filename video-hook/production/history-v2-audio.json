@@ -1,0 +1,21 @@
+{
+  "sourceCommit": "ba8b2e2",
+  "sourceAudio": "assets/audio/loi-keu-goi-user-recording.mp3",
+  "originalUserPath": "C:/Users/pgb31/Downloads/Loikeugoitoanquockhangchien.mp3",
+  "clipStart": 0.30,
+  "clipEnd": 26.72,
+  "playbackRate": 1.0,
+  "quoteCues": [
+    {"id":"q-head","start":0.66,"end":2.40},
+    {"id":"q1","start":3.30,"end":4.76},
+    {"id":"q2","start":5.68,"end":7.06},
+    {"id":"q3","start":7.98,"end":10.02},
+    {"id":"q4","start":10.48,"end":13.68},
+    {"id":"q5","start":14.62,"end":17.56},
+    {"id":"q6","start":18.12,"end":18.74},
+    {"id":"q7","start":19.58,"end":21.44},
+    {"id":"q8","start":22.10,"end":23.98},
+    {"id":"q9","start":24.58,"end":26.22}
+  ],
+  "notes": "Dùng trực tiếp bản thu do người dùng cung cấp; không dùng làm mẫu clone, không đổi tốc độ/cao độ. Mốc câu lấy từ nhận dạng tiếng nói local và được dùng để căn hình. Chữ hiển thị lấy nguyên văn JSON thiết kế của repo."
+}

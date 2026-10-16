@@ -9,6 +9,7 @@ Video hook (78 giây, 1920x1080) cho phần thuyết trình *Đường lối kh�
 
 ## Tài liệu đi kèm
 
+- [Mã nguồn dựng video V6](docs/source-v6.md): script, template lịch sử tự thiết kế, tài nguyên và các phụ thuộc cần để dựng lại. [Video V6 đã xuất](out/history-1946-v6/README.md) nằm riêng với mã nguồn.
 - `v7/ke-hoach-v7-tu-lieu-that.md`: **kế hoạch V7**, thay tranh vẽ AI của V6 bằng ảnh và phim tư liệu thật. Kèm `v7/v6-storyboard.jpg` và `v7/tham-khao-danh-muc-*.jpg` (ảnh tổng quan có mốc thời gian).
 - `style/thiet-ke-style-video.md`, `style/video-style.json`, `style/wireframes/`: **thiết kế style video**, gồm chữ đánh máy kèm tiếng gõ phím, vị trí chữ, chuyển cảnh, màn đen, âm thanh, bố cục từng cảnh. Có sẵn lời nhắn mẫu để giao việc cho AI agent dựng video.
 - `ke-hoach-san-xuat.md`: kế hoạch sản xuất video mới, gồm 8 bước, thiết kế chi tiết từng cảnh, quy chuẩn thiết kế và các danh sách kiểm tra.

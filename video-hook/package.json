@@ -1,0 +1,6 @@
+{
+  "name": "vnr-history-video",
+  "private": true,
+  "type": "module",
+  "description": "Custom historical documentary composition using the local AI-auto-generate-video renderer"
+}

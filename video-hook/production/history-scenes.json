@@ -1,0 +1,63 @@
+{
+  "title": "20 giờ 3 phút · Đêm 19.12.1946",
+  "source": "https://github.com/Bao31203/VNR",
+  "templateId": "frame-vnr-history",
+  "aspect": "16:9",
+  "scenes": [
+    {
+      "id": "c01", "layout": "opening", "image": "a02-pho-ha-noi.png", "lead": 1.2, "hold": 1.0,
+      "kicker": "HÀ NỘI · MÙA ĐÔNG 1946", "headline": "Một đêm.\nMột lựa chọn.", "detail": "Tháng 12 năm 1946",
+      "voiceText": "Hà Nội. Mùa đông năm một nghìn chín trăm bốn mươi sáu."
+    },
+    {
+      "id": "c02", "layout": "timeline", "image": "a02-pho-ha-noi.png", "lead": 0.5, "hold": 0.7,
+      "kicker": "HÒA BÌNH MONG MANH", "headline": "Nhân nhượng\nđể giữ hòa bình.", "detail": "Nhưng thực dân Pháp càng lấn tới.",
+      "voiceText": "Suốt năm ấy, ta đã nhân nhượng để giữ hòa bình. Ký Hiệp định Sơ bộ, rồi ký Tạm ước. Nhưng thực dân Pháp càng lúc càng lấn tới."
+    },
+    {
+      "id": "c03", "layout": "harbor", "image": "a03-hai-phong.png", "lead": 0.6, "hold": 0.5,
+      "kicker": "23.11.1946 · HẢI PHÒNG", "headline": "Hòa bình\ntrong khói lửa.", "detail": "Pháp nã pháo vào thành phố cảng.",
+      "voiceText": "Ngày hai mươi ba tháng mười một, tàu chiến Pháp nã pháo vào Hải Phòng. Hàng nghìn người, phần lớn là dân thường, thiệt mạng."
+    },
+    {
+      "id": "c04", "layout": "ultimatum", "image": "a02-pho-ha-noi.png", "lead": 0.4, "hold": 0.7,
+      "kicker": "17–18.12.1946 · HÀ NỘI", "headline": "Ba tối hậu thư.", "detail": "Giải tán tự vệ.\nGiao quyền kiểm soát Thủ đô.",
+      "voiceText": "Giữa tháng mười hai, đến lượt Hà Nội. Đại bác Pháp gây thảm sát ở phố Yên Ninh, Hàng Bún. Ngày mười tám, chúng gửi liền ba tối hậu thư, đòi giải tán tự vệ, giao Thủ đô cho chúng kiểm soát."
+    },
+    {
+      "id": "c05", "layout": "decision", "image": "a06-van-phuc.png", "lead": 0.6, "hold": 0.9,
+      "kicker": "18.12.1946 · VẠN PHÚC, HÀ ĐÔNG", "headline": "Toàn quốc\nkháng chiến.", "detail": "Quyết định của Ban Thường vụ Trung ương Đảng",
+      "voiceText": "Tại làng Vạn Phúc, Hà Đông, Ban Thường vụ Trung ương Đảng quyết định: phát động toàn quốc kháng chiến."
+    },
+    {
+      "id": "c06", "layout": "countdown", "image": "a07-chien-luy.png", "lead": 0.4, "hold": 1.5,
+      "kicker": "TỐI 19.12.1946", "headline": "Chờ hiệu lệnh.", "detail": "Nhà máy điện Yên Phụ · Pháo đài Láng",
+      "voiceText": "Tối mười chín tháng mười hai. Sau những chiến lũy, tự vệ và vệ quốc quân lặng lẽ chờ. Ở nhà máy điện Yên Phụ, những người thợ chờ hiệu lệnh."
+    },
+    {
+      "id": "c07", "layout": "cannon", "image": "a09-phao-dai-lang.png", "lead": 2.0, "hold": 0.7,
+      "kicker": "19.12.1946 · PHÁO ĐÀI LÁNG", "headline": "20 giờ 3 phút", "detail": "TOÀN QUỐC KHÁNG CHIẾN BẮT ĐẦU",
+      "voiceText": "Hai mươi giờ ba phút. Đèn điện vụt tắt. Pháo đài Láng nổ súng. Toàn quốc kháng chiến bắt đầu."
+    },
+    {
+      "id": "c08", "layout": "quote", "image": "a10-loi-keu-goi.png", "lead": 0.6, "hold": 1.2, "voice": "quote",
+      "kicker": "LỜI KÊU GỌI TOÀN QUỐC KHÁNG CHIẾN", "headline": "Nhất định\nkhông chịu mất nước.", "detail": "Hồ Chí Minh · 19.12.1946",
+      "voiceText": "Hỡi đồng bào toàn quốc! Chúng ta muốn hòa bình, chúng ta phải nhân nhượng. Nhưng chúng ta càng nhân nhượng, thực dân càng lấn tới, vì chúng quyết tâm cướp nước ta một lần nữa! Không! Chúng ta thà hy sinh tất cả, chứ nhất định không chịu mất nước, nhất định không chịu làm nô lệ."
+    },
+    {
+      "id": "c09", "layout": "balance", "image": "a07-chien-luy.png", "lead": 0.5, "hold": 0.7,
+      "kicker": "HÀ NỘI · THÁNG 12.1946", "headline": "Một tương quan\nkhông cân sức.", "detail": "Số liệu ước tính theo các nguồn trong tư liệu đi kèm",
+      "voiceText": "Trong thành phố, hơn sáu nghìn quân Pháp, có xe tăng, xe bọc thép yểm trợ. Phía ta, khoảng hai nghìn rưỡi vệ quốc quân, tám nghìn tự vệ, và chỉ chừng hai nghìn khẩu súng."
+    },
+    {
+      "id": "c10", "layout": "question", "image": "a12-quyet-tu-quan.png", "lead": 0.5, "hold": 1.7,
+      "kicker": "TRƯỚC MỘT CUỘC CHIẾN KHÔNG CÂN SỨC", "headline": "Lấy gì\nđể thắng?", "detail": "Thiếu vũ khí. Kinh tế kiệt quệ. Chưa nước nào công nhận.",
+      "voiceText": "Vũ khí thiếu. Kinh tế kiệt quệ sau nạn đói. Chưa một nước nào công nhận ta. Vậy, lấy gì để thắng?"
+    },
+    {
+      "id": "c11", "layout": "end", "image": "a13-binh-minh.png", "lead": 0.7, "hold": 3.0,
+      "kicker": "ĐƯỜNG LỐI KHÁNG CHIẾN TOÀN QUỐC", "headline": "1946 — 1950", "detail": "Và quá trình tổ chức thực hiện",
+      "voiceText": "Câu trả lời nằm trong đường lối kháng chiến của Đảng."
+    }
+  ]
+}

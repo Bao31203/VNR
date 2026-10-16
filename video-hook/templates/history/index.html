@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920,height=1080">
+<title>20 giờ 3 phút · Một đêm, một lựa chọn</title>
+<style>
+@font-face{font-family:HistorySerif;src:url('./assets/history-serif.ttf');font-weight:400 700;font-display:block}
+@font-face{font-family:HistorySans;src:url('./assets/history-sans.ttf');font-display:block}
+:root{--paper:#efe6d2;--gold:#f2c14e;--red:#c8302a;--navy:#0d1626}
+*{box-sizing:border-box}html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#030609}
+#film{position:relative;width:1920px;height:1080px;overflow:hidden;color:var(--paper);font-family:HistorySans,'Segoe UI',sans-serif;background:#030609}
+.scene{position:absolute;inset:0;opacity:0;overflow:hidden;isolation:isolate}
+.art{position:absolute;width:100%;height:100%;object-fit:cover;transform-origin:60% 50%;z-index:-4}
+.shade{position:absolute;inset:0;z-index:-3;background:linear-gradient(90deg,rgba(3,8,13,.93),rgba(3,8,13,.63) 43%,rgba(3,8,13,.05) 83%),linear-gradient(0deg,rgba(3,8,13,.94),transparent 36%,rgba(3,8,13,.12))}
+.frame{position:absolute;inset:58px;border:1px solid rgba(239,230,210,.22);pointer-events:none}
+.corner{position:absolute;top:58px;left:58px;width:142px;height:3px;background:var(--red)}
+.eyebrow{font-size:27px;letter-spacing:5px;font-weight:600;color:var(--gold);line-height:1.5}
+.copy{position:absolute;left:116px;top:248px;width:1180px}
+.rule{width:92px;height:5px;background:var(--red);margin:34px 0}
+h1,h2,p{margin:0}h1{font-family:HistorySerif,Georgia,serif;font-size:116px;font-weight:700;line-height:1.11;letter-spacing:-2px;white-space:pre-line;text-shadow:0 3px 32px #0007}
+.detail{margin-top:36px;font-size:38px;line-height:1.5;max-width:1100px;white-space:pre-line;color:#e3dccd}
+.small-footer{position:absolute;left:116px;bottom:92px;font-size:22px;letter-spacing:3px;color:#dbd4c7b0}
+.ai-note{position:absolute;right:112px;bottom:92px;font-size:20px;color:#dfd7c79c;letter-spacing:1px}
+.sequence{position:absolute;right:112px;top:106px;font:26px Consolas,monospace;letter-spacing:4px;color:#e7decc9c}
+.opening .copy{top:297px}.opening h1{font-size:134px}.opening .shade{background:linear-gradient(90deg,#03080de0,#03080d5c 75%),linear-gradient(0deg,#03080dda,transparent 50%)}
+.timeline .copy{top:190px}.timeline h1{font-size:98px}.timeline .detail{font-size:34px}
+.dates{position:absolute;left:120px;right:130px;bottom:192px;display:flex;gap:120px;border-top:2px solid #ded6c45c;padding-top:32px}
+.date{position:relative;min-width:490px}.date:before{content:'';position:absolute;width:16px;height:16px;background:var(--gold);border-radius:50%;top:-42px;left:0}.date b{font:42px Consolas,monospace;color:var(--gold)}.date p{font-size:32px;margin-top:12px}
+.harbor .copy{top:214px}.harbor h1{font-size:112px}.harbor .shade{background:linear-gradient(90deg,#060a10e6,#060a1075 50%,transparent 90%),linear-gradient(0deg,#050809d9,transparent 40%)}
+.ultimatum .copy{top:213px;width:740px}.ultimatum h1{font-size:104px}.ultimatum .detail{font-size:36px}
+.paper{position:absolute;right:158px;top:188px;width:740px;min-height:670px;padding:64px 58px;background:linear-gradient(120deg,#efe6d2,#d9c8a6);color:#33271c;box-shadow:0 28px 90px #0008;transform:rotate(-2deg)}
+.paper .stamp{font:24px Consolas,monospace;letter-spacing:3px;color:#6e5943}.paper h2{font-family:HistorySerif,Georgia,serif;font-size:62px;color:#8d271f;border-bottom:3px solid #8d271f;padding-bottom:25px;margin-top:24px}.paper p{font-size:36px;line-height:1.5;margin-top:24px}.paper strong{display:block;margin-top:32px;color:#8d271f;font-size:30px;border-top:1px solid #75543966;padding-top:26px}
+.decision .copy{top:284px}.decision h1{font-size:132px}.decision .detail{font-size:34px;max-width:800px}.decision .shade{background:linear-gradient(90deg,#03080dee,#03080d73 58%,#03080d1c),linear-gradient(0deg,#03080ddd,transparent 50%)}
+.countdown .copy{top:178px}.countdown h1{font-size:92px}.countdown .detail{font-size:32px}.clock{position:absolute;left:116px;bottom:192px;font:142px Consolas,monospace;font-weight:400;letter-spacing:4px;color:var(--gold);text-shadow:0 0 36px #f2c14e33}.clock-label{font-size:25px;letter-spacing:6px;color:var(--paper);margin-bottom:13px}
+.cannon .copy{top:315px;width:1680px;text-align:center}.cannon h1{font-size:176px;color:var(--gold)}.cannon .rule{margin:34px auto}.cannon .detail{font-size:39px;letter-spacing:5px;margin:36px auto 0}.cannon .shade{background:linear-gradient(0deg,#030609f2,transparent 70%),#03060955}.cannon .eyebrow{font-size:27px}
+.blackout,.flash{position:absolute;inset:0;pointer-events:none}.blackout{background:#000;z-index:20}.flash{background:#ffe2af;z-index:21}
+.quote .shade{background:linear-gradient(90deg,#400d0cf5,#300c0be8 51%,#080a1033 85%),linear-gradient(0deg,#160706ed,transparent 70%)}
+.quote .copy{top:152px;width:1230px}.quote .eyebrow{font-size:25px;letter-spacing:3px}.quote h1{font-size:90px;color:var(--gold)}
+.quote-symbol{font-family:Georgia,serif;color:#f2c14e55;font-size:220px;line-height:1;position:absolute;left:91px;top:195px}
+.quote-block{margin-top:52px;width:1055px;font:43px/1.42 HistorySerif,Georgia,serif}.quote-line{display:block;margin-bottom:18px}.quote-line.emphasis{font-size:58px;line-height:1.3;color:var(--gold);font-weight:700}.quote-source{position:absolute;left:116px;bottom:155px;font-size:26px;color:#dfcbb6}
+.balance .copy{top:158px}.balance h1{font-size:85px}.balance .rule{margin:24px 0}.balance .detail{display:none}.balance .shade{background:#080e17e0}
+.columns{position:absolute;left:120px;right:120px;top:463px;display:grid;grid-template-columns:1fr 1fr;gap:100px}.force{padding:8px 0 0 0}.force+ .force{border-left:2px solid #a3362e;padding-left:100px}.force h2{font-size:30px;letter-spacing:5px;margin-bottom:28px}.number{font:96px/1 HistorySerif,Georgia,serif;color:var(--gold)}.force p{font-size:32px;line-height:1.5;margin-top:18px;color:#e5dccb}.force .sub-number{font-size:44px;color:var(--paper);font-weight:600}.data-source{position:absolute;left:120px;bottom:160px;font-size:23px;color:#d9d0b99c}
+.question .copy{top:268px;width:1680px}.question h1{font-size:174px;color:var(--gold);line-height:1.04}.question .shade{background:linear-gradient(90deg,#03080ddf,#03080d83 66%,#03080d33),linear-gradient(0deg,#030609ed,transparent 80%)}.question .detail{font-size:33px;max-width:1400px}.question .eyebrow{font-size:25px}
+.end .copy{top:280px;text-align:center;width:1680px}.end h1{font-size:168px;color:var(--gold);margin-top:22px}.end .rule{margin:42px auto 36px;width:150px}.end .eyebrow{font:700 58px/1.32 HistorySerif,Georgia,serif;letter-spacing:1px;max-width:1550px;margin:auto}.end .detail{font-size:44px;margin:auto;max-width:1400px}.end .shade{background:linear-gradient(0deg,#030609f0,#03060973 65%,#03060940)}
+.end .small-footer{font-size:23px;letter-spacing:1px}
+#vignette{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 170px 50px #0005;z-index:30}
+#grain{position:absolute;inset:0;pointer-events:none;opacity:.035;z-index:31;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' seed='1946' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")}
+</style>
+</head>
+<body>
+<div id="film" data-composition-id="main" data-start="0" data-duration="110" data-width="1920" data-height="1080" data-composition-variables='{"scenes_json":"[]","total_duration":110}'>
+<div id="scenes"></div><div id="vignette"></div><div id="grain"></div>
+</div>
+<script>
+(()=>{
+  const root=document.getElementById('film');
+  const defaults=JSON.parse(root.getAttribute('data-composition-variables'));
+  const incoming=window.__hyperframes&&typeof window.__hyperframes.getVariables==='function'?window.__hyperframes.getVariables():{};
+  const vars=Object.assign({},defaults,incoming,window.VNR_PREVIEW||{});
+  let scenes=JSON.parse(vars.scenes_json||'[]');
+  if(!scenes.length)scenes=[{id:'c01',layout:'opening',image:'a02-pho-ha-noi.png',kicker:'HÀ NỘI · MÙA ĐÔNG 1946',headline:'Một đêm.\nMột lựa chọn.',detail:'Tháng 12 năm 1946',start:0,end:8,duration:8}];
+  const escape=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const host=document.getElementById('scenes');
+  for(let i=0;i<scenes.length;i++){
+    const s=scenes[i];
+    const node=document.createElement('section');node.className='scene '+s.layout;node.dataset.id=s.id;
+    let extra='';
+    if(s.layout==='timeline')extra='<div class="dates"><div class="date"><b>06.03.1946</b><p>Hiệp định Sơ bộ</p></div><div class="date"><b>14.09.1946</b><p>Tạm ước Việt – Pháp</p></div></div>';
+    if(s.layout==='ultimatum')extra='<div class="paper"><div class="stamp">HÀ NỘI · 18.12.1946</div><h2>TỐI HẬU THƯ</h2><p>Giải giáp.<br>Giải tán tự vệ chiến đấu.<br>Để Pháp kiểm soát thành phố.</p><strong>Hạn chót: sáng 20.12.1946</strong></div>';
+    if(s.layout==='countdown')extra='<div class="clock"><div class="clock-label">THỜI KHẮC ĐANG ĐẾN GẦN</div><span>20:02:55</span></div>';
+    if(s.layout==='cannon')extra='<div class="blackout"></div><div class="flash"></div>';
+    if(s.layout==='quote')extra='<div class="quote-source">Hồ Chí Minh · Lời kêu gọi toàn quốc kháng chiến, 19.12.1946</div>';
+    if(s.layout==='balance')extra='<div class="columns"><div class="force"><h2>QUÂN PHÁP</h2><div class="number">6.000+</div><p>quân trong thành phố</p><p>Xe tăng · Xe bọc thép</p></div><div class="force"><h2>QUÂN DÂN HÀ NỘI</h2><div class="sub-number">~2.500 vệ quốc quân</div><p><span class="sub-number">8.000</span> tự vệ</p><p>Chỉ khoảng <span class="sub-number">2.000</span> khẩu súng</p></div></div><div class="data-source">Số liệu ước tính · Đại biểu Nhân dân / VnExpress · Chi tiết trong tư liệu kèm video</div>';
+    let copy='<div class="eyebrow">'+escape(s.kicker)+'</div><div class="rule"></div><h1>'+escape(s.headline)+'</h1><p class="detail">'+escape(s.detail)+'</p>';
+    if(s.layout==='quote')copy='<div class="eyebrow">'+escape(s.kicker)+'</div><div class="rule"></div><div class="quote-block"><span class="quote-line">“Chúng ta muốn hòa bình,<br>chúng ta phải nhân nhượng.”</span><span class="quote-line">“Nhưng chúng ta càng nhân nhượng,<br>thực dân càng lấn tới...”</span><span class="quote-line emphasis">“Nhất định không chịu mất nước,<br>nhất định không chịu làm nô lệ.”</span></div>';
+    if(s.layout==='end')copy='<div class="eyebrow">'+escape(s.kicker)+'</div><div class="rule"></div><p class="detail">'+escape(s.detail)+'</p><h1>'+escape(s.headline)+'</h1>';
+    node.innerHTML='<img class="art" src="./assets/'+escape(s.image)+'" alt="Tranh minh họa lịch sử"><div class="shade"></div><div class="frame"></div><div class="corner"></div><div class="sequence">'+String(i+1).padStart(2,'0')+' / '+String(scenes.length).padStart(2,'0')+'</div><div class="copy">'+copy+'</div>'+extra+'<div class="small-footer">'+(s.layout==='end'?'Nguồn nội dung: Giáo trình Lịch sử Đảng Cộng sản Việt Nam và tư liệu trong repo VNR':'HÀ NỘI / 1946')+'</div><div class="ai-note">Tranh minh họa bằng AI</div>';
+    host.appendChild(node);s.node=node;
+  }
+  const clamp=x=>Math.max(0,Math.min(1,x));
+  const ease=x=>1-Math.pow(1-clamp(x),3);
+  function seek(time){
+    const t=Math.max(0,Number(time)||0);
+    for(let i=0;i<scenes.length;i++){
+      const s=scenes[i],n=s.node,local=t-s.start,d=s.duration||s.end-s.start;
+      const cross=.55;
+      const enter=s.layout==='cannon'||s.layout==='harbor'?+(local>=0):clamp(local/cross);
+      const exit=i===scenes.length-1?clamp((s.end-t)/.9):clamp((s.end+cross-t)/cross);
+      const opacity=local<0?0:Math.min(enter,exit);
+      n.style.opacity=String(opacity);n.style.visibility=opacity>0?'visible':'hidden';
+      if(opacity<=0)continue;
+      const p=clamp(local/d),e=ease(local/.9);
+      const art=n.querySelector('.art');art.style.transform='scale('+(1.01+p*.035)+') translateX('+(-p*12)+'px)';
+      const copy=n.querySelector('.copy');copy.style.opacity=String(e);copy.style.transform='translateY('+((1-e)*24)+'px)';
+      if(s.layout==='timeline'){
+        n.querySelectorAll('.date').forEach((el,j)=>el.style.opacity=String(ease((local-1.5-j*2)/.8)));
+      }
+      if(s.layout==='ultimatum'){
+        const pe=ease((local-1.5)/1);n.querySelector('.paper').style.transform='rotate('+(-3+pe)+'deg) translateY('+((1-pe)*50)+'px)';n.querySelector('.paper').style.opacity=String(pe);
+      }
+      if(s.layout==='countdown'){
+        const countdownStart=d-5;const seconds=55+Math.min(5,Math.floor(Math.max(0,local-countdownStart)));
+        n.querySelector('.clock span').textContent=seconds>=60?'20:03:00':'20:02:'+String(seconds).padStart(2,'0');
+        n.querySelector('.clock').style.opacity=String(ease((local-countdownStart)/.45));
+      }
+      if(s.layout==='cannon'){
+        n.querySelector('.blackout').style.opacity=local<1?1:0;
+        n.querySelector('.flash').style.opacity=String(local>=1&&local<1.22?.78*(1-(local-1)/.22):0);
+        copy.style.opacity=String(ease((local-1.25)/.7));
+        const shake=Math.max(0,1-(local-1.05)/.7)*(local>=1.05?1:0);
+        art.style.transform='scale('+(1.08-.06*p)+') translate('+Math.sin(local*91)*shake*12+'px,'+Math.cos(local*67)*shake*9+'px)';
+      }
+      if(s.layout==='quote'){
+        const weights=[0,.24,.65];n.querySelectorAll('.quote-line').forEach((el,j)=>{const q=ease((local-weights[j]*(d-2))/.8);el.style.opacity=String(q);el.style.transform='translateY('+((1-q)*15)+'px)';});
+      }
+      if(s.layout==='balance'){
+        n.querySelectorAll('.force').forEach((el,j)=>{const q=ease((local-.5-j*.4)/.8);el.style.opacity=String(q);el.style.transform='translateX('+((j?1:-1)*(1-q)*36)+'px)';});
+      }
+      if(s.layout==='question'){
+        n.querySelector('h1').style.opacity=String(ease((local-d*.45)/.8));
+        n.querySelector('.detail').style.opacity=String(1-clamp((local-d*.50)/1.3));
+      }
+    }
+  }
+  window.__timelines=window.__timelines||{};window.__timelines.main={pause(){},paused(){return true},seek};window.seek=seek;window.DURATION=Number(vars.total_duration);window.FPS=30;
+  seek(0);
+  if(!window.__hyperframes&&!location.search.includes('render=1'))seek(1.5);
+})();
+</script>
+</body>
+</html>
