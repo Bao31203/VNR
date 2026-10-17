@@ -233,6 +233,61 @@
    "dungCho": "C5",
    "xuLy": "phóng to ×4 bằng Real-ESRGAN x4plus, chuyển đen trắng, JPG 92",
    "ghiChuQuyen": "dùng cho thuyết trình trên lớp, ghi nguồn trên khung hình"
+  },
+  {
+   "file": "anh/ND1-hiep-dinh-so-bo.jpg",
+   "ma": "ND1",
+   "goc": "hiepdinhsobo 1.jpg ở thư mục gốc repo (600×832)",
+   "nguon": "Ảnh do nhóm tải lên repo (commit 05e40fa, 18-10-2026); nguồn gốc ảnh chưa ghi",
+   "moTa": "Văn bản Hiệp định Sơ bộ 6-3-1946 (bản tiếng Việt)",
+   "ngayChup": "không rõ",
+   "dungCho": "V8: C2 (0–5 s), thay BT1",
+   "xuLy": "chuyển đen trắng, JPG 92; không phóng to vì ảnh gốc đã cao hơn khung ảnh in (740 px)",
+   "ghiChuQuyen": "nguồn gốc chưa rõ; chỉ dùng cho thuyết trình trên lớp"
+  },
+  {
+   "file": "anh/ND2-nha-van-phuc.jpg",
+   "ma": "ND2",
+   "goc": "Ảnh minh hoạ dùng cho phân đoạn Làng Vạn Phúc.webp ở thư mục gốc repo (1200×750, ảnh màu)",
+   "nguon": "Ảnh do nhóm tải lên repo (commit 05e40fa, 18-10-2026); nguồn gốc ảnh chưa ghi",
+   "moTa": "Ngôi nhà ở làng Vạn Phúc (Hà Đông) chụp ngày nay, nay là di tích",
+   "ngayChup": "gần đây",
+   "dungCho": "V8: C5, thay BT3",
+   "xuLy": "chuyển đen trắng, JPG 92; không phóng to",
+   "ghiChuQuyen": "nguồn gốc chưa rõ; chỉ dùng cho thuyết trình trên lớp"
+  },
+  {
+   "file": "anh/ND3-phao-dai-lang.jpg",
+   "ma": "ND3",
+   "goc": "Pháo đài Láng.webp ở thư mục gốc repo (474×266)",
+   "nguon": "Ảnh do nhóm tải lên repo (commit 05e40fa, 18-10-2026); nguồn gốc ảnh chưa ghi",
+   "moTa": "Khẩu đội pháo và bộ đội đội mũ cối, nhóm ghi là Pháo đài Láng",
+   "ngayChup": "không rõ",
+   "dungCho": "V8: C7 (1,0–6,8 s), thay tranh AI A09",
+   "xuLy": "cắt 6 px mép trái (vệt màu xanh của bản scan); cắt bỏ viền nếu có, phóng to ×4 bằng Real-ESRGAN x4plus (v7/phong-to-anh.py) rồi trộn 50% với bản phóng to Lanczos cùng cỡ để bớt vệt loang, chuyển đen trắng, JPG 92",
+   "ghiChuQuyen": "nguồn gốc chưa rõ; chỉ dùng cho thuyết trình trên lớp"
+  },
+  {
+   "file": "anh/ND4-quan-phap.jpg",
+   "ma": "ND4",
+   "goc": "Ảnh Quân Pháp để làm hình minh hoạ khi so sánh lực lượng 2 bên.avif ở thư mục gốc repo (568×442)",
+   "nguon": "Ảnh do nhóm tải lên repo (commit 05e40fa, 18-10-2026); nguồn gốc ảnh chưa ghi",
+   "moTa": "Sĩ quan Pháp duyệt hàng lính đội mũ sắt; ảnh minh họa quân Pháp",
+   "ngayChup": "không rõ",
+   "dungCho": "V8: C9 nửa trái, thay phim T7a",
+   "xuLy": "cắt bỏ viền nếu có, phóng to ×4 bằng Real-ESRGAN x4plus (v7/phong-to-anh.py) rồi trộn 50% với bản phóng to Lanczos cùng cỡ để bớt vệt loang, chuyển đen trắng, JPG 92",
+   "ghiChuQuyen": "nguồn gốc chưa rõ; chỉ dùng cho thuyết trình trên lớp"
+  },
+  {
+   "file": "anh/ND5-quan-doi-viet-nam.jpg",
+   "ma": "ND5",
+   "goc": "Ảnh minh hoạ cho Quân Đội VN khi so sánh lực lượng 2 bên.jpg ở thư mục gốc repo (500×329)",
+   "nguon": "Ảnh do nhóm tải lên repo (commit 05e40fa, 18-10-2026); nguồn gốc ảnh chưa ghi",
+   "moTa": "Hàng bộ đội Việt Nam giơ nắm tay; ảnh minh họa quân ta",
+   "ngayChup": "không rõ",
+   "dungCho": "V8: C9 nửa phải, thay tranh AI A11b",
+   "xuLy": "cắt bỏ viền nếu có, phóng to ×4 bằng Real-ESRGAN x4plus (v7/phong-to-anh.py) rồi trộn 50% với bản phóng to Lanczos cùng cỡ để bớt vệt loang, chuyển đen trắng, JPG 92",
+   "ghiChuQuyen": "nguồn gốc chưa rõ; chỉ dùng cho thuyết trình trên lớp"
   }
  ]
 }

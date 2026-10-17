@@ -1,0 +1,343 @@
+{
+  "_ma": "v8",
+  "_phienBan": "V8: như V7, thay thêm ảnh do nhóm cung cấp: Hiệp định Sơ bộ (C2), nhà Vạn Phúc (C5), Pháo đài Láng (C7), quân Pháp và quân ta (C9)",
+  "_moTa": "Hình nền V8 cho từng cảnh, dựa trên v7/canh-v7.json. Thời gian tính theo giây trong cảnh (giống V6). Chữ, đồ họa, âm thanh, thời lượng giữ nguyên V6. Cảnh không ghi ở đây (C8) giữ nguyên V6.",
+  "_cachDoc": {
+    "kind": "clip = phim tư liệu (assets/tu-lieu/phim), photo = ảnh tư liệu (assets/tu-lieu/anh); không có kind = tranh AI của V6, chuyển đen trắng",
+    "frames": "khung đầu và khung cuối được dùng trong file phim (30 khung/giây)",
+    "start": "lúc bắt đầu chạy phim; speed là tốc độ (0.8 = chậm còn 80%). Hết phim thì dừng ở khung cuối",
+    "fit": "contain = đặt giữa khung, hai bên viền đen như phim tài liệu; cover = phủ kín vùng",
+    "print": "khung 'ảnh in đặt trên bàn': tâm (cx, cy), chiều cao h (px), góc nghiêng; phía sau là chính ảnh đó làm mờ và tối",
+    "brightness": "độ sáng ảnh/phim (1 = giữ nguyên) để chữ đè lên đọc rõ",
+    "credit": "dòng chú thích và nguồn, chữ nhỏ ở góc dưới phải",
+    "position": "vị trí phần ảnh được giữ khi fit = cover (CSS object-position), ví dụ \"12% 50%\" giữ phần bên trái",
+    "shade": "lớp tối phủ lên ảnh để chữ đọc rõ"
+  },
+  "scenes": {
+    "C1": [
+      {
+        "kind": "clip",
+        "clip": "T1",
+        "frames": [
+          0,
+          23
+        ],
+        "from": 0,
+        "to": 3.3,
+        "start": 0.5,
+        "speed": 0.8,
+        "fit": "contain",
+        "brightness": 0.5,
+        "camera": "zoomInSlow",
+        "credit": "Nhà hát Lớn Hà Nội · Phim tư liệu"
+      },
+      {
+        "kind": "clip",
+        "clip": "T1",
+        "frames": [
+          24,
+          53
+        ],
+        "from": 3.3,
+        "to": "end",
+        "start": 3.3,
+        "speed": 0.8,
+        "fit": "contain",
+        "brightness": 0.5,
+        "camera": "zoomInSlow",
+        "credit": "Nhà hát Lớn Hà Nội · Phim tư liệu"
+      }
+    ],
+    "C2": [
+      {
+        "kind": "photo",
+        "photo": "ND1-hiep-dinh-so-bo.jpg",
+        "from": 0,
+        "to": 5.0,
+        "print": {
+          "cx": 1440,
+          "cy": 612,
+          "h": 740,
+          "rotate": -1.2
+        },
+        "zoom": [
+          1,
+          1.03
+        ],
+        "credit": "Hiệp định Sơ bộ 6-3-1946 · Ảnh tư liệu"
+      },
+      {
+        "kind": "clip",
+        "clip": "T2",
+        "frames": [
+          0,
+          68
+        ],
+        "from": 5.0,
+        "to": "end",
+        "start": 5.0,
+        "speed": 0.8,
+        "print": {
+          "cx": 1330,
+          "cy": 650,
+          "h": 560,
+          "rotate": 1.0
+        },
+        "zoom": [
+          1,
+          1.03
+        ],
+        "credit": "Chủ tịch Hồ Chí Minh và Jean Sainteny, 1946 · Phim tư liệu"
+      }
+    ],
+    "C3": [
+      {
+        "kind": "photo",
+        "photo": "BT2-tau-chien-hai-phong-3-1946.jpg",
+        "from": 0,
+        "to": 3.0,
+        "print": {
+          "cx": 960,
+          "cy": 596,
+          "h": 500,
+          "rotate": -1.0
+        },
+        "zoom": [
+          1,
+          1.03
+        ],
+        "credit": "Tàu chiến Pháp ở cảng Hải Phòng, 3-1946 · Ảnh: Bảo tàng Lịch sử Quốc gia"
+      },
+      {
+        "kind": "clip",
+        "clip": "T4",
+        "frames": [
+          0,
+          105
+        ],
+        "from": 3.0,
+        "to": 7.0,
+        "start": 3.0,
+        "speed": 0.9,
+        "fit": "contain",
+        "brightness": 0.7,
+        "shade": "linear-gradient(to bottom,rgba(0,0,0,.65),rgba(0,0,0,0) 42%)",
+        "credit": "Tàu chiến Pháp · Phim tư liệu"
+      },
+      {
+        "kind": "clip",
+        "clip": "T5",
+        "frames": [
+          0,
+          107
+        ],
+        "from": 7.0,
+        "to": "end",
+        "start": 7.0,
+        "speed": 0.8,
+        "fit": "contain",
+        "brightness": 0.7,
+        "shade": "linear-gradient(to bottom,rgba(0,0,0,.65),rgba(0,0,0,0) 42%)",
+        "credit": "Phim tư liệu"
+      }
+    ],
+    "C4": [
+      {
+        "kind": "clip",
+        "clip": "T6a",
+        "frames": [
+          0,
+          50
+        ],
+        "from": 0,
+        "to": 3.0,
+        "start": 0,
+        "speed": 0.8,
+        "fit": "contain",
+        "brightness": 0.75,
+        "credit": "Phim tư liệu: British Pathé"
+      },
+      {
+        "kind": "clip",
+        "clip": "T8a",
+        "frames": [
+          0,
+          66
+        ],
+        "from": 3.0,
+        "to": 6,
+        "start": 3.0,
+        "speed": 0.8,
+        "fit": "contain",
+        "brightness": 0.75,
+        "credit": "Phim tư liệu"
+      },
+      {
+        "keepV6": 1
+      }
+    ],
+    "C5": [
+      {
+        "kind": "photo",
+        "photo": "ND2-nha-van-phuc.jpg",
+        "from": 0,
+        "to": "end",
+        "print": {
+          "cx": 1010,
+          "cy": 492,
+          "h": 580,
+          "rotate": -0.8
+        },
+        "zoom": [
+          1,
+          1.05
+        ],
+        "credit": "Di tích ngôi nhà ở làng Vạn Phúc (Hà Đông), nơi họp Hội nghị Ban Thường vụ Trung ương Đảng mở rộng 18-12-1946 · Ảnh chụp ngày nay"
+      }
+    ],
+    "C6": [
+      {
+        "keepV6": 0,
+        "gray": true,
+        "credit": "Tranh minh họa (AI)"
+      },
+      {
+        "keepV6": 1,
+        "gray": true,
+        "credit": "Tranh minh họa (AI)"
+      }
+    ],
+    "C7": [
+      {
+        "keepV6": 0
+      },
+      {
+        "kind": "photo",
+        "photo": "ND3-phao-dai-lang.jpg",
+        "from": 1,
+        "to": 6.8,
+        "fit": "cover",
+        "camera": "hitZoomOut",
+        "focus": {
+          "x": 760,
+          "y": 200,
+          "w": 700,
+          "h": 560
+        },
+        "brightness": 0.65,
+        "shade": "linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,.2) 55%,rgba(0,0,0,0) 80%)",
+        "credit": "Pháo đài Láng · Ảnh tư liệu"
+      },
+      {
+        "kind": "clip",
+        "clip": "T6b",
+        "frames": [
+          4,
+          60
+        ],
+        "from": 6.8,
+        "to": 9.1,
+        "start": 6.8,
+        "speed": 0.85,
+        "fit": "contain",
+        "brightness": 0.6,
+        "credit": "Phim tư liệu: British Pathé"
+      },
+      {
+        "kind": "clip",
+        "clip": "T7b",
+        "frames": [
+          0,
+          82
+        ],
+        "from": 9.1,
+        "to": 10.9,
+        "start": 9.1,
+        "speed": 1.0,
+        "fit": "contain",
+        "brightness": 0.6,
+        "credit": "Phim tư liệu: British Pathé"
+      },
+      {
+        "kind": "clip",
+        "clip": "T6c",
+        "frames": [
+          0,
+          66
+        ],
+        "from": 10.9,
+        "to": "end",
+        "start": 10.9,
+        "speed": 0.8,
+        "fit": "contain",
+        "brightness": 0.6,
+        "credit": "Phim tư liệu: British Pathé"
+      }
+    ],
+    "C9": [
+      {
+        "kind": "photo",
+        "photo": "ND4-quan-phap.jpg",
+        "region": {
+          "x": 0,
+          "y": 0,
+          "w": 956,
+          "h": 1080
+        },
+        "from": 0,
+        "to": "end",
+        "fit": "cover",
+        "position": "12% 50%",
+        "in": "slideFromLeft",
+        "camera": "zoomInSlow",
+        "brightness": 0.8,
+        "shade": "linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,0) 32%)",
+        "credit": "Quân đội Pháp · Ảnh minh họa"
+      },
+      {
+        "kind": "photo",
+        "photo": "ND5-quan-doi-viet-nam.jpg",
+        "region": {
+          "x": 964,
+          "y": 0,
+          "w": 956,
+          "h": 1080
+        },
+        "from": 0,
+        "to": "end",
+        "fit": "cover",
+        "position": "30% 50%",
+        "in": "slideFromRight",
+        "camera": "zoomInSlow",
+        "brightness": 0.8,
+        "shade": "linear-gradient(to bottom,rgba(0,0,0,.6),rgba(0,0,0,0) 32%)",
+        "credit": "Quân đội Việt Nam · Ảnh minh họa"
+      }
+    ],
+    "C10": [
+      {
+        "keepV6": 0,
+        "gray": true,
+        "credit": "Tranh minh họa (AI)"
+      }
+    ],
+    "C11": [
+      {
+        "kind": "clip",
+        "clip": "T8b",
+        "frames": [
+          0,
+          102
+        ],
+        "from": 0,
+        "to": "end",
+        "start": 0,
+        "speed": 0.7,
+        "fit": "contain",
+        "brightness": 0.6,
+        "camera": "zoomInSlow",
+        "credit": "Phim tư liệu"
+      }
+    ]
+  }
+}

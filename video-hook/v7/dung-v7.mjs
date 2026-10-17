@@ -1,18 +1,21 @@
 // Tạo variables.json cho V7: lấy timeline V6 dựng lại (dung-lai-timeline-v6.mjs), thay hình nền theo v7/canh-v7.json.
 // Đồng thời tách khung hình các đoạn phim tư liệu ra JPG (cao 1080 px) để trang dựng hiển thị từng khung.
 //
-// Dùng: node v7/dung-v7.mjs   (kết quả trong out/history-1946-v7/build/)
+// Dùng: node v7/dung-v7.mjs                                        (V7, kết quả trong out/history-1946-v7/build/)
+//       node v7/dung-v7.mjs v8/canh-v8.json out/history-1946-v8    (bản khác: file cảnh và thư mục ra riêng)
 import {readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {join, resolve, relative} from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
-const build = join(root, 'out/history-1946-v7/build');
+const [specFile = 'v7/canh-v7.json', outDir = 'out/history-1946-v7'] = process.argv.slice(2);
+const build = join(resolve(root, outDir), 'build');
 const templateDir = join(root, 'templates/history-v7');
 execFileSync('node', [join(root, 'v7/dung-lai-timeline-v6.mjs'), build], {stdio: 'inherit'});
 const variables = JSON.parse(readFileSync(join(build, 'variables-v6.json'), 'utf8'));
 const timeline = JSON.parse(variables.timeline_json);
-const spec = JSON.parse(readFileSync(join(root, 'v7/canh-v7.json'), 'utf8'));
+const spec = JSON.parse(readFileSync(resolve(root, specFile), 'utf8'));
+const tag = spec._ma || 'v7';
 const url = path => relative(templateDir, path).replaceAll('\\', '/');
 
 function size(path) {
@@ -54,8 +57,8 @@ for (const scene of timeline.scenes) {
   });
 }
 timeline.templateId = 'vnr-history-v7';
-timeline.visualRevision = 'V7: thay tranh AI bằng ảnh và phim tư liệu thật (đen trắng); cảnh chưa có tư liệu giữ tranh AI chuyển đen trắng';
+timeline.visualRevision = spec._phienBan || 'V7: thay tranh AI bằng ảnh và phim tư liệu thật (đen trắng); cảnh chưa có tư liệu giữ tranh AI chuyển đen trắng';
 variables.timeline_json = JSON.stringify(timeline);
-writeFileSync(join(build, 'timeline-v7.json'), JSON.stringify(timeline, null, 2));
-writeFileSync(join(build, 'variables-v7.json'), JSON.stringify(variables));
-console.log(`Đã tạo ${join(build, 'variables-v7.json')}`);
+writeFileSync(join(build, `timeline-${tag}.json`), JSON.stringify(timeline, null, 2));
+writeFileSync(join(build, `variables-${tag}.json`), JSON.stringify(variables));
+console.log(`Đã tạo ${join(build, `variables-${tag}.json`)}`);
