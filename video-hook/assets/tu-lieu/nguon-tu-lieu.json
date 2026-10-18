@@ -288,6 +288,39 @@
    "dungCho": "V8: C9 nửa phải, thay tranh AI A11b",
    "xuLy": "cắt bỏ viền nếu có, phóng to ×4 bằng Real-ESRGAN x4plus (v7/phong-to-anh.py) rồi trộn 50% với bản phóng to Lanczos cùng cỡ để bớt vệt loang, chuyển đen trắng, JPG 92",
    "ghiChuQuyen": "nguồn gốc chưa rõ; chỉ dùng cho thuyết trình trên lớp"
+  },
+  {
+   "file": "anh/ND6-chien-dau-duong-pho.jpg",
+   "ma": "ND6",
+   "goc": "anh/goc/ND6-goc.jpg (800×614, có dấu TTXVN/VNA ở góc dưới phải)",
+   "nguon": "Ảnh do nhóm gửi trong cuộc trò chuyện ngày 18-10-2026; bản gốc lưu ở anh/goc/; ảnh mang dấu TTXVN",
+   "moTa": "Bộ đội chiến đấu dọc dãy nhà có mái vòm, khói mù, một khẩu đội trung liên nằm bắn",
+   "ngayChup": "không rõ",
+   "dungCho": "V9: C6 (0–6 s), thay tranh AI A07 (chiến lũy)",
+   "xuLy": "phóng to ×4 bằng Real-ESRGAN x4plus (v7/phong-to-anh.py) rồi trộn 50% với bản phóng to Lanczos cùng cỡ, chuyển đen trắng, JPG 92; thu nhỏ còn rộng 2400 px; khi dựng cắt phần dưới (dấu TTXVN) bằng position 50% 40%, nguồn TTXVN ghi ở dòng chú thích",
+   "ghiChuQuyen": "nguồn gốc chưa rõ; chỉ dùng cho thuyết trình trên lớp"
+  },
+  {
+   "file": "anh/ND7-nha-may-dien-yen-phu.jpg",
+   "ma": "ND7",
+   "goc": "anh/goc/ND7-goc.jpg (600×350, viền trắng hai bên)",
+   "nguon": "Ảnh do nhóm gửi trong cuộc trò chuyện ngày 18-10-2026; bản gốc lưu ở anh/goc/",
+   "moTa": "Tòa nhà nhà máy điện, nhóm ghi là Nhà máy điện Yên Phụ; ảnh cũ trước 1954",
+   "ngayChup": "không rõ",
+   "dungCho": "V9: C6 (6–12 s), thay tranh AI A08",
+   "xuLy": "cắt viền trắng (x 63–533); phóng to ×4 bằng Real-ESRGAN x4plus (v7/phong-to-anh.py) rồi trộn 50% với bản phóng to Lanczos cùng cỡ, chuyển đen trắng, JPG 92; khi dựng giảm sáng còn 0,5 cho hợp cảnh tối",
+   "ghiChuQuyen": "nguồn gốc chưa rõ; chỉ dùng cho thuyết trình trên lớp"
+  },
+  {
+   "file": "anh/ND8-bom-ba-cang.jpg",
+   "ma": "ND8",
+   "goc": "anh/goc/ND8-goc.jpg (1920×1080)",
+   "nguon": "Ảnh do nhóm gửi trong cuộc trò chuyện ngày 18-10-2026; bản gốc lưu ở anh/goc/",
+   "moTa": "Chiến sĩ đội mũ sắt quỳ bên đống gạch đổ, cầm bom ba càng. Báo Nhân Dân có ảnh cùng đề tài: chiến sĩ Trần Thành ôm bom ba càng ngày 23-12-1946, ảnh Nguyễn Bá Khoản (TTXVN); chưa đối chiếu đó có phải cùng ảnh không",
+   "ngayChup": "12-1946 (chưa kiểm chứng)",
+   "dungCho": "V9: C10, thay tranh AI A12",
+   "xuLy": "chuyển đen trắng, JPG 92; không phóng to vì ảnh gốc đã 1920×1080",
+   "ghiChuQuyen": "nguồn gốc chưa rõ; chỉ dùng cho thuyết trình trên lớp"
   }
  ]
 }
